@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard – GameStore</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-base: #0a0a0f;
+      --bg-card: #13131a;
+      --bg-hover: #1a1a24;
+      --border: #252530;
+      --text-primary: #f0f0f5;
+      --text-secondary: #9090a8;
+      --orange: #f97316;
+      --orange-dim: rgba(249,115,22,.12);
+      --green: #22c55e;
+      --red: #ef4444;
+      --blue: #3b82f6;
+      --yellow: #f59e0b;
+      --sidebar-w: 240px;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-base); color: var(--text-primary); display: flex; min-height: 100vh; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: var(--sidebar-w); min-height: 100vh; background: var(--bg-card);
+      border-right: 1px solid var(--border); display: flex; flex-direction: column;
+      position: fixed; top: 0; left: 0; z-index: 100;
+    }
+    .sidebar-brand { padding: 22px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+    .sidebar-brand .brand-icon { font-size: 22px; }
+    .sidebar-brand .brand-name { font-size: 18px; font-weight: 800; background: linear-gradient(135deg,#f97316,#fb923c); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .sidebar-brand .admin-badge { font-size: 10px; background: var(--orange); color: #fff; border-radius: 4px; padding: 2px 6px; font-weight: 700; margin-left: auto; }
+
+    .sidebar-nav { padding: 16px 12px; flex: 1; overflow-y: auto; }
+    .sidebar-section-label { font-size: 10px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1.2px; padding: 12px 8px 6px; }
+    .nav-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px; border-radius: 10px; cursor: pointer;
+      font-size: 14px; font-weight: 500; color: var(--text-secondary);
+      transition: all .15s; margin-bottom: 2px; border: none; background: none; width: 100%; text-align: left;
+    }
+    .nav-item:hover { background: var(--bg-hover); color: var(--text-primary); }
+    .nav-item.active { background: var(--orange-dim); color: var(--orange); font-weight: 600; }
+    .nav-item i { width: 18px; text-align: center; font-size: 15px; }
+    .nav-badge { margin-left: auto; background: var(--orange); color: #fff; border-radius: 99px; font-size: 10px; font-weight: 700; padding: 2px 7px; }
+
+    .sidebar-footer { padding: 16px; border-top: 1px solid var(--border); }
+    .admin-info { display: flex; align-items: center; gap: 10px; }
+    .admin-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--orange-dim); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .admin-name { font-size: 13px; font-weight: 600; }
+    .admin-role { font-size: 11px; color: var(--orange); font-weight: 600; }
+    .btn-logout { margin-left: auto; background: none; border: none; color: var(--red); font-size: 16px; cursor: pointer; padding: 4px; transition: .15s; }
+    .btn-logout:hover { color: #fca5a5; }
+
+    /* ── MAIN ── */
+    .main { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+    .topbar {
+      background: var(--bg-card); border-bottom: 1px solid var(--border);
+      padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50;
+    }
+    .topbar-title { font-size: 18px; font-weight: 700; }
+    .topbar-right { display: flex; align-items: center; gap: 12px; }
+    .btn-back { display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px; color: var(--text-secondary); font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; transition: .15s; }
+    .btn-back:hover { color: var(--text-primary); border-color: #444; }
+
+    .content { padding: 28px; flex: 1; }
+
+    /* ── SECTION ── */
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* ── STAT CARDS ── */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 16px; margin-bottom: 28px; }
+    .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; display: flex; align-items: center; gap: 16px; transition: .2s; }
+    .stat-card:hover { border-color: #333; transform: translateY(-2px); }
+    .stat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .stat-value { font-size: 22px; font-weight: 800; }
+    .stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+
+    /* ── TABLES ── */
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 24px; }
+    .card-header { padding: 18px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .card-title { font-size: 15px; font-weight: 700; }
+    .card-body { padding: 0; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; white-space: nowrap; }
+    th { padding: 12px 16px; background: rgba(255,255,255,.02); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--text-secondary); text-align: left; border-bottom: 1px solid var(--border); }
+    td { padding: 13px 16px; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,.03); vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--bg-hover); }
+
+    .badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 99px; font-size: 11px; font-weight: 700; }
+    .badge-green  { background: rgba(34,197,94,.15); color: var(--green); }
+    .badge-yellow { background: rgba(245,158,11,.15); color: var(--yellow); }
+    .badge-red    { background: rgba(239,68,68,.15);  color: var(--red); }
+    .badge-blue   { background: rgba(59,130,246,.15); color: var(--blue); }
+    .badge-gray   { background: rgba(255,255,255,.08); color: var(--text-secondary); }
+
+    .btn-sm { padding: 5px 12px; border-radius: 7px; font-size: 12px; font-weight: 600; cursor: pointer; border: none; transition: .15s; }
+    .btn-approve { background: rgba(34,197,94,.15); color: var(--green); }
+    .btn-approve:hover { background: rgba(34,197,94,.25); }
+    .btn-cancel  { background: rgba(239,68,68,.15); color: var(--red); }
+    .btn-cancel:hover  { background: rgba(239,68,68,.25); }
+    .btn-warn    { background: rgba(245,158,11,.15); color: var(--yellow); }
+    .btn-warn:hover    { background: rgba(245,158,11,.25); }
+    .btn-primary { background: var(--orange); color: #fff; padding: 9px 18px; border-radius: 9px; font-size: 13px; font-weight: 700; border: none; cursor: pointer; transition: .15s; display: flex; align-items: center; gap: 7px; }
+    .btn-primary:hover { background: #ea6a05; }
+    .btn-danger { background: rgba(239,68,68,.15); color: var(--red); padding: 9px 16px; border-radius: 9px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; transition: .15s; }
+    .btn-danger:hover { background: rgba(239,68,68,.3); }
+
+    /* ─ Search/Filter row ─ */
+    .toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .input-search { background: var(--bg-base); border: 1px solid var(--border); border-radius: 9px; padding: 9px 14px; font-size: 13px; color: var(--text-primary); outline: none; flex: 1; min-width: 200px; }
+    .input-search:focus { border-color: var(--orange); }
+    .select-filter { background: var(--bg-base); border: 1px solid var(--border); border-radius: 9px; padding: 9px 12px; font-size: 13px; color: var(--text-primary); outline: none; cursor: pointer; }
+    .select-filter:focus { border-color: var(--orange); }
+
+    /* ─ Modal ─ */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.7); z-index: 200; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+    .modal-overlay.show { display: flex; }
+    .modal { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; width: 100%; max-width: 560px; max-height: 90vh; overflow-y: auto; }
+    .modal-title { font-size: 17px; font-weight: 700; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+    .modal-close { background: none; border: none; color: var(--text-secondary); font-size: 18px; cursor: pointer; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+    .form-row.full { grid-template-columns: 1fr; }
+    .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .5px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; background: var(--bg-base); border: 1px solid var(--border); border-radius: 9px;
+      padding: 10px 13px; font-size: 13px; color: var(--text-primary); outline: none; font-family: inherit;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--orange); }
+    .form-group .checkboxes { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
+    .form-group .checkboxes label { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--text-primary); text-transform: none; letter-spacing: 0; cursor: pointer; }
+    .modal-footer { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+
+    /* ─ QR info box ─ */
+    .bank-info-box { background: var(--bg-base); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 12px; display: flex; gap: 16px; align-items: center; }
+    .bank-info-box img { width: 70px; border-radius: 8px; }
+
+    /* ─ Empty states ─ */
+    .empty-state { text-align: center; padding: 60px 20px; color: var(--text-secondary); }
+    .empty-state i { font-size: 40px; margin-bottom: 12px; opacity: .4; display: block; }
+
+    /* ─ Editable fields ─ */
+    .edit-inline { background: transparent; border: 1px solid transparent; border-radius: 6px; color: var(--text-primary); font-size: 13px; font-family: inherit; padding: 3px 6px; width: 100%; }
+    .edit-inline:focus { border-color: var(--orange); background: var(--bg-base); outline: none; }
+
+    /* ─ Loading ─ */
+    .loading { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 40px; color: var(--text-secondary); }
+
+    @media(max-width:768px) {
+      .sidebar { transform: translateX(-100%); }
+      .main { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <span class="brand-icon">🎮</span>
+    <span class="brand-name">GameStore</span>
+    <span class="admin-badge">ADMIN</span>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="sidebar-section-label">Tổng quan</div>
+    <button class="nav-item active" data-section="dashboard"><i class="fa fa-chart-bar"></i> Dashboard</button>
+
+    <div class="sidebar-section-label">Quản lý</div>
+    <button class="nav-item" data-section="orders"><i class="fa fa-box"></i> Đơn hàng <span class="nav-badge" id="pendingBadge">0</span></button>
+    <button class="nav-item" data-section="users"><i class="fa fa-users"></i> Người dùng</button>
+    <button class="nav-item" data-section="products"><i class="fa fa-gamepad"></i> Sản phẩm</button>
+    <button class="nav-item" data-section="coupons"><i class="fa fa-tag"></i> Mã giảm giá</button>
+
+    <div class="sidebar-section-label">Hệ thống</div>
+    <a href="index.html" class="nav-item"><i class="fa fa-store"></i> Về cửa hàng</a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="admin-info">
+      <div class="admin-avatar">👑</div>
+      <div>
+        <div class="admin-name" id="adminName">Admin</div>
+        <div class="admin-role">Administrator</div>
+      </div>
+      <button class="btn-logout" id="btnLogout" title="Đăng xuất"><i class="fa fa-sign-out-alt"></i></button>
+    </div>
+  </div>
+</aside>
+
+<!-- ===== MAIN ===== -->
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-title" id="topbarTitle">Dashboard</div>
+    <div class="topbar-right">
+      <a href="index.html" class="btn-back"><i class="fa fa-arrow-left"></i> Về trang chủ</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ── DASHBOARD ── -->
+    <section class="section active" id="section-dashboard">
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card"><div class="stat-icon" style="background:rgba(249,115,22,.12)">💰</div><div><div class="stat-value" id="stat-revenue">—</div><div class="stat-label">Doanh thu (đã hoàn)</div></div></div>
+        <div class="stat-card"><div class="stat-icon" style="background:rgba(59,130,246,.12)">📦</div><div><div class="stat-value" id="stat-orders">—</div><div class="stat-label">Tổng đơn hàng</div></div></div>
+        <div class="stat-card"><div class="stat-icon" style="background:rgba(34,197,94,.12)">👥</div><div><div class="stat-value" id="stat-users">—</div><div class="stat-label">Người dùng</div></div></div>
+        <div class="stat-card"><div class="stat-icon" style="background:rgba(168,85,247,.12)">🎮</div><div><div class="stat-value" id="stat-products">—</div><div class="stat-label">Sản phẩm đang bán</div></div></div>
+        <div class="stat-card"><div class="stat-icon" style="background:rgba(245,158,11,.12)">⏳</div><div><div class="stat-value" id="stat-pending">—</div><div class="stat-label">Đơn chờ xác nhận</div></div></div>
+      </div>
+      <div class="card">
+        <div class="card-header"><div class="card-title">📋 Đơn hàng gần đây</div></div>
+        <div class="card-body"><div class="table-wrap"><table id="tblRecentOrders"><thead><tr><th>Mã đơn</th><th>Khách hàng</th><th>Tổng tiền</th><th>Thanh toán</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody><tr><td colspan="6" class="loading"><i class="fa fa-spinner fa-spin"></i> Đang tải...</td></tr></tbody></table></div></div>
+      </div>
+    </section>
+
+    <!-- ── ORDERS ── -->
+    <section class="section" id="section-orders">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">📦 Quản lý Đơn hàng</div>
+          <div class="toolbar">
+            <input class="input-search" id="orderSearch" placeholder="Tìm mã đơn, tên khách..." />
+            <select class="select-filter" id="orderStatusFilter">
+              <option value="">Tất cả trạng thái</option>
+              <option value="pending">Đang chờ</option>
+              <option value="completed">Hoàn thành</option>
+              <option value="cancelled">Đã hủy</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-body"><div class="table-wrap"><table id="tblOrders"><thead><tr><th>Mã đơn</th><th>Khách hàng</th><th>Email</th><th>Tổng tiền</th><th>Phương thức</th><th>Ngày đặt</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody></tbody></table></div></div>
+      </div>
+    </section>
+
+    <!-- ── USERS ── -->
+    <section class="section" id="section-users">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">👥 Quản lý Người dùng</div>
+          <div class="toolbar">
+            <input class="input-search" id="userSearch" placeholder="Tìm tên, email..." />
+          </div>
+        </div>
+        <div class="card-body"><div class="table-wrap"><table id="tblUsers"><thead><tr><th>ID</th><th>Họ tên</th><th>Email</th><th>Role</th><th>Trạng thái</th><th>Ví (đ)</th><th>Ngày tạo</th><th>Thao tác</th></tr></thead><tbody></tbody></table></div></div>
+      </div>
+    </section>
+
+    <!-- ── PRODUCTS ── -->
+    <section class="section" id="section-products">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🎮 Quản lý Sản phẩm</div>
+          <div class="toolbar">
+            <input class="input-search" id="productSearch" placeholder="Tìm tên sản phẩm..." />
+            <button class="btn-primary" id="btnAddProduct"><i class="fa fa-plus"></i> Thêm sản phẩm</button>
+          </div>
+        </div>
+        <div class="card-body"><div class="table-wrap"><table id="tblProducts"><thead><tr><th>ID</th><th>Tên sản phẩm</th><th>Danh mục</th><th>Giá gốc</th><th>Giá sale</th><th>Kho</th><th>Featured</th><th>Flash</th><th>Active</th><th>Thao tác</th></tr></thead><tbody></tbody></table></div></div>
+      </div>
+    </section>
+
+    <!-- ── COUPONS ── -->
+    <section class="section" id="section-coupons">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🏷️ Quản lý Mã giảm giá</div>
+          <button class="btn-primary" id="btnAddCoupon"><i class="fa fa-plus"></i> Tạo mã mới</button>
+        </div>
+        <div class="card-body"><div class="table-wrap"><table id="tblCoupons"><thead><tr><th>Code</th><th>Loại</th><th>Giá trị</th><th>Đã dùng</th><th>Hết hạn</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody></tbody></table></div></div>
+      </div>
+    </section>
+
+  </div><!-- end content -->
+</div><!-- end main -->
+
+<!-- ── MODAL: Add Product ── -->
+<div class="modal-overlay" id="modalProduct">
+  <div class="modal">
+    <div class="modal-title">
+      <span>➕ Thêm sản phẩm mới</span>
+      <button class="modal-close" id="closeModalProduct"><i class="fa fa-times"></i></button>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Tên sản phẩm *</label><input id="pName" placeholder="Black Myth: Wukong" /></div>
+      <div class="form-group"><label>Slug *</label><input id="pSlug" placeholder="black-myth-wukong" /></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Danh mục</label><select id="pCat"></select></div>
+      <div class="form-group"><label>Nền tảng</label><select id="pPlat"></select></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Thể loại</label><input id="pGenre" placeholder="action, rpg..." /></div>
+      <div class="form-group"><label>Tồn kho (-1 = vô hạn)</label><input id="pStock" type="number" value="99999" /></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Giá gốc (đ) *</label><input id="pPrice" type="number" placeholder="1299000" /></div>
+      <div class="form-group"><label>Giá sale (đ)</label><input id="pSale" type="number" placeholder="Để trống nếu không sale" /></div>
+    </div>
+    <div class="form-row full">
+      <div class="form-group"><label>URL ảnh bìa</label><input id="pCover" placeholder="https://..." /></div>
+    </div>
+    <div class="form-row full">
+      <div class="form-group"><label>Mô tả</label><textarea id="pDesc" rows="3" placeholder="Mô tả ngắn về sản phẩm..."></textarea></div>
+    </div>
+    <div class="form-row full">
+      <div class="form-group">
+        <label>Thuộc tính</label>
+        <div class="checkboxes">
+          <label><input type="checkbox" id="pFeatured" /> Nổi bật (Featured)</label>
+          <label><input type="checkbox" id="pFlash" /> Flash Sale</label>
+          <label><input type="checkbox" id="pBestseller" /> Bán chạy</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-primary" id="btnSaveProduct"><i class="fa fa-check"></i> Lưu sản phẩm</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL: Add Coupon ── -->
+<div class="modal-overlay" id="modalCoupon">
+  <div class="modal">
+    <div class="modal-title">
+      <span>🏷️ Tạo mã giảm giá mới</span>
+      <button class="modal-close" id="closeModalCoupon"><i class="fa fa-times"></i></button>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Mã code *</label><input id="cCode" placeholder="SUMMER30" /></div>
+      <div class="form-group"><label>Loại *</label>
+        <select id="cType">
+          <option value="percent">Phần trăm (%)</option>
+          <option value="fixed">Số tiền cố định (đ)</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Giá trị *</label><input id="cValue" type="number" placeholder="20" /></div>
+      <div class="form-group"><label>Đơn tối thiểu (đ)</label><input id="cMin" type="number" placeholder="0" value="0" /></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Số lần dùng tối đa</label><input id="cMaxUses" type="number" placeholder="Để trống = không giới hạn" /></div>
+      <div class="form-group"><label>Ngày hết hạn</label><input id="cExpires" type="datetime-local" /></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-primary" id="btnSaveCoupon"><i class="fa fa-check"></i> Tạo mã</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script>
+/* ── AUTH GUARD ── */
+document.addEventListener('DOMContentLoaded', async () => {
+  if (!Auth.isLoggedIn()) { window.location.href = 'login.html'; return; }
+  const user = Auth.getUser();
+  if (!user || user.role !== 'admin') { alert('Bạn không có quyền truy cập trang này.'); window.location.href = 'index.html'; return; }
+  document.getElementById('adminName').textContent = user.full_name || 'Admin';
+
+  // Double-check with server
+  try {
+    const fresh = await apiFetch('/profile');
+    if (fresh.role !== 'admin') { alert('Không có quyền admin.'); window.location.href = 'index.html'; return; }
+    Auth.updateUser({ ...user, ...fresh });
+    document.getElementById('adminName').textContent = fresh.full_name || 'Admin';
+  } catch {}
+
+  loadStats();
+  loadOrders();
+});
+
+const fmt = v => Number(v || 0).toLocaleString('vi-VN');
+const fmtDate = d => d ? new Date(d).toLocaleDateString('vi-VN') : '—';
+
+/* ── SIDEBAR NAVIGATION ── */
+document.querySelectorAll('.nav-item[data-section]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const sec = btn.dataset.section;
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById('section-' + sec).classList.add('active');
+    document.getElementById('topbarTitle').textContent = btn.textContent.trim();
+
+    if (sec === 'orders')   loadOrders();
+    if (sec === 'users')    loadUsers();
+    if (sec === 'products') loadProducts();
+    if (sec === 'coupons')  loadCoupons();
+  });
+});
+
+document.getElementById('btnLogout').addEventListener('click', () => {
+  if (confirm('Đăng xuất?')) { Auth.clear(); window.location.href = 'login.html'; }
+});
+
+/* ── STATUS BADGE ── */
+function statusBadge(s) {
+  if (s === 'completed') return `<span class="badge badge-green"><i class="fa fa-check"></i> Hoàn thành</span>`;
+  if (s === 'pending')   return `<span class="badge badge-yellow"><i class="fa fa-clock"></i> Chờ xác nhận</span>`;
+  if (s === 'cancelled') return `<span class="badge badge-red"><i class="fa fa-times"></i> Đã hủy</span>`;
+  return `<span class="badge badge-gray">${s}</span>`;
+}
+
+/* ── STATS ── */
+async function loadStats() {
+  try {
+    const s = await apiFetch('/admin/stats');
+    document.getElementById('stat-revenue').textContent  = fmt(s.revenue) + 'đ';
+    document.getElementById('stat-orders').textContent   = fmt(s.orders);
+    document.getElementById('stat-users').textContent    = fmt(s.users);
+    document.getElementById('stat-products').textContent = fmt(s.products);
+    document.getElementById('stat-pending').textContent  = fmt(s.pending);
+    document.getElementById('pendingBadge').textContent  = s.pending || 0;
+  } catch {}
+}
+
+/* ── ORDERS ── */
+let allOrders = [];
+async function loadOrders() {
+  try {
+    allOrders = await apiFetch('/admin/orders');
+    renderOrders(allOrders);
+  } catch {}
+}
+
+function renderOrders(orders) {
+  const tbody = document.querySelector('#tblOrders tbody');
+  const tbody2 = document.querySelector('#tblRecentOrders tbody');
+  if (!orders.length) { tbody.innerHTML = `<tr><td colspan="8" class="empty-state"><i class="fa fa-box-open"></i>Không có đơn hàng nào</td></tr>`; return; }
+  const rows = orders.map(o => `
+    <tr>
+      <td><strong>${o.order_code}</strong></td>
+      <td>${o.full_name}</td>
+      <td style="color:var(--text-secondary)">${o.email}</td>
+      <td style="color:var(--orange);font-weight:700">${fmt(o.total_amount)}đ</td>
+      <td><span class="badge badge-gray">${o.payment_method || '—'}</span></td>
+      <td style="color:var(--text-secondary)">${fmtDate(o.created_at)}</td>
+      <td>${statusBadge(o.status)}</td>
+      <td style="display:flex;gap:6px">
+        ${o.status==='pending' ? `<button class="btn-sm btn-approve" onclick="changeOrderStatus(${o.id},'completed')"><i class="fa fa-check"></i> Duyệt</button>` : ''}
+        ${o.status!=='cancelled' ? `<button class="btn-sm btn-cancel" onclick="changeOrderStatus(${o.id},'cancelled')"><i class="fa fa-times"></i></button>` : ''}
+      </td>
+    </tr>`).join('');
+  tbody.innerHTML = rows;
+  if (tbody2) tbody2.innerHTML = orders.slice(0,5).map(o => `
+    <tr><td><strong>${o.order_code}</strong></td><td>${o.full_name}</td><td style="color:var(--orange);font-weight:700">${fmt(o.total_amount)}đ</td>
+    <td>${o.payment_method||'—'}</td><td>${statusBadge(o.status)}</td>
+    <td style="display:flex;gap:6px">${o.status==='pending'?`<button class="btn-sm btn-approve" onclick="changeOrderStatus(${o.id},'completed')"><i class="fa fa-check"></i> Duyệt</button>`:''}${o.status!=='cancelled'?`<button class="btn-sm btn-cancel" onclick="changeOrderStatus(${o.id},'cancelled')"><i class="fa fa-times"></i></button>`:''}</td></tr>`).join('');
+}
+
+async function changeOrderStatus(id, status) {
+  try {
+    await apiFetch(`/admin/orders/${id}/status`, { method: 'PATCH', body: JSON.stringify({ status }) });
+    loadOrders(); loadStats();
+  } catch(e) { alert(e.message); }
+}
+
+document.getElementById('orderSearch').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase();
+  renderOrders(allOrders.filter(o => o.order_code.toLowerCase().includes(q) || o.full_name.toLowerCase().includes(q) || o.email.toLowerCase().includes(q)));
+});
+document.getElementById('orderStatusFilter').addEventListener('change', e => {
+  const val = e.target.value;
+  renderOrders(val ? allOrders.filter(o => o.status === val) : allOrders);
+});
+
+/* ── USERS ── */
+let allUsers = [];
+async function loadUsers() {
+  try {
+    allUsers = await apiFetch('/admin/users');
+    renderUsers(allUsers);
+  } catch {}
+}
+
+function renderUsers(users) {
+  const tbody = document.querySelector('#tblUsers tbody');
+  if (!users.length) { tbody.innerHTML = `<tr><td colspan="8" class="empty-state"><i class="fa fa-users"></i>Không có người dùng</td></tr>`; return; }
+  tbody.innerHTML = users.map(u => `
+    <tr>
+      <td style="color:var(--text-secondary)">#${u.id}</td>
+      <td><strong>${u.full_name}</strong></td>
+      <td style="color:var(--text-secondary)">${u.email}</td>
+      <td>${u.role === 'admin' ? `<span class="badge badge-yellow"><i class="fa fa-crown"></i> Admin</span>` : `<span class="badge badge-gray">User</span>`}</td>
+      <td>${u.is_active ? `<span class="badge badge-green">Hoạt động</span>` : `<span class="badge badge-red">Đã khóa</span>`}</td>
+      <td style="color:var(--orange)">${fmt(u.wallet_balance)}đ</td>
+      <td style="color:var(--text-secondary)">${fmtDate(u.created_at)}</td>
+      <td style="display:flex;gap:6px;flex-wrap:wrap">
+        <button class="btn-sm btn-warn" onclick="toggleRole(${u.id},'${u.role}')">${u.role==='admin'?'↓ Hạ User':'↑ Thăng Admin'}</button>
+        <button class="btn-sm ${u.is_active?'btn-cancel':'btn-approve'}" onclick="toggleBan(${u.id},${u.is_active?0:1})">${u.is_active?'Khóa':'Mở khóa'}</button>
+      </td>
+    </tr>`).join('');
+}
+
+async function toggleRole(id, currentRole) {
+  const newRole = currentRole === 'admin' ? 'user' : 'admin';
+  if (!confirm(`Đổi role thành ${newRole}?`)) return;
+  try { await apiFetch(`/admin/users/${id}/role`, { method: 'PATCH', body: JSON.stringify({ role: newRole }) }); loadUsers(); } catch(e) { alert(e.message); }
+}
+async function toggleBan(id, isActive) {
+  try { await apiFetch(`/admin/users/${id}/ban`, { method: 'PATCH', body: JSON.stringify({ is_active: isActive }) }); loadUsers(); } catch(e) { alert(e.message); }
+}
+document.getElementById('userSearch').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase();
+  renderUsers(allUsers.filter(u => u.full_name.toLowerCase().includes(q) || u.email.toLowerCase().includes(q)));
+});
+
+/* ── PRODUCTS ── */
+let allProducts = [], allCats = [], allPlats = [];
+async function loadProducts() {
+  try {
+    [allProducts, allCats, allPlats] = await Promise.all([
+      apiFetch('/admin/products'),
+      apiFetch('/admin/categories'),
+      apiFetch('/admin/platforms'),
+    ]);
+    renderProducts(allProducts);
+    // Populate selects
+    const catSel = document.getElementById('pCat');
+    const platSel = document.getElementById('pPlat');
+    catSel.innerHTML = '<option value="">-- Không chọn --</option>' + allCats.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+    platSel.innerHTML = '<option value="">-- Không chọn --</option>' + allPlats.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
+  } catch {}
+}
+
+function renderProducts(list) {
+  const tbody = document.querySelector('#tblProducts tbody');
+  if (!list.length) { tbody.innerHTML = `<tr><td colspan="10" class="empty-state"><i class="fa fa-gamepad"></i>Không có sản phẩm</td></tr>`; return; }
+  tbody.innerHTML = list.map(p => `
+    <tr>
+      <td style="color:var(--text-secondary)">#${p.id}</td>
+      <td><strong>${p.name}</strong><br><small style="color:var(--text-secondary)">${p.slug}</small></td>
+      <td><span class="badge badge-gray">${p.category||'—'}</span></td>
+      <td>${fmt(p.original_price)}đ</td>
+      <td>${p.sale_price ? `<span style="color:var(--orange)">${fmt(p.sale_price)}đ</span>` : '—'}</td>
+      <td>${p.stock === -1 ? '∞' : p.stock}</td>
+      <td>${p.is_featured ? '⭐' : '—'}</td>
+      <td>${p.is_flash_sale ? '⚡' : '—'}</td>
+      <td>${p.is_active ? `<span class="badge badge-green">Bật</span>` : `<span class="badge badge-red">Tắt</span>`}</td>
+      <td style="display:flex;gap:6px">
+        <button class="btn-sm btn-warn" onclick="toggleProduct(${p.id},${p.is_active?0:1})">${p.is_active?'Ẩn':'Hiện'}</button>
+        <button class="btn-sm btn-cancel" onclick="deleteProduct(${p.id})"><i class="fa fa-trash"></i></button>
+      </td>
+    </tr>`).join('');
+}
+
+async function toggleProduct(id, active) {
+  try { await apiFetch(`/admin/products/${id}`, { method: 'PATCH', body: JSON.stringify({ is_active: !!active }) }); loadProducts(); } catch(e) { alert(e.message); }
+}
+async function deleteProduct(id) {
+  if (!confirm('Ẩn sản phẩm này?')) return;
+  try { await apiFetch(`/admin/products/${id}`, { method: 'DELETE' }); loadProducts(); } catch(e) { alert(e.message); }
+}
+document.getElementById('productSearch').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase();
+  renderProducts(allProducts.filter(p => p.name.toLowerCase().includes(q) || p.slug.includes(q)));
+});
+
+/* Modal Product */
+const modalProduct = document.getElementById('modalProduct');
+document.getElementById('btnAddProduct').addEventListener('click', () => {
+  // Load cats/plats if not loaded yet
+  if (!allCats.length) loadProducts();
+  modalProduct.classList.add('show');
+});
+document.getElementById('closeModalProduct').addEventListener('click', () => modalProduct.classList.remove('show'));
+document.getElementById('btnSaveProduct').addEventListener('click', async () => {
+  const name = document.getElementById('pName').value.trim();
+  const slug = document.getElementById('pSlug').value.trim();
+  const price = Number(document.getElementById('pPrice').value);
+  if (!name || !slug || !price) { alert('Vui lòng nhập tên, slug và giá gốc.'); return; }
+  const body = {
+    name, slug, price,
+    category_id: document.getElementById('pCat').value || null,
+    platform_id: document.getElementById('pPlat').value || null,
+    genre: document.getElementById('pGenre').value || null,
+    stock: Number(document.getElementById('pStock').value),
+    original_price: price,
+    sale_price: document.getElementById('pSale').value || null,
+    discount_pct: document.getElementById('pSale').value ? Math.round((1 - document.getElementById('pSale').value / price) * 100) : 0,
+    cover_url: document.getElementById('pCover').value || null,
+    description: document.getElementById('pDesc').value || null,
+    is_featured: document.getElementById('pFeatured').checked,
+    is_flash_sale: document.getElementById('pFlash').checked,
+    is_bestseller: document.getElementById('pBestseller').checked,
+  };
+  try {
+    await apiFetch('/admin/products', { method: 'POST', body: JSON.stringify(body) });
+    alert('Đã thêm sản phẩm!');
+    modalProduct.classList.remove('show');
+    loadProducts();
+  } catch(e) { alert(e.message); }
+});
+
+/* ── COUPONS ── */
+async function loadCoupons() {
+  try {
+    const coupons = await apiFetch('/admin/coupons');
+    const tbody = document.querySelector('#tblCoupons tbody');
+    if (!coupons.length) { tbody.innerHTML = `<tr><td colspan="7" class="empty-state"><i class="fa fa-tag"></i>Chưa có mã giảm giá</td></tr>`; return; }
+    tbody.innerHTML = coupons.map(c => `
+      <tr>
+        <td><strong style="color:var(--orange);letter-spacing:1px">${c.code}</strong></td>
+        <td>${c.discount_type === 'percent' ? 'Phần trăm' : 'Cố định'}</td>
+        <td style="font-weight:700">${c.discount_type==='percent' ? c.discount_value+'%' : fmt(c.discount_value)+'đ'}</td>
+        <td>${c.used_count || 0}${c.max_uses ? ' / '+c.max_uses : ''}</td>
+        <td style="color:var(--text-secondary)">${c.expires_at ? fmtDate(c.expires_at) : 'Không hết hạn'}</td>
+        <td>${c.is_active ? `<span class="badge badge-green">Đang hoạt động</span>` : `<span class="badge badge-gray">Đã tắt</span>`}</td>
+        <td><button class="btn-sm btn-cancel" onclick="deleteCoupon(${c.id})"><i class="fa fa-trash"></i> Xóa</button></td>
+      </tr>`).join('');
+  } catch {}
+}
+
+async function deleteCoupon(id) {
+  if (!confirm('Xóa mã giảm giá này?')) return;
+  try { await apiFetch(`/admin/coupons/${id}`, { method: 'DELETE' }); loadCoupons(); } catch(e) { alert(e.message); }
+}
+
+const modalCoupon = document.getElementById('modalCoupon');
+document.getElementById('btnAddCoupon').addEventListener('click', () => modalCoupon.classList.add('show'));
+document.getElementById('closeModalCoupon').addEventListener('click', () => modalCoupon.classList.remove('show'));
+document.getElementById('btnSaveCoupon').addEventListener('click', async () => {
+  const code  = document.getElementById('cCode').value.trim().toUpperCase();
+  const val   = Number(document.getElementById('cValue').value);
+  if (!code || !val) { alert('Vui lòng nhập code và giá trị.'); return; }
+  const body = {
+    code, discount_value: val,
+    discount_type:   document.getElementById('cType').value,
+    min_order_value: Number(document.getElementById('cMin').value) || 0,
+    max_uses:        document.getElementById('cMaxUses').value || null,
+    expires_at:      document.getElementById('cExpires').value || null,
+  };
+  try {
+    await apiFetch('/admin/coupons', { method: 'POST', body: JSON.stringify(body) });
+    alert('Đã tạo mã giảm giá!');
+    modalCoupon.classList.remove('show');
+    loadCoupons();
+  } catch(e) { alert(e.message); }
+});
+
+/* Auto-generate slug from name */
+document.getElementById('pName').addEventListener('input', e => {
+  const slug = e.target.value.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/đ/g,'d').replace(/[^a-z0-9 ]/g,'')
+    .trim().replace(/\s+/g,'-');
+  document.getElementById('pSlug').value = slug;
+});
+</script>
+</body>
+</html>

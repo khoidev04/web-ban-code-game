@@ -1,0 +1,176 @@
+/* === PLATFORM PAGES CSS === */
+
+/* ===== PLATFORM HEADER ===== */
+.platform-hero {
+  background: linear-gradient(180deg, rgba(26, 18, 14, 0.8) 0%, rgba(13, 10, 8, 0.95) 100%), 
+              url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=2000'); /* Generic gaming background */
+  background-size: cover;
+  background-position: center;
+  padding: 60px 0 40px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.platform-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.platform-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 800px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Specific platform colors for titles if needed */
+.platform-title span.platform-highlight {
+  color: var(--orange-primary);
+}
+
+/* ===== HORIZONTAL FILTERS ===== */
+.platform-filters {
+  background: var(--bg-secondary);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-primary);
+  z-index: 100;
+}
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-group-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-label-h {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.filter-select-h {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  padding: 8px 30px 8px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition: all var(--transition-fast);
+}
+
+.filter-select-h option {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.filter-select-h:hover, .filter-select-h:focus {
+  border-color: var(--orange-primary);
+  background-color: var(--bg-card-hover);
+}
+
+.price-chips {
+  display: flex;
+  gap: 8px;
+}
+
+.price-chip {
+  padding: 8px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.price-chip:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.price-chip.active {
+  background: var(--orange-primary);
+  border-color: var(--orange-primary);
+  color: white;
+}
+
+/* === SORTING === */
+.sort-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sort-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.sort-select {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  padding: 8px 30px 8px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition: all var(--transition-fast);
+}
+
+.sort-select:hover, .sort-select:focus {
+  border-color: var(--orange-primary);
+  background-color: var(--bg-card-hover);
+}
+
+.sort-select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* ===== GAMES GRID FULL WIDTH ===== */
+.platform-grid-container {
+  padding: 40px 0 60px;
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1200px) {
+  .platform-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .platform-grid { grid-template-columns: repeat(2, 1fr); }
+  .platform-title { font-size: 32px; }
+}
+
+@media (max-width: 500px) {
+  .platform-grid { grid-template-columns: 1fr; }
+  .filter-bar { flex-direction: column; align-items: stretch; }
+}

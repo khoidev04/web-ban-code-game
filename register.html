@@ -1,0 +1,401 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng ký tài khoản – GameStore</title>
+  <meta name="description" content="Tạo tài khoản GameStore miễn phí. Tham gia cộng đồng game thủ Việt Nam và nhận ngay ưu đãi chào mừng hấp dẫn." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">🎮</div>
+        <span class="brand-name">GameStore</span>
+      </a>
+
+      <div class="navbar-nav">
+        <a href="index.html" class="nav-link">Cửa hàng</a>
+        <a href="#" class="nav-link">Thư viện</a>
+        <a href="#" class="nav-link">Cộng đồng</a>
+        <a href="#" class="nav-link">Hỗ trợ</a>
+      </div>
+
+      <div class="navbar-actions">
+        <div class="notification-wrapper">
+          <a href="#" class="icon-btn notification-toggle" title="Thông báo">
+            <i class="fa fa-bell"></i>
+            <span class="cart-badge notification-badge">2</span>
+          </a>
+          <div class="notification-dropdown">
+            <div class="notification-header">
+              <h4>Thông báo</h4>
+              <button class="mark-read-btn">Đánh dấu đã đọc</button>
+            </div>
+            <div class="notification-list">
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-gift"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Quà tặng mới!</div>
+                  <div class="noti-desc">Bạn vừa nhận được 1 code giảm giá 10% cho đơn hàng tiếp theo.</div>
+                  <div class="noti-time">2 phút trước</div>
+                </div>
+              </a>
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-shopping-bag"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Đơn hàng thành công</div>
+                  <div class="noti-desc">Đơn hàng #882941 của bạn đã được xác nhận.</div>
+                  <div class="noti-time">1 giờ trước</div>
+                </div>
+              </a>
+            </div>
+            <div class="notification-footer">
+              <a href="#" class="view-all-noti">Xem tất cả thông báo</a>
+            </div>
+          </div>
+        </div>
+        <a href="login.html" class="btn-ghost btn" style="font-weight:600;color:var(--text-secondary)">Đăng nhập</a>
+        
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== AUTH BODY ===== -->
+<div class="auth-page">
+  <div class="auth-body">
+    <div class="auth-card">
+
+      <!-- Header -->
+      <div class="auth-header">
+        <h1 class="auth-title">Tạo tài khoản mới</h1>
+        <p class="auth-subtitle">Tham gia cộng đồng GameStore và bắt đầu cuộc phiêu lưu của bạn ngay hôm nay.</p>
+      </div>
+
+      <!-- Form -->
+      <form id="register-form" novalidate>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label class="form-label" for="reg-name">Họ và tên</label>
+          <div class="input-wrapper">
+            <i class="fa fa-user input-icon"></i>
+            <input
+              type="text"
+              id="reg-name"
+              class="auth-input"
+              placeholder="Nhập họ và tên của bạn"
+              autocomplete="name"
+            />
+          </div>
+          <div class="form-error" id="name-error">Vui lòng nhập họ và tên.</div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label class="form-label" for="reg-email">Email</label>
+          <div class="input-wrapper">
+            <i class="fa fa-envelope input-icon"></i>
+            <input
+              type="email"
+              id="reg-email"
+              class="auth-input"
+              placeholder="example@gamestore.vn"
+              autocomplete="email"
+            />
+          </div>
+          <div class="form-error" id="reg-email-error">Vui lòng nhập email hợp lệ.</div>
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+          <label class="form-label" for="reg-phone">Số điện thoại</label>
+          <div class="input-wrapper">
+            <i class="fa fa-phone input-icon"></i>
+            <input
+              type="tel"
+              id="reg-phone"
+              class="auth-input"
+              placeholder="090xxxxxxx"
+              autocomplete="tel"
+            />
+          </div>
+          <div class="form-error" id="phone-error">Vui lòng nhập số điện thoại hợp lệ.</div>
+        </div>
+
+        <!-- Password + Confirm Password (2 columns) -->
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Mật khẩu</label>
+            <div class="input-wrapper">
+              <i class="fa fa-lock input-icon"></i>
+              <input
+                type="password"
+                id="reg-password"
+                class="auth-input"
+                placeholder="••••••••"
+                autocomplete="new-password"
+                oninput="checkPasswordStrength(this.value)"
+              />
+              <button type="button" class="password-toggle" onclick="togglePassword('reg-password', this)">
+                <i class="fa fa-eye"></i>
+              </button>
+            </div>
+            <!-- Password Strength -->
+            <div class="password-strength" id="strength-wrapper" style="display:none">
+              <div class="strength-bar">
+                <div class="strength-fill" id="strength-fill"></div>
+              </div>
+              <span class="strength-label" id="strength-label"></span>
+            </div>
+            <div class="form-error" id="reg-pass-error">Mật khẩu tối thiểu 8 ký tự.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-confirm">Nhập lại mật khẩu</label>
+            <div class="input-wrapper">
+              <i class="fa fa-lock input-icon"></i>
+              <input
+                type="password"
+                id="reg-confirm"
+                class="auth-input"
+                placeholder="••••••••"
+                autocomplete="new-password"
+              />
+              <button type="button" class="password-toggle" onclick="togglePassword('reg-confirm', this)">
+                <i class="fa fa-eye"></i>
+              </button>
+            </div>
+            <div class="form-error" id="confirm-error">Mật khẩu không khớp.</div>
+          </div>
+        </div>
+
+        <!-- Terms & Conditions -->
+        <label class="terms-label" id="terms-label">
+          <input type="checkbox" id="terms-checkbox" />
+          <span>
+            Tôi đồng ý với <a href="#" class="terms-link">Điều khoản dịch vụ</a>
+            và <a href="#" class="terms-link">Chính sách bảo mật</a>
+            của GameStore.
+          </span>
+        </label>
+        <div class="form-error" id="terms-error" style="margin-top:-16px;margin-bottom:16px;">Vui lòng chấp nhận điều khoản sử dụng.</div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-auth-submit" id="register-btn">
+          Đăng ký tài khoản <i class="fa fa-arrow-right"></i>
+        </button>
+
+      </form>
+
+      <!-- Footer -->
+      <p class="auth-footer-text">
+        Bạn đã có tài khoản? <a href="login.html">Đăng nhập ngay</a>
+      </p>
+
+    </div><!-- end auth-card -->
+  </div><!-- end auth-body -->
+</div><!-- end auth-page -->
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">🎮</div>
+          <span class="brand-name">GameStore</span>
+        </a>
+        <p class="brand-desc">Shop bán game bản quyền và dịch vụ giải trí hàng đầu Việt Nam. Chất lượng – Uy tín – Giá rẻ.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn" title="Discord"><i class="fab fa-discord"></i></a>
+          <a href="#" class="social-btn" title="RSS"><i class="fas fa-rss"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Chăm sóc khách hàng</div>
+        <div class="footer-links">
+          <a href="guide.html" class="footer-link">Hướng dẫn mua hàng</a>
+          <a href="payment.html" class="footer-link">Phương thức thanh toán</a>
+          <a href="warranty.html" class="footer-link">Chính sách bảo hành</a>
+          <a href="faq.html" class="footer-link">Câu hỏi thường gặp</a>
+          <a href="careers.html" class="footer-link">Tuyển dụng</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Về chúng tôi</div>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link">Giới thiệu về Shop</a>
+          <a href="terms.html" class="footer-link">Điều khoản dịch vụ</a>
+          <a href="privacy.html" class="footer-link">Chính sách bảo mật</a>
+          <a href="partnership.html" class="footer-link">Hợp tác kinh doanh</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Thông tin liên hệ</div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa fa-phone"></i></div>
+          <div class="contact-text">
+            <p>1900 1234 (8:00 – 22:00)</p>
+            <p>Hỗ trợ kỹ thuật, khiếu nại</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa fa-envelope"></i></div>
+          <div class="contact-text">
+            <p>hotro@gamestore.vn</p>
+            <p>Email hỗ trợ khách hàng</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="footer-copy">© 2026 GameStore. All Rights Reserved. Giao diện được thiết kế bởi 1 Minh Tao Team.</p>
+      <div class="footer-bottom-links">
+        <a href="terms.html">Điều khoản</a>
+        <a href="privacy.html">Bảo mật</a>
+        <a href="#">Cookie</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+  /* ===== REGISTER PAGE SPECIFIC LOGIC ===== */
+
+  function togglePassword(inputId, btn) {
+    const input = document.getElementById(inputId);
+    const icon = btn.querySelector('i');
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.className = 'fa fa-eye-slash';
+    } else {
+      input.type = 'password';
+      icon.className = 'fa fa-eye';
+    }
+  }
+
+  function checkPasswordStrength(password) {
+    const wrapper = document.getElementById('strength-wrapper');
+    const fill    = document.getElementById('strength-fill');
+    const label   = document.getElementById('strength-label');
+
+    if (!password) { wrapper.style.display = 'none'; return; }
+
+    wrapper.style.display = 'block';
+
+    let score = 0;
+    if (password.length >= 8)  score++;
+    if (/[A-Z]/.test(password)) score++;
+    if (/[0-9]/.test(password)) score++;
+    if (/[^A-Za-z0-9]/.test(password)) score++;
+
+    const levels = [
+      { pct: '25%', color: '#ef4444', text: 'Yếu' },
+      { pct: '50%', color: '#f97316', text: 'Trung bình' },
+      { pct: '75%', color: '#eab308', text: 'Khá' },
+      { pct: '100%', color: '#22c55e', text: 'Mạnh' },
+    ];
+
+    const idx = Math.max(0, score - 1);
+    fill.style.width = levels[idx].pct;
+    fill.style.backgroundColor = levels[idx].color;
+    label.textContent = `Độ mạnh: ${levels[idx].text}`;
+    label.style.color = levels[idx].color;
+  }
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function validatePhone(phone) {
+    return /^(0|\+84)[0-9]{8,10}$/.test(phone.replace(/\s/g, ''));
+  }
+
+  function setFieldState(input, errorEl, valid, msg) {
+    if (valid) {
+      input.classList.remove('error');
+      input.classList.add('success');
+      errorEl.style.display = 'none';
+    } else {
+      input.classList.add('error');
+      input.classList.remove('success');
+      if (msg) errorEl.textContent = msg;
+      errorEl.style.display = 'block';
+    }
+    return valid;
+  }
+
+  document.getElementById('register-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const name     = document.getElementById('reg-name');
+    const email    = document.getElementById('reg-email');
+    const phone    = document.getElementById('reg-phone');
+    const password = document.getElementById('reg-password');
+    const confirm  = document.getElementById('reg-confirm');
+    const terms    = document.getElementById('terms-checkbox');
+
+    const results = [
+      setFieldState(name,     document.getElementById('name-error'),       name.value.trim().length >= 2,            'Vui lòng nhập họ và tên (ít nhất 2 ký tự).'),
+      setFieldState(email,    document.getElementById('reg-email-error'),   validateEmail(email.value.trim()),        'Vui lòng nhập địa chỉ email hợp lệ.'),
+      setFieldState(phone,    document.getElementById('phone-error'),       validatePhone(phone.value.trim()),        'Vui lòng nhập số điện thoại hợp lệ (VD: 0901234567).'),
+      setFieldState(password, document.getElementById('reg-pass-error'),    password.value.length >= 8,               'Mật khẩu phải có ít nhất 8 ký tự.'),
+      setFieldState(confirm,  document.getElementById('confirm-error'),     confirm.value === password.value && confirm.value.length > 0, 'Mật khẩu nhập lại không khớp.'),
+    ];
+
+    const termsError = document.getElementById('terms-error');
+    let termsValid = terms.checked;
+    termsError.style.display = termsValid ? 'none' : 'block';
+    results.push(termsValid);
+
+    if (!results.every(Boolean)) return;
+
+    const btn = document.getElementById('register-btn');
+    btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Đang tạo tài khoản...';
+    btn.disabled = true;
+
+    try {
+      const data = await apiFetch('/auth/register', {
+        method: 'POST',
+        body: JSON.stringify({
+          full_name: name.value.trim(),
+          email:     email.value.trim(),
+          phone:     phone.value.trim(),
+          password:  password.value,
+        }),
+      });
+      // Tự động đăng nhập sau khi đăng ký
+      Auth.save(data.token, data.user);
+      window.location.href = 'index.html';
+    } catch (err) {
+      btn.innerHTML = 'Đăng ký tài khoản <i class="fa fa-arrow-right"></i>';
+      btn.disabled = false;
+      const emailErr = document.getElementById('reg-email-error');
+      emailErr.textContent = err.message || 'Đăng ký thất bại, vui lòng thử lại.';
+      emailErr.style.display = 'block';
+      email.classList.add('error');
+    }
+  });
+</script>
+</body>
+</html>

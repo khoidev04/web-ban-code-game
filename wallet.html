@@ -1,0 +1,406 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ví của tôi – GameStore</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/account.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">🎮</div>
+        <span class="brand-name">GameStore</span>
+      </a>
+      <div class="navbar-nav">
+        <a href="index.html" class="nav-link">Cửa hàng</a>
+        <a href="library.html" class="nav-link">Thư viện</a>
+        <a href="community.html" class="nav-link">Cộng đồng</a>
+        <a href="faq.html" class="nav-link">Hỗ trợ</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="cart.html" class="icon-btn" title="Giỏ hàng">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="cart-badge">3</span>
+        </a>
+        <div class="notification-wrapper">
+          <a href="#" class="icon-btn notification-toggle" title="Thông báo">
+            <i class="fa fa-bell"></i>
+            <span class="cart-badge notification-badge">2</span>
+          </a>
+          <div class="notification-dropdown">
+            <div class="notification-header">
+              <h4>Thông báo</h4>
+              <button class="mark-read-btn">Đánh dấu đã đọc</button>
+            </div>
+            <div class="notification-list">
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-gift"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Quà tặng mới!</div>
+                  <div class="noti-desc">Bạn vừa nhận được 1 code giảm giá 10% cho đơn hàng tiếp theo.</div>
+                  <div class="noti-time">2 phút trước</div>
+                </div>
+              </a>
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-shopping-bag"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Đơn hàng thành công</div>
+                  <div class="noti-desc">Đơn hàng #882941 của bạn đã được xác nhận.</div>
+                  <div class="noti-time">1 giờ trước</div>
+                </div>
+              </a>
+            </div>
+            <div class="notification-footer">
+              <a href="#" class="view-all-noti">Xem tất cả thông báo</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="account-page">
+  <div class="container">
+    <div class="account-layout">
+      
+      <!-- SIDEBAR -->
+      <aside class="account-sidebar">
+        <div class="user-sidebar-info">
+          <div class="user-sidebar-avatar">
+            <img src="https://i.pravatar.cc/150?u=alex" alt="Alex Walker" />
+          </div>
+          <div class="user-sidebar-meta">
+            <h3>Alex Walker</h3>
+            <p>alex.walker@gamestore.com</p>
+          </div>
+        </div>
+
+        <nav class="account-nav">
+          <a href="profile.html" class="account-nav-link"><i class="fa fa-user-circle"></i> Hồ sơ</a>
+          <a href="library.html" class="account-nav-link"><i class="fa fa-layer-group"></i> Thư viện</a>
+          <a href="community.html" class="account-nav-link"><i class="fa fa-users"></i> Cộng đồng</a>
+          <a href="security.html" class="account-nav-link"><i class="fa fa-shield-alt"></i> Bảo mật</a>
+          <a href="settings.html" class="account-nav-link"><i class="fa fa-cog"></i> Cài đặt</a>
+          <div class="sidebar-divider"></div>
+          <a href="orders.html" class="account-nav-link"><i class="fa fa-history"></i> Giao dịch</a>
+          <a href="wallet.html" class="account-nav-link active"><i class="fa fa-wallet"></i> Ví cá nhân</a>
+          <button class="btn btn-sidebar-logout" style="margin-top: 24px; display: flex; align-items: center; gap: 8px; background: transparent; border: none; color: var(--text-muted); cursor: pointer; padding: 12px 16px;">
+            <i class="fa fa-sign-out-alt"></i> Đăng xuất
+          </button>
+        </nav>
+
+        <div class="sidebar-wallet-widget">
+          <p class="wallet-widget-label">Số dư hiện tại</p>
+          <p class="wallet-widget-balance">142.500đ</p>
+          <a href="wallet.html" class="btn btn-widget-add">Nạp tiền vào ví</a>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <div class="account-main">
+        
+        <section class="wallet-hero">
+          <div class="wallet-balance-info">
+            <h1>Ví của tôi</h1>
+            <p>Quản lý số dư và nạp tiền vào tài khoản GameStore</p>
+          </div>
+          <div class="wallet-balance-card">
+            <i class="fa fa-coins"></i>
+            <div>
+              <p style="font-size: 11px; text-transform: uppercase; font-weight: 700; opacity: 0.8;">SỐ DƯ HIỆN TẠI</p>
+              <div class="balance-amount">142.500<span>đ</span></div>
+            </div>
+          </div>
+        </section>
+
+        <div class="grid-2">
+          <!-- Topup Section -->
+          <section class="topup-card">
+            <h2 class="account-section-title"><i class="fa fa-plus-circle" style="color: var(--orange-primary);"></i> Nạp tiền vào ví</h2>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">Chọn phương thức nạp tiền</p>
+            
+            <div class="topup-methods-grid">
+              <div class="method-item active">
+                <div class="method-logo">
+                  <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="MoMo" />
+                </div>
+                <span class="method-name">MoMo</span>
+              </div>
+              <div class="method-item">
+                <div class="method-logo" style="background: white;">
+                  <img src="https://img.icons8.com/color/48/bank.png" alt="Bank" />
+                </div>
+                <span class="method-name">Ngân hàng</span>
+              </div>
+              <div class="method-item">
+                <div class="method-logo" style="background: #333;">
+                   <i class="fa fa-gamepad" style="color: white; font-size: 24px;"></i>
+                </div>
+                <span class="method-name">Thẻ Game</span>
+              </div>
+              <div class="method-item">
+                <div class="method-logo">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhQ6_z_F1E1nI0GCH0-vG6-I6Z7qT5N-wWbg&s" alt="ZaloPay" />
+                </div>
+                <span class="method-name">ZaloPay</span>
+              </div>
+            </div>
+
+            <div class="topup-amount-input">
+              <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Nhập số tiền muốn nạp</p>
+              <div class="amount-field-wrapper">
+                <input type="text" class="amount-input" value="100000" />
+                <span class="amount-currency">VNĐ</span>
+              </div>
+              <div class="quick-amounts">
+                <div class="amount-chip">+ 50.000đ</div>
+                <div class="amount-chip active">+ 100.000đ</div>
+                <div class="amount-chip">+ 200.000đ</div>
+                <div class="amount-chip">+ 500.000đ</div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-topup-submit"><i class="fa fa-bolt"></i> Nạp tiền ngay</button>
+          </section>
+
+          <!-- Side Banner/Info -->
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div class="wallet-promo-card">
+              <div class="promo-icon"><i class="fa fa-star"></i></div>
+              <div class="promo-content">
+                <h3>Khuyến mãi cực hời!</h3>
+                <p>Nạp qua ví MoMo lần đầu tiên nhận ngay voucher giảm giá 10% cho trò chơi bất kỳ.</p>
+                <button class="btn btn-promo-action">Chi tiết</button>
+              </div>
+            </div>
+
+            <div class="info-card" style="border-left: 4px solid var(--orange-primary);">
+              <h3 style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; color: var(--text-primary);">Lưu ý</h3>
+              <ul style="display: flex; flex-direction: column; gap: 12px;">
+                <li style="font-size: 13px; color: var(--text-secondary); display: flex; gap: 8px;">
+                  <i class="fa fa-info-circle" style="color: var(--orange-primary); margin-top: 2px;"></i>
+                  <span>Tiền nạp vào ví không thể quy đổi ngược lại thành tiền mặt.</span>
+                </li>
+                <li style="font-size: 13px; color: var(--text-secondary); display: flex; gap: 8px;">
+                  <i class="fa fa-info-circle" style="color: var(--orange-primary); margin-top: 2px;"></i>
+                  <span>Số tiền tối thiểu cho một giao dịch nạp là 20.000đ.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <section>
+          <div class="account-section-header">
+            <h2 class="account-section-title">Lịch sử giao dịch</h2>
+            <a href="#" class="view-all">Xem tất cả</a>
+          </div>
+          <div class="transaction-table-wrapper">
+            <table class="transaction-table">
+              <thead>
+                <tr>
+                  <th>Ngày giao dịch</th>
+                  <th>Loại giao dịch</th>
+                  <th>Số tiền</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="trans-date">15/10/2023 <small>14:30</small></td>
+                  <td>
+                    <div class="trans-type">
+                      <div class="type-indicator plus"></div>
+                      <i class="fa fa-wallet" style="font-size: 12px; color: var(--text-muted);"></i> Nạp tiền (MoMo)
+                    </div>
+                  </td>
+                  <td class="trans-amount plus">+ 100.000đ</td>
+                  <td><span class="trans-status status-completed">Hoàn tất</span></td>
+                </tr>
+                <tr>
+                  <td class="trans-date">12/10/2023 <small>09:15</small></td>
+                  <td>
+                    <div class="trans-type">
+                      <div class="type-indicator minus"></div>
+                      <i class="fa fa-shopping-cart" style="font-size: 12px; color: var(--text-muted);"></i> Thanh toán (Elden Ring)
+                    </div>
+                  </td>
+                  <td class="trans-amount minus">- 800.000đ</td>
+                  <td><span class="trans-status status-completed">Hoàn tất</span></td>
+                </tr>
+                <tr>
+                  <td class="trans-date">10/10/2023 <small>20:45</small></td>
+                  <td>
+                    <div class="trans-type">
+                      <div class="type-indicator plus"></div>
+                      <i class="fa fa-bank" style="font-size: 12px; color: var(--text-muted);"></i> Nạp tiền (Banking)
+                    </div>
+                  </td>
+                  <td class="trans-amount plus">+ 500.000đ</td>
+                  <td><span class="trans-status status-completed">Hoàn tất</span></td>
+                </tr>
+                <tr>
+                  <td class="trans-date">08/10/2023 <small>11:20</small></td>
+                  <td>
+                    <div class="trans-type">
+                      <div class="type-indicator minus"></div>
+                      <i class="fa fa-wallet" style="font-size: 12px; color: var(--text-muted);"></i> Nạp tiền (ZaloPay)
+                    </div>
+                  </td>
+                  <td class="trans-amount">+ 50.000đ</td>
+                  <td><span class="trans-status status-cancelled">Đã hủy</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">🎮</div>
+          <span class="brand-name">GameStore</span>
+        </a>
+        <p class="brand-desc">Shop bán game bản quyền và dịch vụ giải trí hàng đầu Việt Nam. Chất lượng – Uy tín – Giá rẻ.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-discord"></i></a>
+          <a href="#" class="social-btn"><i class="fas fa-rss"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Công ty</div>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link">Về chúng tôi</a>
+          <a href="careers.html" class="footer-link">Tuyển dụng</a>
+          <a href="#" class="footer-link">Chính sách cửa hàng</a>
+          <a href="partnership.html" class="footer-link">Hợp tác kinh doanh</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Hỗ trợ</div>
+        <div class="footer-links">
+          <a href="faq.html" class="footer-link">Trung tâm hỗ trợ</a>
+          <a href="guide.html" class="footer-link">Hướng dẫn mua hàng</a>
+          <a href="warranty.html" class="footer-link">Chính sách bảo hành</a>
+          <a href="payment.html" class="footer-link">Thanh toán</a>
+        </div>
+      </div>
+      <div>
+         <div class="footer-col-title">Newsletter</div>
+        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Nhận tin tức và khuyến mãi mới nhất.</p>
+        <form class="subscribe-form">
+          <input type="email" class="input" placeholder="Email của bạn..." />
+          <button class="btn-subscribe">Tham gia</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="footer-copy">© 2026 GameStore Inc. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">Bảo mật</a>
+        <a href="terms.html">Điều khoản</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const data = await apiFetch('/wallet');
+    const balance = Number(data.balance || 0);
+    const fmtBalance = balance.toLocaleString('vi-VN') + 'đ';
+
+    // Cập nhật số dư
+    document.querySelectorAll('.balance-amount').forEach(el => {
+      el.innerHTML = balance.toLocaleString('vi-VN') + '<span>đ</span>';
+    });
+    document.querySelectorAll('.wallet-widget-balance').forEach(el => {
+      el.textContent = fmtBalance;
+    });
+
+    // Cập nhật lịch sử giao dịch
+    const tbody = document.querySelector('.transaction-table tbody');
+    if (tbody && data.transactions.length > 0) {
+      tbody.innerHTML = data.transactions.map(t => {
+        const d = new Date(t.created_at);
+        const dateStr = `${d.getDate().toString().padStart(2,'0')}/${(d.getMonth()+1).toString().padStart(2,'0')}/${d.getFullYear()}`;
+        const timeStr = `${d.getHours().toString().padStart(2,'0')}:${d.getMinutes().toString().padStart(2,'0')}`;
+        const isPlus  = t.type === 'topup' || t.type === 'refund';
+        const statusClass = t.status === 'completed' ? 'status-completed' : t.status === 'cancelled' ? 'status-cancelled' : 'status-pending';
+        const statusLabel = t.status === 'completed' ? 'Hoàn tất' : t.status === 'cancelled' ? 'Đã hủy' : 'Đang xử lý';
+        return `<tr>
+          <td class="trans-date">${dateStr} <small>${timeStr}</small></td>
+          <td><div class="trans-type">
+            <div class="type-indicator ${isPlus ? 'plus' : 'minus'}"></div>
+            ${t.description || t.type}
+          </div></td>
+          <td class="trans-amount ${isPlus ? 'plus' : 'minus'}">${isPlus ? '+' : '-'} ${Number(t.amount).toLocaleString('vi-VN')}đ</td>
+          <td><span class="trans-status ${statusClass}">${statusLabel}</span></td>
+        </tr>`;
+      }).join('');
+    }
+
+  } catch (err) {
+    if (err.status === 401 || err.status === 403) window.location.href = 'login.html';
+  }
+
+  // Xử lý nạp tiền
+  const topupBtn = document.querySelector('.btn-topup-submit');
+  if (topupBtn) {
+    topupBtn.addEventListener('click', async () => {
+      const amountInput = document.querySelector('.amount-input');
+      const activeMethod = document.querySelector('.method-item.active .method-name');
+      const amount = parseInt((amountInput?.value || '0').replace(/[^\d]/g, ''));
+      const method = activeMethod?.textContent?.trim() || 'manual';
+
+      if (!amount || amount < 20000) {
+        alert('Số tiền tối thiểu là 20.000đ');
+        return;
+      }
+
+      topupBtn.disabled = true;
+      topupBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Đang xử lý...';
+
+      try {
+        const res = await apiFetch('/wallet/topup', {
+          method: 'POST',
+          body: JSON.stringify({ amount, payment_method: method }),
+        });
+        alert(`Nạp tiền thành công! Số dư: ${Number(res.balance).toLocaleString('vi-VN')}đ`);
+        location.reload();
+      } catch (err) {
+        alert(err.message || 'Nạp tiền thất bại.');
+        topupBtn.disabled = false;
+        topupBtn.innerHTML = '<i class="fa fa-bolt"></i> Nạp tiền ngay';
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>

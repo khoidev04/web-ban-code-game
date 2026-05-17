@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix Premium & Gift Cards – GameStore</title>
+  <meta name="description" content="Giải trí không giới hạn với kho phim bản quyền chất lượng 4K HDR. Tài khoản Premium và thẻ quà tặng Netflix giá rẻ nhất." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/platform.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">🎮</div>
+        <span class="brand-name">GameStore</span>
+      </a>
+
+      <div class="navbar-nav">
+        <a href="index.html" class="nav-link">Cửa hàng</a>
+        <a href="library.html" class="nav-link">Thư viện</a>
+        <a href="community.html" class="nav-link">Cộng đồng</a>
+        <a href="faq.html" class="nav-link">Hỗ trợ</a>
+      </div>
+
+      <div class="navbar-search" style="flex:1; max-width:400px; margin:0 24px;">
+        <div class="search-wrapper">
+          <i class="fa fa-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="Tìm kiếm sản phẩm..." />
+        </div>
+      </div>
+
+      <div class="navbar-actions">
+        <a href="cart.html" class="icon-btn" title="Giỏ hàng">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="cart-badge" id="cart-count" style="display:none">0</span>
+        </a>
+        <div class="notification-wrapper">
+          <a href="#" class="icon-btn notification-toggle" title="Thông báo">
+            <i class="fa fa-bell"></i>
+            <span class="cart-badge notification-badge">1</span>
+          </a>
+          <div class="notification-dropdown">
+            <div class="notification-header">
+              <h4>Thông báo</h4>
+              <button class="mark-read-btn">Đánh dấu đã đọc</button>
+            </div>
+            <div class="notification-list">
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-film" style="color:#e50914"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Netflix Premium đang sale!</div>
+                  <div class="noti-desc">Tài khoản Netflix 6 tháng giảm 13% hôm nay. Đừng bỏ lỡ!</div>
+                  <div class="noti-time">10 phút trước</div>
+                </div>
+              </a>
+            </div>
+            <div class="notification-footer">
+              <a href="#" class="view-all-noti">Xem tất cả thông báo</a>
+            </div>
+          </div>
+        </div>
+        <!-- Auth buttons will be injected by api.js -->
+      </div>
+    </div>
+  </nav>
+
+  <div class="category-bar">
+    <div class="container">
+      <a href="index.html" class="cat-link">Tất cả</a>
+      <a href="steam.html" class="cat-link">Steam</a>
+      <a href="origin.html" class="cat-link">Origin</a>
+      <a href="battlenet.html" class="cat-link">Battle.net</a>
+      <a href="playstation.html" class="cat-link">PlayStation</a>
+      <a href="xbox.html" class="cat-link">Xbox</a>
+      <a href="nintendo.html" class="cat-link">Nintendo</a>
+      <a href="google-play.html" class="cat-link">Google Play</a>
+      <a href="app-store.html" class="cat-link">App Store</a>
+      <a href="netflix.html" class="cat-link active">Netflix</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Platform Hero -->
+  <section class="platform-hero" style="background-image: linear-gradient(0deg, rgba(13, 10, 8, 1) 0%, rgba(13, 10, 8, 0.4) 100%), url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&q=80&w=2000'); background-position: top;">
+    <div class="container" style="text-align: center; padding: 100px 0;">
+      <h1 class="platform-title" style="font-size: 52px; letter-spacing: -1px;">Thẻ Quà Tặng & <span class="platform-highlight" style="color: #e50914;">Tài Khoản Premium</span> Netflix</h1>
+      <p class="platform-desc" style="margin: 24px auto; color: #ddd;">
+        Giải trí không giới hạn với kho phim bản quyền chất lượng 4K HDR. 
+        Gói dịch vụ đa dạng phù hợp với mọi nhu cầu của bạn.
+      </p>
+      <button class="btn-login" style="background: #e50914; border-color: #e50914; padding: 14px 40px;">Xem ưu đãi ngay</button>
+    </div>
+  </section>
+
+  <!-- Horizontal Filters -->
+  <section class="platform-filters" style="background: #0a0a0a; border-top: 1px solid #1a1a1a;">
+    <div class="container">
+      <div class="filter-bar">
+        <div class="filter-group-horizontal">
+          <span class="filter-label-h" style="text-transform: uppercase;">THỜI HẠN:</span>
+          <div class="price-chips">
+            <span class="price-chip active">Tất cả</span>
+            <span class="price-chip">1 tháng</span>
+            <span class="price-chip">3 tháng</span>
+            <span class="price-chip">6 tháng</span>
+            <span class="price-chip">12 tháng</span>
+          </div>
+        </div>
+        
+        <div class="sort-wrapper" style="margin-left: auto;">
+          <span class="sort-label">SẮP XẾP:</span>
+          <select class="sort-select">
+            <option>Mới nhất</option>
+            <option>Giá thấp đến cao</option>
+            <option>Giá cao đến thấp</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Games Grid -->
+  <section class="platform-grid-container" style="background: #0d0d0d;">
+    <div class="container">
+      <div class="platform-grid" id="catalog-grid">
+        <!-- Render from JS -->
+      </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section style="background: #0a0a0a; padding: 60px 0; border-top: 1px solid #111;">
+    <div class="container">
+      <div class="footer-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div style="text-align:center;">
+          <div style="font-size: 32px; color: var(--orange-primary); margin-bottom: 16px;"><i class="fa fa-bolt"></i></div>
+          <h4 style="margin-bottom: 8px;">Giao hàng tức thì</h4>
+          <p style="font-size: 13px; color: var(--text-muted);">Nhận mã thẻ hoặc thông tin tài khoản ngay sau khi thanh toán thành công qua Email.</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size: 32px; color: var(--orange-primary); margin-bottom: 16px;"><i class="fa fa-shield-alt"></i></div>
+          <h4 style="margin-bottom: 8px;">Bảo hành trọn đời</h4>
+          <p style="font-size: 13px; color: var(--text-muted);">Chúng tôi cam kết bảo hành 1 đổi 1 trong suốt thời gian sử dụng dịch vụ của bạn.</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size: 32px; color: var(--orange-primary); margin-bottom: 16px;"><i class="fa fa-headset"></i></div>
+          <h4 style="margin-bottom: 8px;">Hỗ trợ 24/7</h4>
+          <p style="font-size: 13px; color: var(--text-muted);">Đội ngũ kỹ thuật viên luôn sẵn sàng hỗ trợ bạn bất cứ khi nào bạn cần.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">🎮</div>
+          <span class="brand-name">GameStore</span>
+        </a>
+        <p class="brand-desc">Cung cấp các giải pháp giải trí kỹ thuật số hàng đầu tại Việt Nam. Uy tín, nhanh chóng và an toàn.</p>
+        <div class="footer-socials" style="margin-top:20px;">
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fa fa-share-alt"></i></a>
+          <a href="#" class="social-btn"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Nền tảng</div>
+        <div class="footer-links">
+          <a href="steam.html" class="footer-link">Steam</a>
+          <a href="origin.html" class="footer-link">Origin</a>
+          <a href="battlenet.html" class="footer-link">Battle.net</a>
+          <a href="playstation.html" class="footer-link">PlayStation</a>
+          <a href="xbox.html" class="footer-link">Xbox</a>
+          <a href="nintendo.html" class="footer-link">Nintendo</a>
+          <a href="google-play.html" class="footer-link">Google Play</a>
+          <a href="app-store.html" class="footer-link">App Store</a>
+          <a href="netflix.html" class="footer-link">Netflix</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Hỗ trợ</div>
+        <div class="footer-links">
+          <a href="payment.html" class="footer-link">Hướng dẫn thanh toán</a>
+          <a href="privacy.html" class="footer-link">Chính sách bảo hành</a>
+          <a href="faq.html" class="footer-link">Câu hỏi thường gặp</a>
+          <a href="#" class="footer-link">Liên hệ hỗ trợ</a>
+        </div>
+      </div>
+
+      <div style="text-align: right;">
+        <div class="footer-col-title">Kết nối</div>
+        <div style="display:flex; justify-content: flex-end; gap:12px; margin-top:12px;">
+           <i class="fab fa-facebook-square" style="font-size: 24px; color: #1877f2;"></i>
+           <i class="fab fa-discord" style="font-size: 24px; color: #5865f2;"></i>
+           <i class="fa fa-phone-square" style="font-size: 24px; color: var(--orange-primary);"></i>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #1a1a1a; font-size: 11px; color: #444;">
+      © 2024 GameStore. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const formatCurrency = (amount) => new Intl.NumberFormat('vi-VN').format(amount) + 'đ';
+    const grid = document.getElementById('catalog-grid');
+    if (!grid) return;
+    
+    let platformSlug = window.location.pathname.split('/').pop().replace('.html', '');
+    let endpoint = '/products';
+    if (platformSlug && platformSlug !== 'games' && platformSlug !== 'index' && platformSlug !== '') {
+       endpoint += '?platform=' + platformSlug + '&limit=20';
+    } else {
+       endpoint += '?limit=40';
+    }
+
+    try {
+      const data = await apiFetch(endpoint);
+      if (!data || data.length === 0) {
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:40px">Không tìm thấy sản phẩm nào trong danh mục này.</p>';
+        return;
+      }
+      grid.innerHTML = data.map(game => {
+        const currentPrice = game.sale_price || game.original_price;
+        const hasSale = game.sale_price && game.original_price > game.sale_price;
+        const discountPct = game.discount_pct || Math.round((1 - game.sale_price / game.original_price) * 100);
+        
+        const discountTag = hasSale ? '<span class="discount-tag">-' + discountPct + '%</span>' : '';
+        const coverUrl = game.cover_url || 'https://placehold.co/460x215/1a1a1a/f97316?text=Game';
+        const devName = game.platform || game.category || 'GameStore';
+        const oldPriceHtml = hasSale ? '<span class="catalog-card-price" style="text-decoration:line-through; font-size:12px; color:var(--text-muted); margin-right:8px">' + formatCurrency(game.original_price) + '</span>' : '';
+        const isOutOfStock = game.stock === 0;
+        const btnClass = isOutOfStock ? 'fa-ban' : 'fa-shopping-cart';
+        const btnText = isOutOfStock ? 'Hết hàng' : 'Mua ngay';
+        const btnStyle = isOutOfStock ? 'disabled style="background:#444;border-color:#444;color:#aaa"' : '';
+
+        return '<div class="catalog-card" onclick="location.href=\'detail.html?slug=' + game.slug + '\'">' +
+          '<div class="catalog-card-img">' + discountTag + '<img src="' + coverUrl + '" alt="' + game.name + '" /></div>' +
+          '<div class="catalog-card-body">' +
+            '<div class="catalog-card-dev">' + devName + '</div>' +
+            '<div class="catalog-card-name">' + game.name + '</div>' +
+            '<div class="catalog-card-prices" style="margin-bottom:12px">' + oldPriceHtml + 
+              '<span class="catalog-card-price" style="color:var(--orange-primary)">' + formatCurrency(currentPrice) + '</span>' +
+            '</div>' +
+            '<button class="btn-add-cart" ' + btnStyle + ' onclick="event.stopPropagation();">' +
+              '<i class="fa ' + btnClass + '"></i> ' + btnText +
+            '</button>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    } catch (e) {
+      console.error(e);
+      grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:red;padding:40px">Lỗi tải dữ liệu. Vui lòng thử lại sau.</p>';
+    }
+  });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cộng đồng – GameStore</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/social.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">🎮</div>
+        <span class="brand-name">GameStore</span>
+      </a>
+      <div class="navbar-nav">
+        <a href="index.html" class="nav-link">Cửa hàng</a>
+        <a href="library.html" class="nav-link">Thư viện</a>
+        <a href="community.html" class="nav-link active">Cộng đồng</a>
+        <a href="faq.html" class="nav-link">Hỗ trợ</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="cart.html" class="icon-btn" title="Giỏ hàng">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="cart-badge">3</span>
+        </a>
+        <div class="notification-wrapper">
+          <a href="#" class="icon-btn notification-toggle" title="Thông báo">
+            <i class="fa fa-bell"></i>
+            <span class="cart-badge notification-badge">2</span>
+          </a>
+          <div class="notification-dropdown">
+            <div class="notification-header">
+              <h4>Thông báo</h4>
+              <button class="mark-read-btn">Đánh dấu đã đọc</button>
+            </div>
+            <div class="notification-list">
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-gift"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Quà tặng mới!</div>
+                  <div class="noti-desc">Bạn vừa nhận được 1 code giảm giá 10% cho đơn hàng tiếp theo.</div>
+                  <div class="noti-time">2 phút trước</div>
+                </div>
+              </a>
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-shopping-bag"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Đơn hàng thành công</div>
+                  <div class="noti-desc">Đơn hàng #882941 của bạn đã được xác nhận.</div>
+                  <div class="noti-time">1 giờ trước</div>
+                </div>
+              </a>
+            </div>
+            <div class="notification-footer">
+              <a href="#" class="view-all-noti">Xem tất cả thông báo</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="social-page">
+  <div class="container">
+    
+    <div class="community-layout">
+        
+        <!-- FEED MAIN -->
+        <div class="community-feed">
+            <div class="section-header">
+                <h1 class="section-title"><i class="fa fa-users"></i> Hoạt động cộng đồng</h1>
+            </div>
+
+            <!-- Create Post -->
+            <div class="post-card" style="padding: 16px;" id="create-post-container" style="display:none;">
+                <div style="display:flex; gap:12px; align-items:flex-start;">
+                    <img id="current-user-avatar" src="https://i.pravatar.cc/150?u=user" style="width:40px; height:40px; border-radius:50%;" />
+                    <div style="flex:1;">
+                        <textarea id="post-input" placeholder="Bạn đang nghĩ gì? Chia sẻ cảm nghĩ về tựa game yêu thích..." style="width: 100%; min-height: 80px; background:var(--bg-secondary); padding: 12px; border-radius: 12px; color: var(--text-primary); border: 1px solid var(--border-primary); resize: none;"></textarea>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                            <input type="text" id="post-image-url" placeholder="URL ảnh (không bắt buộc)" style="flex: 1; margin-right: 10px; background:var(--bg-secondary); padding: 8px 12px; border-radius: 8px; color: var(--text-primary); border: 1px solid var(--border-primary); font-size: 13px;" />
+                            <button id="btn-submit-post" class="btn btn-primary btn-sm">Đăng bài</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="login-prompt-post" style="padding: 16px; text-align: center; background: var(--bg-secondary); border-radius: 12px; margin-bottom: 20px;">
+                <p style="color: var(--text-secondary); margin-bottom: 10px;">Đăng nhập để tham gia thảo luận cùng cộng đồng.</p>
+                <button class="btn btn-outline" onclick="location.href='login.html'">Đăng nhập ngay</button>
+            </div>
+
+            <div id="posts-container">
+                <div style="text-align:center; padding: 40px;"><i class="fa fa-spinner fa-spin" style="font-size:24px; color:var(--text-muted);"></i></div>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="community-sidebar">
+            <div class="widget">
+                <h3 class="widget-title"><i class="fa fa-fire"></i> Chủ đề xu hướng</h3>
+                <div id="trending-topics">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title"><i class="fa fa-user-plus"></i> Đề xuất cho bạn</h3>
+                <div id="suggested-friends" style="display:flex; flex-direction:column; gap:16px;">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">🎮</div>
+          <span class="brand-name">GameStore</span>
+        </a>
+        <p class="brand-desc">Shop bán game bản quyền và dịch vụ giải trí hàng đầu Việt Nam. Chất lượng – Uy tín – Giá rẻ.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-discord"></i></a>
+          <a href="#" class="social-btn"><i class="fas fa-rss"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Công ty</div>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link">Về chúng tôi</a>
+          <a href="careers.html" class="footer-link">Tuyển dụng</a>
+          <a href="#" class="footer-link">Chính sách cửa hàng</a>
+          <a href="partnership.html" class="footer-link">Hợp tác kinh doanh</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Hỗ trợ</div>
+        <div class="footer-links">
+          <a href="faq.html" class="footer-link">Trung tâm hỗ trợ</a>
+          <a href="guide.html" class="footer-link">Hướng dẫn mua hàng</a>
+          <a href="warranty.html" class="footer-link">Chính sách bảo hành</a>
+          <a href="payment.html" class="footer-link">Thanh toán</a>
+        </div>
+      </div>
+      <div>
+         <div class="footer-col-title">Newsletter</div>
+        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Nhận tin tức và khuyến mãi mới nhất.</p>
+        <form class="subscribe-form">
+          <input type="email" class="input" placeholder="Email của bạn..." />
+          <button class="btn-subscribe">Tham gia</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="footer-copy">© 2026 GameStore Inc. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">Bảo mật</a>
+        <a href="terms.html">Điều khoản</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const postsContainer = document.getElementById('posts-container');
+  const createPostContainer = document.getElementById('create-post-container');
+  const loginPrompt = document.getElementById('login-prompt-post');
+  
+  if (Auth.isLoggedIn()) {
+    createPostContainer.style.display = 'block';
+    loginPrompt.style.display = 'none';
+    
+    const user = Auth.getUser();
+    if(user) {
+      if(user.avatar_url) {
+        document.getElementById('current-user-avatar').src = user.avatar_url;
+      } else {
+        document.getElementById('current-user-avatar').src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.full_name || 'User')}&background=random`;
+      }
+    }
+  } else {
+    createPostContainer.style.display = 'none';
+    loginPrompt.style.display = 'block';
+  }
+
+  async function loadPosts() {
+    try {
+      const posts = await apiFetch('/community/posts');
+      if (posts.length === 0) {
+        postsContainer.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding: 40px;">Trở thành người đầu tiên thảo luận!</p>';
+        return;
+      }
+      
+      postsContainer.innerHTML = posts.map(post => {
+        const diff = Date.now() - new Date(post.created_at).getTime();
+        const mins = Math.floor(diff / 60000);
+        let timeStr = mins < 60 ? `${mins} phút trước` : `${Math.floor(mins/60)} giờ trước`;
+        if (mins < 1) timeStr = 'Vừa xong';
+
+        let mediaHtml = '';
+        if (post.image_url) {
+          mediaHtml = `
+            <div class="post-media" style="margin-top: 12px; border-radius: 8px; overflow: hidden;">
+                <img src="${post.image_url}" alt="Post Image" style="width: 100%; max-height: 400px; object-fit: cover;" onerror="this.style.display='none'" />
+            </div>`;
+        }
+        
+        const avatar = post.avatar_url || `https://ui-avatars.com/api/?name=${post.full_name}&background=random`;
+
+        return `
+          <article class="post-card">
+              <div class="post-header">
+                  <div class="post-author">
+                      <div class="author-avatar"><img src="${avatar}" alt="${post.full_name}" style="border-radius:50%; width: 40px; height: 40px; object-fit: cover;" /></div>
+                      <div class="author-info">
+                          <h4>${post.full_name}</h4>
+                          <p>Đã đăng ${timeStr}</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="post-content">
+                  <p class="post-text">${post.content.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\\n/g, '<br/>')}</p>
+                  ${mediaHtml}
+              </div>
+              <div class="post-footer">
+                  <span class="post-action"><i class="fa fa-heart"></i> ${post.likes || 0}</span>
+                  <span class="post-action"><i class="fa fa-comment"></i> ${post.comments || 0}</span>
+                  <span class="post-action"><i class="fa fa-share"></i> Chia sẻ</span>
+              </div>
+          </article>
+        `;
+      }).join('');
+    } catch (err) {
+      console.error(err);
+      postsContainer.innerHTML = '<p style="text-align:center;color:#ef4444;padding: 40px;">Lỗi tải bài viết. Vui lòng thử lại sau.</p>';
+    }
+  }
+
+  async function loadSidebar() {
+    try {
+      const data = await apiFetch('/community/sidebar');
+      const trendingContainer = document.getElementById('trending-topics');
+      const suggestedContainer = document.getElementById('suggested-friends');
+
+      if (trendingContainer && data.trending) {
+        trendingContainer.innerHTML = data.trending.map(game => `
+          <div class="trending-item">
+            <img src="${game.cover_url || 'https://placehold.co/100x140/333/f97316?text=' + game.name}" class="trending-img" />
+            <div class="trending-info">
+                <h5>${game.name}</h5>
+                <p>Nổi bật tuần này</p>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      if (suggestedContainer && data.suggested) {
+        suggestedContainer.innerHTML = data.suggested.map(user => `
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+              <div style="display:flex; align-items:center; gap:10px;">
+                  <img src="${user.avatar_url || `https://ui-avatars.com/api/?name=${user.full_name}&background=random`}" style="width:36px; height:36px; border-radius:50%;" />
+                  <span style="font-size:13px; font-weight:600;">${user.full_name}</span>
+              </div>
+              <button class="btn btn-outline btn-sm">Kết bạn</button>
+          </div>
+        `).join('');
+      }
+    } catch (err) {
+      console.error('Lỗi tải sidebar:', err);
+    }
+  }
+
+  const btnSubmit = document.getElementById('btn-submit-post');
+  if(btnSubmit) {
+    btnSubmit.addEventListener('click', async () => {
+      const input = document.getElementById('post-input');
+      const imgInput = document.getElementById('post-image-url');
+      const content = input.value.trim();
+      if(!content) return;
+
+      const oldText = btnSubmit.innerHTML;
+      btnSubmit.innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
+      btnSubmit.disabled = true;
+
+      try {
+        await apiFetch('/community/posts', {
+          method: 'POST',
+          body: JSON.stringify({ content, image_url: imgInput.value.trim() })
+        });
+        input.value = '';
+        imgInput.value = '';
+        await loadPosts(); 
+      } catch (err) {
+        alert('Lỗi đăng bài: ' + err.message);
+      } finally {
+        btnSubmit.innerHTML = oldText;
+        btnSubmit.disabled = false;
+      }
+    });
+  }
+
+  loadPosts();
+  loadSidebar();
+});
+</script>
+</body>
+</html>

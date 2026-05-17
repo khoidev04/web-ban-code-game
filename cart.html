@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giỏ hàng của bạn – GameStore</title>
+  <meta name="description"
+    content="Xem lại giỏ hàng, áp dụng mã giảm giá và tiến hành thanh toán nhanh chóng tại GameStore." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">🎮</div>
+          <span class="brand-name">GameStore</span>
+        </a>
+        <div class="navbar-nav">
+          <a href="index.html" class="nav-link">Cửa hàng</a>
+          <a href="library.html" class="nav-link">Thư viện</a>
+          <a href="community.html" class="nav-link">Cộng đồng</a>
+          <a href="faq.html" class="nav-link">Hỗ trợ</a>
+        </div>
+        <div class="navbar-actions">
+          <a href="cart.html" class="icon-btn active" title="Giỏ hàng"
+            style="border-color:var(--orange-primary);color:var(--orange-primary)">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="cart-badge">3</span>
+          </a>
+          <div class="notification-wrapper">
+            <a href="#" class="icon-btn notification-toggle" title="Thông báo">
+              <i class="fa fa-bell"></i>
+              <span class="cart-badge notification-badge">2</span>
+            </a>
+            <div class="notification-dropdown">
+              <div class="notification-header">
+                <h4>Thông báo</h4>
+                <button class="mark-read-btn">Đánh dấu đã đọc</button>
+              </div>
+              <div class="notification-list">
+                <a href="#" class="notification-item unread">
+                  <div class="noti-icon"><i class="fa fa-gift"></i></div>
+                  <div class="noti-content">
+                    <div class="noti-title">Quà tặng mới!</div>
+                    <div class="noti-desc">Bạn vừa nhận được 1 code giảm giá 10% cho đơn hàng tiếp theo.</div>
+                    <div class="noti-time">2 phút trước</div>
+                  </div>
+                </a>
+                <a href="#" class="notification-item unread">
+                  <div class="noti-icon"><i class="fa fa-shopping-bag"></i></div>
+                  <div class="noti-content">
+                    <div class="noti-title">Đơn hàng thành công</div>
+                    <div class="noti-desc">Đơn hàng #882941 của bạn đã được xác nhận.</div>
+                    <div class="noti-time">1 giờ trước</div>
+                  </div>
+                </a>
+              </div>
+              <div class="notification-footer">
+                <a href="#" class="view-all-noti">Xem tất cả thông báo</a>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="cart-page">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Trang chủ</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">Giỏ hàng của bạn</span>
+      </div>
+
+      <h1 class="cart-title">Giỏ Hàng <span class="cart-count" id="header-cart-count">(0 sản phẩm)</span></h1>
+
+      <div class="cart-layout">
+
+        <!-- ===== CART ITEMS ===== -->
+        <div class="cart-left">
+          <div class="cart-items" id="cart-items-container">
+            <div style="text-align:center; padding: 40px;">
+              <i class="fa fa-spinner fa-spin" style="font-size:24px; color:var(--text-muted);"></i>
+            </div>
+          </div><!-- end cart-items -->
+
+          <!-- Cart Footer Actions -->
+          <div class="cart-footer-row">
+            <button class="btn-continue" onclick="location.href='games.html'">
+              <i class="fa fa-arrow-left"></i> Tiếp tục mua sắm
+            </button>
+            <button class="btn-clear-cart">Xóa tất cả sản phẩm</button>
+          </div>
+
+        </div><!-- end cart-left -->
+
+        <!-- ===== ORDER SUMMARY ===== -->
+        <div class="order-summary">
+          <div class="order-title">Tóm tắt đơn hàng</div>
+
+          <div class="order-rows">
+            <div class="order-row">
+              <span class="order-row-label">Tạm tính (<span id="summary-qty">0</span> sản phẩm)</span>
+              <span class="order-row-value" id="summary-subtotal">0đ</span>
+            </div>
+            <div class="order-row" id="summary-discount-row" style="display:none;">
+              <span class="order-row-label">Giảm giá (<span id="summary-discount-code"></span>)</span>
+              <span class="order-row-value discount" id="summary-discount-val">−0đ</span>
+            </div>
+            <div class="order-row">
+              <span class="order-row-label">Phí dịch vụ</span>
+              <span class="order-row-value free">0đ</span>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <!-- Coupon Code -->
+          <div class="coupon-section">
+            <div class="coupon-title">Mã giảm giá</div>
+            <div class="coupon-input-row">
+              <input type="text" id="coupon-input" class="input" placeholder="Nhập mã ưu đãi..." />
+              <button class="btn-apply" id="apply-coupon">ÁP<br />DỤNG</button>
+            </div>
+            <div id="coupon-message" class="coupon-success">
+              <i class="fa fa-check-circle"></i> Mã MR112024 đã được áp dụng
+            </div>
+          </div>
+
+          <!-- Total -->
+          <div class="order-total-row">
+            <div>
+              <div class="order-total-label">Tổng cộng</div>
+              <div class="order-total-sub">Đã bao gồm thuế VAT</div>
+            </div>
+            <div>
+              <div class="order-total-value" id="summary-total">0đ</div>
+            </div>
+          </div>
+
+          <!-- Checkout Button -->
+          <button class="btn-checkout" onclick="location.href='payment.html'">
+            THANH TOÁN NGAY <i class="fa fa-credit-card"></i>
+          </button>
+
+          <!-- Payment Icons -->
+          <div class="payment-icons">
+            <div class="pay-icon"></div>
+            <div class="pay-icon"></div>
+            <div class="pay-icon"></div>
+          </div>
+
+          <div class="secure-text">
+            <i class="fa fa-lock" style="color:var(--orange-primary)"></i>
+            Giao dịch được bảo mật bằng mã hóa SSL 256-bit
+          </div>
+
+        </div><!-- end order-summary -->
+
+      </div><!-- end cart-layout -->
+
+      <!-- ===== RECOMMENDED PRODUCTS ===== -->
+      <div class="recommended">
+        <div class="section-header">
+          <div class="section-title">Có thể bạn quan tâm</div>
+        </div>
+
+        <div class="recommended-grid" id="recommended-grid-container">
+          <!-- JS loadRecommendation() sẽ điền sản phẩm vào đây -->
+        </div><!-- end recommended-grid -->
+      </div>
+
+    </div><!-- end container -->
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" style="background:var(--bg-primary);border-top:1px solid var(--border-primary)">
+    <div class="container" style="text-align:center;padding:40px 24px 20px">
+      <a href="index.html" class="navbar-brand" style="justify-content:center;margin-bottom:12px">
+        <div class="brand-icon">🎮</div>
+        <span class="brand-name">GameStore</span>
+      </a>
+      <p style="font-size:13px;color:var(--text-muted);margin:12px 0 20px">
+        © 2026 GameStore. Trải nghiệm game bản quyền cao trên mọi nền tảng.
+      </p>
+      <div class="footer-bottom-links" style="justify-content:center;margin-bottom:16px">
+        <a href="terms.html">Điều khoản</a>
+        <a href="privacy.html">Bảo mật</a>
+        <a href="warranty.html">Hoàn tiền</a>
+        <a href="partnership.html">Hợp tác</a>
+      </div>
+      <div class="footer-socials" style="justify-content:center">
+        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fas fa-share-alt"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>

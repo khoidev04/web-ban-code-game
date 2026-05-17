@@ -1,0 +1,337 @@
+/* === SOCIAL & LIBRARY CSS: Library + Community === */
+
+/* ===== GLOBAL SOCIAL UTILITIES ===== */
+.social-page {
+    padding: 32px 0 60px;
+    min-height: 80vh;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-title i {
+    color: var(--orange-primary);
+}
+
+/* ===== LIBRARY PAGE ===== */
+.library-filters {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.library-search {
+    flex: 1;
+    max-width: 400px;
+    position: relative;
+}
+
+.library-search i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.library-search input {
+    width: 100%;
+    padding: 10px 14px 10px 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.library-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-primary);
+    overflow: hidden;
+    transition: all var(--transition-med);
+    position: relative;
+}
+
+.library-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--orange-primary);
+    box-shadow: var(--shadow-card);
+}
+
+.library-card-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #111;
+    position: relative;
+}
+
+.library-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.library-card:hover .library-card-img img {
+    transform: scale(1.05);
+}
+
+.library-status-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 8px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status-installed { color: #22c55e; }
+.status-update { color: #f97316; }
+.status-cloud { color: #3b82f6; }
+
+.library-card-body {
+    padding: 16px;
+}
+
+.library-game-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.library-game-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.library-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-play {
+    flex: 1;
+    background: var(--orange-primary);
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-play:hover {
+    background: var(--orange-hover);
+}
+
+.btn-settings {
+    width: 36px;
+    height: 36px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* ===== COMMUNITY PAGE ===== */
+.community-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 32px;
+}
+
+.community-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.post-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.post-header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--border-primary);
+}
+
+.author-info h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.author-info p {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.post-content {
+    padding: 0 16px 16px;
+}
+
+.post-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.post-media {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 12px;
+    background: #111;
+}
+
+.post-media img {
+    width: 100%;
+    display: block;
+}
+
+.post-footer {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border-primary);
+    display: flex;
+    gap: 20px;
+}
+
+.post-action {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.post-action:hover {
+    color: var(--orange-primary);
+}
+
+.post-action.active {
+    color: var(--orange-primary);
+}
+
+/* Sidebar Widgets */
+.community-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.widget {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+}
+
+.widget-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.trending-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.trending-img {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+}
+
+.trending-info h5 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.trending-info p {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+    .community-layout {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chỉnh sửa hồ sơ – GameStore</title>
+  <meta name="description" content="Cập nhật thông tin cá nhân của bạn trên GameStore." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/account.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">🎮</div>
+        <span class="brand-name">GameStore</span>
+      </a>
+      <div class="navbar-nav">
+        <a href="index.html" class="nav-link">Cửa hàng</a>
+        <a href="library.html" class="nav-link">Thư viện</a>
+        <a href="community.html" class="nav-link">Cộng đồng</a>
+        <a href="faq.html" class="nav-link">Hỗ trợ</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="cart.html" class="icon-btn" title="Giỏ hàng">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="cart-badge">3</span>
+        </a>
+        <div class="notification-wrapper">
+          <a href="#" class="icon-btn notification-toggle" title="Thông báo">
+            <i class="fa fa-bell"></i>
+            <span class="cart-badge notification-badge">2</span>
+          </a>
+          <div class="notification-dropdown">
+            <div class="notification-header">
+              <h4>Thông báo</h4>
+              <button class="mark-read-btn">Đánh dấu đã đọc</button>
+            </div>
+            <div class="notification-list">
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-gift"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Quà tặng mới!</div>
+                  <div class="noti-desc">Bạn vừa nhận được 1 code giảm giá 10% cho đơn hàng tiếp theo.</div>
+                  <div class="noti-time">2 phút trước</div>
+                </div>
+              </a>
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-shopping-bag"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Đơn hàng thành công</div>
+                  <div class="noti-desc">Đơn hàng #882941 của bạn đã được xác nhận.</div>
+                  <div class="noti-time">1 giờ trước</div>
+                </div>
+              </a>
+            </div>
+            <div class="notification-footer">
+              <a href="#" class="view-all-noti">Xem tất cả thông báo</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="account-page">
+  <div class="container">
+    <div class="account-layout">
+      
+      <!-- SIDEBAR -->
+      <aside class="account-sidebar">
+        <div class="user-sidebar-info">
+          <div class="user-sidebar-avatar">
+            <img src="https://i.pravatar.cc/150?u=alex" alt="Alex Walker" />
+          </div>
+          <div class="user-sidebar-meta">
+            <h3>Alex Walker</h3>
+            <p>alex.walker@gamestore.com</p>
+          </div>
+        </div>
+
+        <nav class="account-nav">
+          <a href="profile.html" class="account-nav-link active"><i class="fa fa-user-circle"></i> Hồ sơ</a>
+          <a href="library.html" class="account-nav-link"><i class="fa fa-layer-group"></i> Thư viện</a>
+          <a href="community.html" class="account-nav-link"><i class="fa fa-users"></i> Cộng đồng</a>
+          <a href="security.html" class="account-nav-link"><i class="fa fa-shield-alt"></i> Bảo mật</a>
+          <a href="settings.html" class="account-nav-link"><i class="fa fa-cog"></i> Cài đặt</a>
+          <div class="sidebar-divider"></div>
+          <a href="orders.html" class="account-nav-link"><i class="fa fa-history"></i> Giao dịch</a>
+          <a href="wallet.html" class="account-nav-link"><i class="fa fa-wallet"></i> Ví cá nhân</a>
+          <button class="btn btn-sidebar-logout" style="margin-top: 24px; display: flex; align-items: center; gap: 8px; background: transparent; border: none; color: var(--text-muted); cursor: pointer; padding: 12px 16px;">
+            <i class="fa fa-sign-out-alt"></i> Đăng xuất
+          </button>
+        </nav>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <div class="account-main">
+        
+        <header>
+          <h1 class="settings-section-title">Chỉnh sửa hồ sơ</h1>
+          <p class="settings-section-desc">Cập nhật thông tin cá nhân của bạn để hiển thị tốt nhất trên cộng đồng GameStore.</p>
+        </header>
+
+        <!-- Avatar Section -->
+        <section class="settings-card">
+          <div class="avatar-edit-block">
+            <div class="avatar-preview-lg">
+              <img src="https://i.pravatar.cc/150?u=alex" alt="Current Avatar" />
+            </div>
+            <div class="avatar-edit-info">
+              <h4>Ảnh đại diện</h4>
+              <p>Hỗ trợ định dạng JPG, PNG hoặc GIF. Dung lượng tối đa 5MB.</p>
+              <div class="avatar-edit-actions">
+                <button class="btn btn-primary">Tải ảnh mới</button>
+                <button class="btn btn-outline">Gỡ ảnh hiện tại</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- General Info Section -->
+        <section class="settings-card">
+          <div class="settings-form-grid" style="margin-bottom: 24px;">
+            <div class="form-group">
+              <label class="form-label">Tên hiển thị</label>
+              <div class="input-with-icon">
+                <i class="fa fa-user"></i>
+                <input type="text" class="settings-input" value="Alex Gamer" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email liên kết</label>
+              <div class="input-with-icon">
+                <i class="fa fa-envelope"></i>
+                <input type="email" class="settings-input" value="alex.gamer@example.com" />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 24px;">
+            <label class="form-label">Ngày sinh</label>
+            <div class="input-with-icon">
+              <i class="fa fa-calendar-alt"></i>
+              <input type="date" class="settings-input" value="1995-10-24" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Giới thiệu bản thân (Bio)</label>
+            <div class="bio-wrapper">
+              <textarea class="bio-textarea" placeholder="Nói điều gì đó về bản thân bạn...">Đam mê các dòng game RPG và FPS. Thích khám phá các tựa game indie mới lạ mỗi cuối tuần.</textarea>
+              <div class="char-counter">124 / 500</div>
+            </div>
+          </div>
+
+          <div class="settings-footer">
+            <a href="profile.html" class="btn-cancel">Hủy bỏ</a>
+            <button class="btn btn-primary btn-lg" style="padding: 12px 32px;">Lưu thay đổi</button>
+          </div>
+        </section>
+
+        <!-- Security Section -->
+        <section>
+          <div class="security-title-wrap">
+            <i class="fa fa-shield-alt"></i>
+            <h3>Bảo mật tài khoản</h3>
+          </div>
+          
+          <div class="settings-card">
+            <div class="security-item">
+              <div class="security-info">
+                <h5>Mật khẩu</h5>
+                <p>Thay đổi mật khẩu định kỳ để bảo vệ tài khoản của bạn.</p>
+              </div>
+              <button class="btn btn-outline" style="border-radius: var(--radius-md);">Đổi mật khẩu</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">🎮</div>
+          <span class="brand-name">GameStore</span>
+        </a>
+        <p class="brand-desc">Shop bán game bản quyền và dịch vụ giải trí hàng đầu Việt Nam. Chất lượng – Uy tín – Giá rẻ.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-discord"></i></a>
+          <a href="#" class="social-btn"><i class="fas fa-rss"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Công ty</div>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link">Về chúng tôi</a>
+          <a href="careers.html" class="footer-link">Tuyển dụng</a>
+          <a href="#" class="footer-link">Chính sách cửa hàng</a>
+          <a href="partnership.html" class="footer-link">Hợp tác kinh doanh</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Hỗ trợ</div>
+        <div class="footer-links">
+          <a href="faq.html" class="footer-link">Trung tâm hỗ trợ</a>
+          <a href="guide.html" class="footer-link">Hướng dẫn mua hàng</a>
+          <a href="warranty.html" class="footer-link">Chính sách bảo hành</a>
+          <a href="payment.html" class="footer-link">Thanh toán</a>
+        </div>
+      </div>
+       <div>
+         <div class="footer-col-title">Newsletter</div>
+        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Nhận tin tức và khuyến mãi mới nhất.</p>
+        <form class="subscribe-form">
+          <input type="email" class="input" placeholder="Email của bạn..." />
+          <button class="btn-subscribe">Tham gia</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-primary);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <p style="font-size: 12px; color: var(--text-muted);">© 2026 GameStore Inc. All rights reserved.</p>
+      <div style="display: flex; gap: 20px;">
+        <a href="privacy.html" style="font-size: 12px; color: var(--text-muted);">Bảo mật</a>
+        <a href="terms.html" style="font-size: 12px; color: var(--text-muted);">Điều khoản</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

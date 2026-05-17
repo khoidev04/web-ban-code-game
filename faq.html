@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Câu hỏi thường gặp (FAQ) – GameStore</title>
+  <meta name="description" content="Giải đáp tất cả các thắc mắc về tài khoản, thanh toán, bảo mật và lỗi kỹ thuật khi sử dụng GameStore." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/support.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">🎮</div>
+        <span class="brand-name">GameStore</span>
+      </a>
+
+      <div class="navbar-search">
+        <div class="search-wrapper">
+          <i class="fa fa-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="Tìm kiếm game, ứng dụng, tài khoản..." />
+        </div>
+      </div>
+
+      <div class="navbar-actions">
+        <a href="cart.html" class="icon-btn" title="Giỏ hàng">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="cart-badge">3</span>
+        </a>
+        <div class="notification-wrapper">
+          <a href="#" class="icon-btn notification-toggle" title="Thông báo">
+            <i class="fa fa-bell"></i>
+            <span class="cart-badge notification-badge">2</span>
+          </a>
+          <div class="notification-dropdown">
+            <div class="notification-header">
+              <h4>Thông báo</h4>
+              <button class="mark-read-btn">Đánh dấu đã đọc</button>
+            </div>
+            <div class="notification-list">
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-gift"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Quà tặng mới!</div>
+                  <div class="noti-desc">Bạn vừa nhận được 1 code giảm giá 10% cho đơn hàng tiếp theo.</div>
+                  <div class="noti-time">2 phút trước</div>
+                </div>
+              </a>
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-shopping-bag"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Đơn hàng thành công</div>
+                  <div class="noti-desc">Đơn hàng #882941 của bạn đã được xác nhận.</div>
+                  <div class="noti-time">1 giờ trước</div>
+                </div>
+              </a>
+            </div>
+            <div class="notification-footer">
+              <a href="#" class="view-all-noti">Xem tất cả thông báo</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="category-bar">
+    <div class="container">
+      <a href="games.html" class="cat-link active">
+        <i class="fa fa-th-large"></i> Tất cả danh mục
+      </a>
+      <a href="steam.html" class="cat-link">Steam</a>
+      <a href="origin.html" class="cat-link">Origin</a>
+      <a href="battlenet.html" class="cat-link">Battle.net</a>
+      <a href="playstation.html" class="cat-link">PlayStation</a>
+      <a href="xbox.html" class="cat-link">Xbox</a>
+      <a href="nintendo.html" class="cat-link">Nintendo</a>
+      <a href="google-play.html" class="cat-link">Google Play</a>
+      <a href="app-store.html" class="cat-link">App Store</a>
+      <a href="netflix.html" class="cat-link">Netflix</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== SUPPORT HEADER ===== -->
+<div class="support-header" style="background:var(--orange-primary);text-align:center;padding:80px 0 100px;">
+  <div class="container" style="position:relative">
+    <h1 class="support-title" style="color:white;font-size:42px;margin-bottom:16px;text-shadow:0 4px 12px rgba(0,0,0,0.2)">Trung tâm hỗ trợ khách hàng</h1>
+    <p class="support-desc" style="color:rgba(255,255,255,0.9);font-weight:500;font-size:18px;max-width:500px;margin:0 auto">Bạn cần giúp đỡ? Hãy tìm kiếm vấn đề của bạn bên dưới hoặc duyệt qua các câu hỏi thường gặp.</p>
+    
+    <!-- Big question mark background -->
+    <div style="position:absolute;top:-40px;right:10%;font-size:180px;font-weight:900;color:rgba(0,0,0,0.08);line-height:1;pointer-events:none">?</div>
+  </div>
+</div>
+
+<!-- ===== MAIN BODY ===== -->
+<div class="container">
+  
+  <div class="faq-search">
+    <i class="fa fa-search faq-search-icon"></i>
+    <input type="text" class="faq-search-input" placeholder="Nhập vấn đề bạn đang gặp phải...">
+  </div>
+
+  <div style="max-width:800px;margin:0 auto 80px;">
+    
+    <!-- FAQ Tabs -->
+    <div style="display:flex;gap:32px;border-bottom:1px solid var(--border-primary);margin-bottom:32px;overflow-x:auto;">
+      <div style="padding-bottom:12px;color:var(--orange-primary);font-weight:700;font-size:13px;border-bottom:2px solid var(--orange-primary);cursor:pointer;white-space:nowrap;text-transform:uppercase;letter-spacing:1px">Tất cả</div>
+      <div style="padding-bottom:12px;color:var(--text-secondary);font-weight:600;font-size:13px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;text-transform:uppercase;letter-spacing:1px">Tài khoản</div>
+      <div style="padding-bottom:12px;color:var(--text-secondary);font-weight:600;font-size:13px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;text-transform:uppercase;letter-spacing:1px">Đơn hàng & Thanh toán</div>
+      <div style="padding-bottom:12px;color:var(--text-secondary);font-weight:600;font-size:13px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;text-transform:uppercase;letter-spacing:1px">Bảo mật</div>
+      <div style="padding-bottom:12px;color:var(--text-secondary);font-weight:600;font-size:13px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;text-transform:uppercase;letter-spacing:1px">Kỹ thuật</div>
+    </div>
+
+    <h2 style="font-size:24px;font-weight:800;color:var(--text-primary);margin-bottom:24px;display:flex;align-items:center;gap:12px">
+      <div style="width:28px;height:28px;background:var(--orange-primary);color:white;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px"><i class="fa fa-question"></i></div>
+      Câu hỏi thường gặp (FAQ)
+    </h2>
+
+    <div class="accordion">
+      
+      <!-- FAQ 1 -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="this.parentElement.classList.toggle('active')">
+          <div style="display:flex;align-items:center;gap:16px">
+            <i class="fa fa-user" style="color:var(--orange-primary);width:16px;text-align:center"></i>
+            <div>Làm thế nào để thay đổi mật khẩu tài khoản GameStore?</div>
+          </div>
+          <i class="fa fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="accordion-content">
+          Bạn có thể thay đổi mật khẩu bằng cách truy cập vào trang <strong>Quản lý tài khoản</strong> &gt; <strong>Bảo mật & Đăng nhập</strong> &gt; <strong>Đổi mật khẩu</strong>. Hệ thống sẽ yêu cầu bạn nhập mật khẩu hiện tại và mật khẩu mới để xác nhận.
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="this.parentElement.classList.toggle('active')">
+          <div style="display:flex;align-items:center;gap:16px">
+            <i class="fa fa-money-bill-wave" style="color:var(--orange-primary);width:16px;text-align:center"></i>
+            <div>Các phương thức thanh toán nào được chấp nhận?</div>
+          </div>
+          <i class="fa fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="accordion-content">
+          GameStore hiện hỗ trợ thanh toán qua: Ví điện tử (MoMo, ZaloPay), Chuyển khoản ngân hàng (QR Code VNPay), Thẻ ATM nội địa (Napas), và Thẻ tín dụng/ghi nợ quốc tế (Visa, Mastercard, JCB).
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="this.parentElement.classList.toggle('active')">
+          <div style="display:flex;align-items:center;gap:16px">
+            <i class="fa fa-undo-alt" style="color:var(--orange-primary);width:16px;text-align:center"></i>
+            <div>Chính sách hoàn tiền của GameStore như thế nào?</div>
+          </div>
+          <i class="fa fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="accordion-content">
+          Chúng tôi hỗ trợ hoàn tiền 100% trong vòng 7 ngày đối với các sản phẩm chưa qua sử dụng (chưa kích hoạt key, chưa bóc seal sản phẩm vật lý). Vui lòng gửi yêu cầu qua trang <strong>Hỗ trợ</strong> để được xử lý.
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="this.parentElement.classList.toggle('active')">
+          <div style="display:flex;align-items:center;gap:16px">
+            <i class="fa fa-shield-alt" style="color:var(--orange-primary);width:16px;text-align:center"></i>
+            <div>Xác thực 2 yếu tố (2FA) là gì và làm sao để bật nó?</div>
+          </div>
+          <i class="fa fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="accordion-content">
+          2FA là lớp bảo mật bổ sung cho tài khoản của bạn. Khi bật, bạn sẽ cần nhập mã code từ ứng dụng Authenticator ngoài mật khẩu. Để kích hoạt, vào <strong>Bảo mật tài khoản</strong> và chọn <strong>Bật 2FA</strong>.
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="this.parentElement.classList.toggle('active')">
+          <div style="display:flex;align-items:center;gap:16px">
+            <i class="fa fa-download" style="color:var(--orange-primary);width:16px;text-align:center"></i>
+            <div>Tại sao tôi không thể tải game sau khi đã thanh toán?</div>
+          </div>
+          <i class="fa fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="accordion-content">
+          Hãy đảm bảo bạn đã nhập mã kích hoạt (Game Key) lên nền tảng tương ứng (Steam, Epic Games). Nếu hệ thống báo mã lỗi hoặc không hợp lệ, vui lòng chụp màn hình và liên hệ ngay với <strong>Trung tâm hỗ trợ</strong> để được cấp mã thay thế.
+        </div>
+      </div>
+
+    </div><!-- end accordion -->
+
+    <!-- Contact CTA -->
+    <div style="background:rgba(249, 115, 22, 0.05);border:1px solid rgba(249, 115, 22, 0.2);border-radius:var(--radius-lg);padding:32px;text-align:center;margin-top:48px;">
+      <h3 style="font-size:20px;font-weight:700;color:var(--text-primary);margin-bottom:8px">Vẫn không tìm thấy câu trả lời?</h3>
+      <p style="color:var(--text-secondary);font-size:14px;margin-bottom:24px">Đội ngũ hỗ trợ của chúng tôi luôn sẵn sàng giúp đỡ bạn 24/7.</p>
+      <div style="display:flex;justify-content:center;gap:16px">
+        <button class="btn btn-primary"><i class="fa fa-envelope"></i> Gửi yêu cầu hỗ trợ</button>
+        <button class="btn btn-outline"><i class="fa fa-comments"></i> Chat trực tuyến</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">🎮</div>
+          <span class="brand-name">GameStore</span>
+        </a>
+
+        <div class="navbar-nav">
+          <a href="index.html" class="nav-link">Cửa hàng</a>
+          <a href="library.html" class="nav-link">Thư viện</a>
+          <a href="community.html" class="nav-link">Cộng đồng</a>
+          <a href="faq.html" class="nav-link active">Hỗ trợ</a>
+        </div>
+        <p class="brand-desc">Shop bán game bản quyền và dịch vụ giải trí hàng đầu Việt Nam. Chất lượng – Uy tín – Giá rẻ.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn" title="Discord"><i class="fab fa-discord"></i></a>
+          <a href="#" class="social-btn" title="RSS"><i class="fas fa-rss"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Chăm sóc khách hàng</div>
+        <div class="footer-links">
+          <a href="guide.html" class="footer-link">Hướng dẫn mua hàng</a>
+          <a href="payment.html" class="footer-link">Phương thức thanh toán</a>
+          <a href="warranty.html" class="footer-link">Chính sách bảo hành</a>
+          <a href="faq.html" class="footer-link" style="color:var(--orange-primary);font-weight:600">Câu hỏi thường gặp</a>
+          <a href="careers.html" class="footer-link">Tuyển dụng</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Nền tảng</div>
+        <div class="footer-links">
+          <a href="steam.html" class="footer-link">Steam</a>
+          <a href="origin.html" class="footer-link">Origin</a>
+          <a href="battlenet.html" class="footer-link">Battle.net</a>
+          <a href="playstation.html" class="footer-link">PlayStation</a>
+          <a href="xbox.html" class="footer-link">Xbox</a>
+          <a href="nintendo.html" class="footer-link">Nintendo</a>
+          <a href="google-play.html" class="footer-link">Google Play</a>
+          <a href="app-store.html" class="footer-link">App Store</a>
+          <a href="netflix.html" class="footer-link">Netflix</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Về chúng tôi</div>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link">Giới thiệu về Shop</a>
+          <a href="terms.html" class="footer-link">Điều khoản dịch vụ</a>
+          <a href="privacy.html" class="footer-link">Chính sách bảo mật</a>
+          <a href="partnership.html" class="footer-link">Hợp tác kinh doanh</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Thông tin liên hệ</div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa fa-phone"></i></div>
+          <div class="contact-text">
+            <p>1900 1234 (8:00 – 22:00)</p>
+            <p>Hỗ trợ kỹ thuật, khiếu nại</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa fa-envelope"></i></div>
+          <div class="contact-text">
+            <p>hotro@gamestore.vn</p>
+            <p>Email hỗ trợ khách hàng</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="footer-copy">© 2026 GameStore. All Rights Reserved. Giao diện được thiết kế bởi 1 Minh Tao Team.</p>
+      <div class="footer-bottom-links">
+        <a href="terms.html">Điều khoản</a>
+        <a href="privacy.html">Bảo mật</a>
+        <a href="#">Cookie</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

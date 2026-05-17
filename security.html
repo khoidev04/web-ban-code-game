@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bảo mật & Đăng nhập – GameStore</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/account.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">🎮</div>
+        <span class="brand-name">GameStore</span>
+      </a>
+      <div class="navbar-nav">
+        <a href="index.html" class="nav-link">Cửa hàng</a>
+        <a href="library.html" class="nav-link">Thư viện</a>
+        <a href="community.html" class="nav-link">Cộng đồng</a>
+        <a href="faq.html" class="nav-link">Hỗ trợ</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="cart.html" class="icon-btn" title="Giỏ hàng">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="cart-badge">3</span>
+        </a>
+        <div class="notification-wrapper">
+          <a href="#" class="icon-btn notification-toggle" title="Thông báo">
+            <i class="fa fa-bell"></i>
+            <span class="cart-badge notification-badge">2</span>
+          </a>
+          <div class="notification-dropdown">
+            <div class="notification-header">
+              <h4>Thông báo</h4>
+              <button class="mark-read-btn">Đánh dấu đã đọc</button>
+            </div>
+            <div class="notification-list">
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-gift"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Quà tặng mới!</div>
+                  <div class="noti-desc">Bạn vừa nhận được 1 code giảm giá 10% cho đơn hàng tiếp theo.</div>
+                  <div class="noti-time">2 phút trước</div>
+                </div>
+              </a>
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-shopping-bag"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Đơn hàng thành công</div>
+                  <div class="noti-desc">Đơn hàng #882941 của bạn đã được xác nhận.</div>
+                  <div class="noti-time">1 giờ trước</div>
+                </div>
+              </a>
+            </div>
+            <div class="notification-footer">
+              <a href="#" class="view-all-noti">Xem tất cả thông báo</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="account-page">
+  <div class="container">
+    <div class="account-layout">
+      
+      <!-- SIDEBAR -->
+      <aside class="account-sidebar">
+        <div class="user-sidebar-info">
+          <div class="user-sidebar-avatar">
+            <img src="https://i.pravatar.cc/150?u=alex" alt="Alex Walker" />
+          </div>
+          <div class="user-sidebar-meta">
+            <h3>Alex Walker</h3>
+            <p>ID: 882941</p>
+          </div>
+        </div>
+
+        <nav class="account-nav">
+          <a href="profile.html" class="account-nav-link"><i class="fa fa-user-circle"></i> Hồ sơ</a>
+          <a href="library.html" class="account-nav-link"><i class="fa fa-layer-group"></i> Thư viện</a>
+          <a href="community.html" class="account-nav-link"><i class="fa fa-users"></i> Cộng đồng</a>
+          <a href="security.html" class="account-nav-link active"><i class="fa fa-shield-alt"></i> Bảo mật</a>
+          <a href="settings.html" class="account-nav-link"><i class="fa fa-cog"></i> Cài đặt</a>
+          <div class="sidebar-divider"></div>
+          <a href="orders.html" class="account-nav-link"><i class="fa fa-history"></i> Giao dịch</a>
+          <button class="btn btn-sidebar-logout" style="margin-top: 24px; display: flex; align-items: center; gap: 8px; background: transparent; border: none; color: var(--text-muted); cursor: pointer; padding: 12px 16px;">
+            <i class="fa fa-sign-out-alt"></i> Đăng xuất
+          </button>
+        </nav>
+
+        <div class="sidebar-protection-status">
+          <div class="protection-header">Trạng thái bảo vệ</div>
+          <div class="status-indicator">
+            <div class="status-dot"></div>
+            <span>Rất an toàn</span>
+          </div>
+          <button class="btn-upgrade-pro">Nâng cấp Pro</button>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <div class="account-main">
+        
+        <header style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px;">
+          <div style="width: 40px; height: 40px; background: rgba(249, 115, 22, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--orange-primary); font-size: 20px;">
+            <i class="fa fa-shield-halved"></i>
+          </div>
+          <h1 class="settings-section-title" style="margin-bottom: 0;">Bảo mật & Đăng nhập</h1>
+        </header>
+
+        <section style="margin-bottom: 48px;">
+          <h2 class="settings-section-title" style="font-size: 32px; margin-bottom: 12px;">Quản lý an toàn tài khoản</h2>
+          <p class="settings-section-desc">Bảo vệ thông tin cá nhân và tài sản ảo của bạn bằng các công cụ bảo mật tiên tiến nhất của GameStore.</p>
+        </section>
+
+        <div style="display: grid; grid-template-columns: 2fr 1.2fr; gap: 32px;">
+          <div class="security-main-col">
+            <!-- Login Info Section -->
+            <section style="margin-bottom: 40px;">
+              <div class="section-label" style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--orange-primary); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">
+                <i class="fa fa-key"></i> Thông tin đăng nhập
+              </div>
+              
+              <div class="security-list">
+                <a href="#" class="security-list-item">
+                  <div class="security-item-main">
+                    <div class="security-item-icon"><i class="fa fa-asterisk"></i></div>
+                    <div>
+                      <div class="security-item-title">Đổi mật khẩu</div>
+                      <div class="security-item-desc">Lần cuối thay đổi: 3 tháng trước. Khuyên dùng mật khẩu mạnh.</div>
+                    </div>
+                  </div>
+                  <i class="fa fa-chevron-right" style="color: var(--text-muted); font-size: 12px;"></i>
+                </a>
+
+                <a href="#" class="security-list-item">
+                  <div class="security-item-main">
+                    <div class="security-item-icon"><i class="fa fa-shield-check" style="color: #22c55e;"></i></div>
+                    <div>
+                      <div class="security-item-title">Xác thực 2 yếu tố (2FA) <span class="badge badge-green" style="margin-left: 8px;">Đang bật</span></div>
+                      <div class="security-item-desc">Bảo mật tài khoản qua mã xác nhận từ ứng dụng di động hoặc Email.</div>
+                    </div>
+                  </div>
+                  <i class="fa fa-chevron-right" style="color: var(--text-muted); font-size: 12px;"></i>
+                </a>
+
+                <a href="#" class="security-list-item">
+                  <div class="security-item-main">
+                    <div class="security-item-icon"><i class="fa fa-at"></i></div>
+                    <div>
+                      <div class="security-item-title">Email khôi phục</div>
+                      <div class="security-item-desc"><span id="security-email">...</span> - Dùng để lấy lại mật khẩu khi bị mất.</div>
+                    </div>
+                  </div>
+                  <i class="fa fa-chevron-right" style="color: var(--text-muted); font-size: 12px;"></i>
+                </a>
+              </div>
+            </section>
+
+            <!-- Active Sessions Section -->
+            <section>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                <div class="section-label" style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--orange-primary); text-transform: uppercase; letter-spacing: 1px;">
+                  <i class="fa fa-desktop"></i> Thiết bị đã đăng nhập
+                </div>
+                <button class="btn-text" style="color: var(--orange-primary); font-size: 13px; font-weight: 700; background: none; border: none; cursor: pointer;">Đăng xuất tất cả</button>
+              </div>
+
+              <div class="session-list">
+                <div class="session-item">
+                  <div class="session-device">
+                    <div class="device-icon"><i class="fa fa-laptop"></i></div>
+                    <div class="device-info">
+                      <h5>Windows PC - Hà Nội, Việt Nam <span class="badge badge-orange" style="margin-left: 8px;">Hiện tại</span></h5>
+                      <p>Chrome Browser • 113.0.5672.127</p>
+                    </div>
+                  </div>
+                  <button class="btn-icon" style="background: none; border: none; color: var(--text-muted); cursor: pointer;"><i class="fa fa-sign-out-alt"></i></button>
+                </div>
+
+                <div class="session-item">
+                  <div class="session-device">
+                    <div class="device-icon"><i class="fa fa-mobile-alt"></i></div>
+                    <div class="device-info">
+                      <h5>iPhone 14 Pro - TP.HCM, Việt Nam</h5>
+                      <p>GameStore Mobile App • 2 giờ trước</p>
+                    </div>
+                  </div>
+                  <button class="btn-icon" style="background: none; border: none; color: var(--text-muted); cursor: pointer;"><i class="fa fa-sign-out-alt"></i></button>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="security-sidebar-col">
+            <!-- Security Tips Widget -->
+            <div class="settings-card" style="padding: 24px; background: rgba(249, 115, 22, 0.05); border-color: rgba(249, 115, 22, 0.1);">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                <i class="fa fa-lightbulb" style="color: var(--orange-primary); font-size: 20px;"></i>
+                <h4 style="font-size: 16px; font-weight: 800;">Mẹo bảo mật</h4>
+              </div>
+              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px;">
+                <li style="display: flex; gap: 12px; font-size: 13px; line-height: 1.5; color: var(--text-secondary);">
+                  <i class="fa fa-check-circle" style="color: #22c55e; margin-top: 3px;"></i>
+                  <span>Không bao giờ chia sẻ mật khẩu hoặc mã OTP cho bất kỳ ai.</span>
+                </li>
+                <li style="display: flex; gap: 12px; font-size: 13px; line-height: 1.5; color: var(--text-secondary);">
+                  <i class="fa fa-check-circle" style="color: #22c55e; margin-top: 3px;"></i>
+                  <span>Sử dụng mật khẩu riêng biệt cho tài khoản GameStore và Email.</span>
+                </li>
+                <li style="display: flex; gap: 12px; font-size: 13px; line-height: 1.5; color: var(--text-secondary);">
+                  <i class="fa fa-check-circle" style="color: #22c55e; margin-top: 3px;"></i>
+                  <span>Bật thông báo đăng nhập để nhận cảnh báo ngay lập tức.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Linked Accounts Widget -->
+            <div class="settings-card" style="padding: 24px;">
+              <h4 style="font-size: 16px; font-weight: 800; margin-bottom: 20px;">Liên kết tài khoản</h4>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: var(--bg-secondary); border-radius: 8px;">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <i class="fab fa-facebook" style="color: #1877f2; font-size: 18px;"></i>
+                    <span style="font-size: 13px; font-weight: 600;">Facebook</span>
+                  </div>
+                  <span style="font-size: 11px; font-weight: 700; color: #22c55e;">ĐÃ LIÊN KẾT</span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: var(--bg-secondary); border-radius: 8px;">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <i class="fab fa-google" style="color: #ea4335; font-size: 18px;"></i>
+                    <span style="font-size: 13px; font-weight: 600;">Google</span>
+                  </div>
+                  <button class="btn-text" style="font-size: 11px; font-weight: 800; color: var(--orange-primary); background: none; border: none; cursor: pointer;">KẾT NỐI</button>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: var(--bg-secondary); border-radius: 8px;">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <i class="fab fa-steam" style="color: #ffffff; font-size: 18px;"></i>
+                    <span style="font-size: 13px; font-weight: 600;">Steam</span>
+                  </div>
+                  <button class="btn-text" style="font-size: 11px; font-weight: 800; color: var(--orange-primary); background: none; border: none; cursor: pointer;">KẾT NỐI</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <!-- Same footer as profile.html -->
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">🎮</div>
+          <span class="brand-name">GameStore</span>
+        </a>
+        <p class="brand-desc">Shop bán game bản quyền và dịch vụ giải trí hàng đầu Việt Nam.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Hỗ trợ</div>
+        <div class="footer-links">
+          <a href="faq.html" class="footer-link">Trung tâm hỗ trợ</a>
+          <a href="guide.html" class="footer-link">Hướng dẫn mua hàng</a>
+          <a href="warranty.html" class="footer-link">Chính sách bảo hành</a>
+          <a href="payment.html" class="footer-link">Thanh toán</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  if (!Auth.isLoggedIn()) {
+    window.location.href = 'login.html';
+    return;
+  }
+
+  try {
+    const user = await apiFetch('/profile');
+    if (user) {
+      Auth.updateUser(user);
+      
+      const emailEl = document.getElementById('security-email');
+      if (emailEl && user.email) {
+        // Mask the email like m***h@gmail.com
+        const [name, domain] = user.email.split('@');
+        let maskedName = name;
+        if (name.length > 2) {
+          maskedName = name[0] + '*'.repeat(name.length - 2) + name[name.length - 1];
+        }
+        emailEl.textContent = maskedName + '@' + (domain || '');
+      }
+    }
+  } catch (err) {
+    if (err.status === 401 || err.status === 403) {
+      window.location.href = 'login.html';
+    }
+  }
+});
+</script>
+</body>
+</html>

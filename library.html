@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thư viện Game – GameStore</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/social.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">🎮</div>
+        <span class="brand-name">GameStore</span>
+      </a>
+      <div class="navbar-nav">
+        <a href="index.html" class="nav-link">Cửa hàng</a>
+        <a href="library.html" class="nav-link active">Thư viện</a>
+        <a href="community.html" class="nav-link">Cộng đồng</a>
+        <a href="faq.html" class="nav-link">Hỗ trợ</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="cart.html" class="icon-btn" title="Giỏ hàng">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="cart-badge">3</span>
+        </a>
+        <div class="notification-wrapper">
+          <a href="#" class="icon-btn notification-toggle" title="Thông báo">
+            <i class="fa fa-bell"></i>
+            <span class="cart-badge notification-badge">2</span>
+          </a>
+          <div class="notification-dropdown">
+            <div class="notification-header">
+              <h4>Thông báo</h4>
+              <button class="mark-read-btn">Đánh dấu đã đọc</button>
+            </div>
+            <div class="notification-list">
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-gift"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Quà tặng mới!</div>
+                  <div class="noti-desc">Bạn vừa nhận được 1 code giảm giá 10% cho đơn hàng tiếp theo.</div>
+                  <div class="noti-time">2 phút trước</div>
+                </div>
+              </a>
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-shopping-bag"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Đơn hàng thành công</div>
+                  <div class="noti-desc">Đơn hàng #882941 của bạn đã được xác nhận.</div>
+                  <div class="noti-time">1 giờ trước</div>
+                </div>
+              </a>
+            </div>
+            <div class="notification-footer">
+              <a href="#" class="view-all-noti">Xem tất cả thông báo</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="social-page">
+  <div class="container">
+    
+    <div class="section-header">
+      <h1 class="section-title"><i class="fa fa-layer-group"></i> Thư viện của tôi</h1>
+      <div style="display:flex; gap:12px; align-items: center;">
+         <button class="btn btn-outline btn-sm" title="Dạng lưới"><i class="fa fa-th"></i></button>
+         <button class="btn btn-outline btn-sm" title="Dạng danh sách"><i class="fa fa-list"></i></button>
+      </div>
+    </div>
+
+    <div class="library-filters">
+      <div class="library-search">
+        <i class="fa fa-search"></i>
+        <input type="text" placeholder="Tìm kiếm trong thư viện..." />
+      </div>
+      <select class="input" style="width:auto; padding: 10px 32px 10px 14px;">
+        <option>Mới nhất</option>
+        <option>Tên (A-Z)</option>
+        <option>Thời gian chơi</option>
+      </select>
+    </div>
+
+    <div class="library-grid" id="library-container">
+      <!-- Nội dung được sinh động bằng JS -->
+    </div>
+    
+    <div id="library-empty" style="display:none; text-align:center; padding: 60px 20px;">
+      <i class="fa fa-ghost" style="font-size: 64px; color: var(--text-muted); margin-bottom: 16px;"></i>
+      <h3 style="color: var(--text-primary); margin-bottom: 8px;">Thư viện trống mốc...</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 24px;">Bạn chưa sở hữu trò chơi nào. Hãy dạo quanh Cửa hàng và tìm những tựa game ưng ý nhé!</p>
+      <a href="index.html" class="btn btn-primary">Đến Cửa Hàng</a>
+    </div>
+
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">🎮</div>
+          <span class="brand-name">GameStore</span>
+        </a>
+        <p class="brand-desc">Shop bán game bản quyền và dịch vụ giải trí hàng đầu Việt Nam. Chất lượng – Uy tín – Giá rẻ.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-discord"></i></a>
+          <a href="#" class="social-btn"><i class="fas fa-rss"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Công ty</div>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link">Về chúng tôi</a>
+          <a href="careers.html" class="footer-link">Tuyển dụng</a>
+          <a href="#" class="footer-link">Chính sách cửa hàng</a>
+          <a href="partnership.html" class="footer-link">Hợp tác kinh doanh</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Hỗ trợ</div>
+        <div class="footer-links">
+          <a href="faq.html" class="footer-link">Trung tâm hỗ trợ</a>
+          <a href="guide.html" class="footer-link">Hướng dẫn mua hàng</a>
+          <a href="warranty.html" class="footer-link">Chính sách bảo hành</a>
+          <a href="payment.html" class="footer-link">Thanh toán</a>
+        </div>
+      </div>
+      <div>
+         <div class="footer-col-title">Newsletter</div>
+        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Nhận tin tức và khuyến mãi mới nhất.</p>
+        <form class="subscribe-form">
+          <input type="email" class="input" placeholder="Email của bạn..." />
+          <button class="btn-subscribe">Tham gia</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="footer-copy">© 2026 GameStore Inc. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">Bảo mật</a>
+        <a href="terms.html">Điều khoản</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Script riêng cho trang Thư Viện -->
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const container = document.getElementById('library-container');
+  const emptyState = document.getElementById('library-empty');
+  const btnSeed = document.getElementById('btn-seed-demo');
+
+  // Đảm bảo user đã đăng nhập
+  if (!Auth.isLoggedIn()) {
+    return; // api.js sẽ lo redirect
+  }
+
+  // Hàm load data thư viện
+  const loadLibrary = async () => {
+    try {
+      const games = await apiFetch('/library');
+      renderLibrary(games);
+    } catch (err) {
+      console.error(err);
+      container.innerHTML = `<p style="color:var(--text-danger);grid-column:1/-1;">Lỗi tải thư viện: ${err.message}</p>`;
+    }
+  };
+
+  // Hàm hiển thị UI
+  const renderLibrary = (games) => {
+    if (!games || games.length === 0) {
+      container.style.display = 'none';
+      emptyState.style.display = 'block';
+      return;
+    }
+
+    container.style.display = 'grid';
+    emptyState.style.display = 'none';
+    
+    container.innerHTML = games.map(game => {
+      // Mock logic status ngẫu nhiên cho thật
+      const statuses = [
+        { class: 'status-installed', icon: 'fa-check-circle', text: 'ĐÃ CÀI ĐẶT', btnClass: '', btnIcon: 'fa-play', btnText: 'Chơi ngay', btnStyle: '' },
+        { class: 'status-cloud', icon: 'fa-cloud', text: 'CHƯA CÀI', btnClass: '', btnIcon: 'fa-download', btnText: 'Cài đặt', btnStyle: 'background:var(--bg-secondary); border: 1px solid var(--border-primary); color: var(--text-primary);' },
+        { class: 'status-update', icon: 'fa-arrow-alt-circle-up', text: 'CẬP NHẬT', btnClass: '', btnIcon: 'fa-download', btnText: 'Cập nhật', btnStyle: 'background:#444;' }
+      ];
+      // Random deterministic theo id
+      const st = statuses[game.product_id % statuses.length];
+      
+      const defaultImg = "https://images.igdb.com/igdb/image/upload/t_1080p/nocover.png";
+      const coverUrl = game.cover_url || defaultImg;
+      
+      // Calculate playtime text
+      const dateAcquired = new Date(game.acquired_at).toLocaleDateString('vi-VN');
+      const timeText = game.hours_played > 0 
+        ? `Sở hữu từ ${dateAcquired} • ${game.hours_played} giờ chơi` 
+        : `Mới nhận • 0 giờ chơi`;
+
+      return `
+        <div class="library-card">
+          <div class="library-card-img">
+            <img src="${coverUrl}" alt="${game.product_name}" />
+            <div class="library-status-badge">
+               <i class="fa ${st.icon} ${st.class}"></i> ${st.text}
+            </div>
+          </div>
+          <div class="library-card-body">
+            <h3 class="library-game-title">${game.product_name}</h3>
+            <p class="library-game-meta">${timeText}</p>
+            <div class="library-actions">
+              <button class="btn-play" style="${st.btnStyle}"><i class="fa ${st.btnIcon}"></i> ${st.btnText}</button>
+              <button class="btn-settings" title="Thuộc tính: ID ${game.product_id} | Platform: ${game.platform}"><i class="fa fa-cog"></i></button>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  };
+
+  // Chạy lần đầu
+  loadLibrary();
+});
+</script>
+</body>
+</html>

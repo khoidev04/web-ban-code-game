@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cài đặt tài khoản – GameStore</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/account.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">🎮</div>
+        <span class="brand-name">GameStore</span>
+      </a>
+      <div class="navbar-nav">
+        <a href="index.html" class="nav-link">Cửa hàng</a>
+        <a href="library.html" class="nav-link">Thư viện</a>
+        <a href="community.html" class="nav-link">Cộng đồng</a>
+        <a href="faq.html" class="nav-link">Hỗ trợ</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="cart.html" class="icon-btn" title="Giỏ hàng">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="cart-badge">3</span>
+        </a>
+        <div class="notification-wrapper">
+          <a href="#" class="icon-btn notification-toggle" title="Thông báo">
+            <i class="fa fa-bell"></i>
+            <span class="cart-badge notification-badge">2</span>
+          </a>
+          <div class="notification-dropdown">
+            <div class="notification-header">
+              <h4>Thông báo</h4>
+              <button class="mark-read-btn">Đánh dấu đã đọc</button>
+            </div>
+            <div class="notification-list">
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-gift"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Quà tặng mới!</div>
+                  <div class="noti-desc">Bạn vừa nhận được 1 code giảm giá 10% cho đơn hàng tiếp theo.</div>
+                  <div class="noti-time">2 phút trước</div>
+                </div>
+              </a>
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-shopping-bag"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Đơn hàng thành công</div>
+                  <div class="noti-desc">Đơn hàng #882941 của bạn đã được xác nhận.</div>
+                  <div class="noti-time">1 giờ trước</div>
+                </div>
+              </a>
+            </div>
+            <div class="notification-footer">
+              <a href="#" class="view-all-noti">Xem tất cả thông báo</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="account-page">
+  <div class="container">
+    <div class="account-layout">
+      
+      <!-- SIDEBAR -->
+      <aside class="account-sidebar">
+        <div class="user-sidebar-info">
+          <div class="user-sidebar-avatar">
+            <img src="https://i.pravatar.cc/150?u=alex" alt="Alex Walker" />
+          </div>
+          <div class="user-sidebar-meta">
+            <h3>Alex Walker</h3>
+            <p>ID: 882941</p>
+          </div>
+        </div>
+
+        <nav class="account-nav">
+          <a href="profile.html" class="account-nav-link"><i class="fa fa-user-circle"></i> Hồ sơ</a>
+          <a href="library.html" class="account-nav-link"><i class="fa fa-layer-group"></i> Thư viện</a>
+          <a href="community.html" class="account-nav-link"><i class="fa fa-users"></i> Cộng đồng</a>
+          <a href="security.html" class="account-nav-link"><i class="fa fa-shield-alt"></i> Bảo mật</a>
+          <a href="settings.html" class="account-nav-link active"><i class="fa fa-cog"></i> Cài đặt</a>
+          <div class="sidebar-divider"></div>
+          <a href="orders.html" class="account-nav-link"><i class="fa fa-history"></i> Giao dịch</a>
+          <button class="btn btn-sidebar-logout" style="margin-top: 24px; display: flex; align-items: center; gap: 8px; background: transparent; border: none; color: var(--text-muted); cursor: pointer; padding: 12px 16px;">
+            <i class="fa fa-sign-out-alt"></i> Đăng xuất
+          </button>
+        </nav>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <div class="account-main">
+        
+        <header style="margin-bottom: 32px;">
+          <h1 class="settings-section-title">Cài đặt tài khoản</h1>
+          <p class="settings-section-desc">Quản lý thông báo, ngôn ngữ và liên kết các tài khoản mạng xã hội của bạn.</p>
+        </header>
+
+        <!-- Notifications Section -->
+        <section class="settings-card">
+          <div class="section-label" style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--orange-primary); margin-bottom: 24px; text-transform: uppercase;">
+            <i class="fa fa-bell"></i> Thông báo
+          </div>
+          
+          <div class="switch-group">
+            <span class="switch-label">Nhận thông báo qua Email</span>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="switch-group">
+            <span class="switch-label">Nhận thông báo Push trên thiết bị</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </section>
+
+        <!-- Localization Section -->
+        <section class="settings-card">
+          <div class="section-label" style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--orange-primary); margin-bottom: 24px; text-transform: uppercase;">
+            <i class="fa fa-globe"></i> Ngôn ngữ & Tiền tệ
+          </div>
+          
+          <div class="settings-form-grid">
+            <div class="form-group">
+              <label class="form-label">Ngôn ngữ hiển thị</label>
+              <div class="input-with-icon">
+                <i class="fa fa-angle-down" style="left: auto; right: 16px;"></i>
+                <select class="settings-input" style="appearance: none; padding-right: 44px; padding-left: 16px;">
+                  <option>Tiếng Việt (Vietnam)</option>
+                  <option>English (United States)</option>
+                  <option>日本語 (Japan)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Đơn vị tiền tệ</label>
+              <div class="input-with-icon">
+                <i class="fa fa-angle-down" style="left: auto; right: 16px;"></i>
+                <select class="settings-input" style="appearance: none; padding-right: 44px; padding-left: 16px;">
+                  <option>VND (đ)</option>
+                  <option>USD ($)</option>
+                  <option>EUR (€)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Social Integrations -->
+        <section class="settings-card">
+          <div class="section-label" style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--orange-primary); margin-bottom: 24px; text-transform: uppercase;">
+            <i class="fa fa-link"></i> Liên kết tài khoản
+          </div>
+          
+          <div class="social-integrations">
+            <div class="social-card">
+              <div class="social-info">
+                <div class="social-icon" style="background: #171a21;"><img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam" style="filter: brightness(0) invert(1);"></div>
+                <div class="social-meta">
+                  <h5>Steam</h5>
+                  <p>Chưa kết nối</p>
+                </div>
+              </div>
+              <button class="btn btn-outline" style="font-size: 12px; padding: 8px 16px;">KẾT NỐI</button>
+            </div>
+
+            <div class="social-card">
+              <div class="social-info">
+                <div class="social-icon" style="background: #1877f2;"><i class="fab fa-facebook-f" style="color: white;"></i></div>
+                <div class="social-meta">
+                  <h5>Facebook</h5>
+                  <p style="color: #22c55e;">Đã kết nối: Quang Minh</p>
+                </div>
+              </div>
+              <button class="btn btn-outline" style="font-size: 12px; padding: 8px 16px; border-color: rgba(255,255,255,0.1); color: var(--text-muted);">HỦY KẾT NỐI</button>
+            </div>
+
+            <div class="social-card">
+              <div class="social-info">
+                <div class="social-icon" style="background: white; border: 1px solid var(--border-primary); display: flex; align-items: center; justify-content: center;"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Color_Icon.svg" alt="Google" style="width: 24px;"></div>
+                <div class="social-meta">
+                  <h5>Google</h5>
+                  <p>Chưa kết nối</p>
+                </div>
+              </div>
+              <button class="btn btn-outline" style="font-size: 12px; padding: 8px 16px;">KẾT NỐI</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Danger Zone Section -->
+        <section class="settings-card danger-zone">
+          <div class="danger-title" style="margin-bottom: 20px;">
+            <i class="fa fa-exclamation-triangle"></i> Vùng nguy hiểm
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <h5 style="font-size: 15px; font-weight: 700; margin-bottom: 4px;">Vô hiệu hóa tài khoản</h5>
+              <p style="font-size: 13px; color: var(--text-muted); max-width: 500px;">Tạm thời khóa tài khoản của bạn. Bạn có thể kích hoạt lại bất cứ lúc nào bằng cách đăng nhập lại vào hệ thống.</p>
+            </div>
+            <button class="btn btn-danger">VÔ HIỆU HÓA</button>
+          </div>
+        </section>
+
+        <div class="settings-footer">
+          <a href="profile.html" class="btn-cancel">HỦY THAY ĐỔI</a>
+          <button class="btn btn-primary" style="padding: 12px 40px; border-radius: 8px; font-weight: 700;">LƯU CÀI ĐẶT</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <!-- Reusing footer from previous pages -->
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

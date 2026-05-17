@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameStore – Mua Game Bản Quyền Giá Rẻ</title>
+  <meta name="description"
+    content="GameStore – Shop bán game bản quyền và dịch vụ giải trí hàng đầu Việt Nam. Chất lượng – Uy tín – Giá rẻ." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">🎮</div>
+          <span class="brand-name">GameStore</span>
+        </a>
+
+        <div class="navbar-nav">
+          <a href="index.html" class="nav-link active">Cửa hàng</a>
+          <a href="library.html" class="nav-link">Thư viện</a>
+          <a href="community.html" class="nav-link">Cộng đồng</a>
+          <a href="faq.html" class="nav-link">Hỗ trợ</a>
+        </div>
+
+        <div class="navbar-search">
+          <div class="search-wrapper">
+            <i class="fa fa-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="Tìm kiếm game, ứng dụng, tài khoản..." />
+          </div>
+        </div>
+
+        <div class="navbar-actions">
+          <a href="cart.html" class="icon-btn" title="Giỏ hàng" id="cart-icon-btn">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="cart-badge">3</span>
+          </a>
+          <div class="notification-wrapper">
+            <a href="#" class="icon-btn notification-toggle" title="Thông báo">
+              <i class="fa fa-bell"></i>
+              <span class="cart-badge notification-badge">2</span>
+            </a>
+            <div class="notification-dropdown">
+              <div class="notification-header">
+                <h4>Thông báo</h4>
+                <button class="mark-read-btn">Đánh dấu đã đọc</button>
+              </div>
+              <div class="notification-list">
+                <a href="#" class="notification-item unread">
+                  <div class="noti-icon"><i class="fa fa-gift"></i></div>
+                  <div class="noti-content">
+                    <div class="noti-title">Quà tặng mới!</div>
+                    <div class="noti-desc">Bạn vừa nhận được 1 code giảm giá 10% cho đơn hàng tiếp theo.</div>
+                    <div class="noti-time">2 phút trước</div>
+                  </div>
+                </a>
+                <a href="#" class="notification-item unread">
+                  <div class="noti-icon"><i class="fa fa-shopping-bag"></i></div>
+                  <div class="noti-content">
+                    <div class="noti-title">Đơn hàng thành công</div>
+                    <div class="noti-desc">Đơn hàng #882941 của bạn đã được xác nhận.</div>
+                    <div class="noti-time">1 giờ trước</div>
+                  </div>
+                </a>
+              </div>
+              <div class="notification-footer">
+                <a href="#" class="view-all-noti">Xem tất cả thông báo</a>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="category-bar">
+      <div class="container">
+        <a href="games.html" class="cat-link">
+          <i class="fa fa-th-large"></i> Tất cả danh mục
+        </a>
+        <a href="steam.html" class="cat-link">Steam</a>
+        <a href="origin.html" class="cat-link">Origin</a>
+        <a href="battlenet.html" class="cat-link">Battle.net</a>
+        <a href="playstation.html" class="cat-link">PlayStation</a>
+        <a href="xbox.html" class="cat-link">Xbox</a>
+        <a href="nintendo.html" class="cat-link">Nintendo</a>
+        <a href="google-play.html" class="cat-link">Google Play</a>
+        <a href="app-store.html" class="cat-link">App Store</a>
+        <a href="netflix.html" class="cat-link">Netflix</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO BANNER ===== -->
+  <section class="hero">
+    <img class="hero-bg" id="hero-carousel-img" src="https://img.youtube.com/vi/qIcTM8WXFjk/maxresdefault.jpg" alt="Cyberpunk 2077"
+      onerror="this.src='https://placehold.co/1280x420/111/333?text=Game+Banner'" style="transition: opacity 0.3s ease-in-out;" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <div class="hero-tag"><i class="fa fa-fire"></i> Hot game</div>
+      <h1 class="hero-title">Cyberpunk 2077:<br />Ultimate Edition</h1>
+      <p class="hero-subtitle">Thành phố Night City vẫy gọi. Trải nghiệm kiệt tác nhập vai viễn tưởng đỉnh cao với mọi bản mở rộng đi kèm.</p>
+      <div class="hero-price-row">
+        <span class="hero-price-current">650.000đ</span>
+        <span class="hero-price-old">1.000.000đ</span>
+      </div>
+      <div class="hero-actions">
+        <a href="detail.html?slug=cyberpunk-2077-ultimate" class="btn btn-primary btn-lg"><i class="fa fa-shopping-bag"></i> Mua ngay</a>
+        <a href="detail.html?slug=cyberpunk-2077-ultimate" class="btn btn-outline btn-lg">Xem chi tiết</a>
+      </div>
+    </div>
+    <div class="hero-dots" id="hero-carousel-dots">
+      <div class="hero-dot active" data-index="0"></div>
+      <div class="hero-dot" data-index="1"></div>
+      <div class="hero-dot" data-index="2"></div>
+    </div>
+    <!-- Arrow Controls -->
+    <div class="hero-carousel-arrows">
+       <button id="hero-prev-btn" class="hero-arrow-btn"><i class="fa fa-chevron-left"></i></button>
+       <button id="hero-next-btn" class="hero-arrow-btn"><i class="fa fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- ===== FLASH SALE ===== -->
+  <div class="container">
+    <section class="flash-sale">
+      <div class="flash-sale-header">
+        <div class="flash-sale-left">
+          <div class="flash-sale-title">
+            <span class="flash-sale-icon">⚡</span>
+            GIỜ VÀNG GIÁ SỐC
+          </div>
+          <div class="countdown">
+            <div class="countdown-box" id="countdown-hours">02</div>
+            <span class="countdown-sep">:</span>
+            <div class="countdown-box" id="countdown-minutes">45</div>
+            <span class="countdown-sep">:</span>
+            <div class="countdown-box" id="countdown-seconds">18</div>
+          </div>
+        </div>
+        <a href="games.html" class="view-all">Xem tất cả →</a>
+      </div>
+
+      <div class="flash-sale-grid" id="flash-sale-container">
+        <!-- Render from JS -->
+      </div>
+    </section>
+
+    <!-- ===== PRODUCTS DUAL SECTION ===== -->
+    <div class="products-dual">
+
+      <!-- New Products -->
+      <div class="product-col">
+        <div class="product-col-header">
+          <div class="product-col-title">🆕 Sản phẩm mới</div>
+          <a href="games.html" class="view-all">Xem tất cả →</a>
+        </div>
+        <div id="new-products-container">
+          <!-- Render from JS -->
+        </div>
+      </div>
+
+      <!-- Best Sellers -->
+      <div class="product-col">
+        <div class="product-col-header">
+          <div class="product-col-title">🔥 Sản phẩm bán chạy</div>
+          <a href="games.html" class="view-all">Xem tất cả →</a>
+        </div>
+        <div id="bestseller-container">
+          <!-- Render from JS -->
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end .container -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="index.html" class="navbar-brand">
+            <div class="brand-icon">🎮</div>
+            <span class="brand-name">GameStore</span>
+          </a>
+          <p class="brand-desc">Shop bán game bản quyền và dịch vụ giải trí hàng đầu Việt Nam. Chất lượng – Uy tín – Giá
+            rẻ.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-btn" title="Discord"><i class="fab fa-discord"></i></a>
+            <a href="#" class="social-btn" title="RSS"><i class="fas fa-rss"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Chăm sóc khách hàng</div>
+          <div class="footer-links">
+            <a href="guide.html" class="footer-link">Hướng dẫn mua hàng</a>
+            <a href="payment.html" class="footer-link">Phương thức thanh toán</a>
+            <a href="warranty.html" class="footer-link">Chính sách bảo hành</a>
+            <a href="faq.html" class="footer-link">Câu hỏi thường gặp</a>
+            <a href="careers.html" class="footer-link">Tuyển dụng</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Nền tảng</div>
+          <div class="footer-links">
+            <a href="steam.html" class="footer-link">Steam</a>
+            <a href="origin.html" class="footer-link">Origin</a>
+            <a href="battlenet.html" class="footer-link">Battle.net</a>
+            <a href="playstation.html" class="footer-link">PlayStation</a>
+            <a href="xbox.html" class="footer-link">Xbox</a>
+            <a href="nintendo.html" class="footer-link">Nintendo</a>
+            <a href="google-play.html" class="footer-link">Google Play</a>
+            <a href="app-store.html" class="footer-link">App Store</a>
+            <a href="netflix.html" class="footer-link">Netflix</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Về chúng tôi</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">Giới thiệu về Shop</a>
+            <a href="terms.html" class="footer-link">Điều khoản dịch vụ</a>
+            <a href="privacy.html" class="footer-link">Chính sách bảo mật</a>
+            <a href="partnership.html" class="footer-link">Hợp tác kinh doanh</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Thông tin liên hệ</div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-phone"></i></div>
+            <div class="contact-text">
+              <p>1900 1234 (8:00 – 22:00)</p>
+              <p>Hỗ trợ kỹ thuật, khiếu nại</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-envelope"></i></div>
+            <div class="contact-text">
+              <p>hotro@gamestore.vn</p>
+              <p>Email hỗ trợ khách hàng</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copy">© 2026 GameStore. All Rights Reserved. Giao diện được thiết kế bởi 1 Minh Tao Team.</p>
+        <div class="footer-bottom-links">
+          <a href="terms.html">Điều khoản</a>
+          <a href="privacy.html">Bảo mật</a>
+          <a href="#">Cookie</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      // Utilities
+      const formatCurrency = (amount) => {
+        return new Intl.NumberFormat('vi-VN').format(amount) + 'đ';
+      };
+
+      // Tải Flash Sales
+      const loadFlashSales = async () => {
+        try {
+          // Lấy limit=5 sản phẩm có cờ is_flash_sale
+          const container = document.getElementById("flash-sale-container");
+          if (!container) return;
+          const data = await apiFetch(`/products?flash_sale=true&limit=5`);
+
+          if (!data || data.length === 0) {
+            container.innerHTML = '<p style="color:var(--text-secondary); text-align:center; padding:20px; grid-column:1/-1;">Chưa có deal sốc nào hôm nay.</p>';
+            return;
+          }
+
+          container.innerHTML = data.map(game => {
+            const currentPrice = game.sale_price || game.original_price;
+            const hasSale = game.sale_price && game.original_price > game.sale_price;
+            const discountPct = game.discount_pct || Math.round((1 - game.sale_price / game.original_price) * 100);
+            
+            return `
+              <a href="detail.html?slug=${game.slug}" class="flash-card">
+                <div class="flash-card-img">
+                  ${hasSale ? `<span class="discount-tag">-${discountPct}%</span>` : ''}
+                  <img src="${game.cover_url || 'https://placehold.co/200x267/1a1a1a/f97316?text=Game'}" alt="${game.name}" />
+                </div>
+                <div class="flash-card-body">
+                  <div class="flash-card-name">${game.name}</div>
+                  <div class="flash-card-prices">
+                    <span class="flash-price-current">${formatCurrency(currentPrice)}</span>
+                    ${hasSale ? `<span class="flash-price-old">${formatCurrency(game.original_price)}</span>` : ''}
+                  </div>
+                </div>
+              </a>
+            `;
+          }).join('');
+        } catch (e) { console.error("Lỗi tải flash sales", e); }
+      };
+
+      // Tải Sản phẩm Best Seller
+      const loadBestSellers = async () => {
+        try {
+          const container = document.getElementById("bestseller-container");
+          if (!container) return;
+          const data = await apiFetch(`/products?bestseller=true&limit=3`);
+
+          container.innerHTML = data.map((game, index) => {
+            const currentPrice = game.sale_price || game.original_price;
+            return `
+              <div class="product-item">
+                <div class="bestseller-rank">0${index + 1}</div>
+                <div class="product-thumb">
+                  <img src="${game.cover_url || 'https://placehold.co/54x54/1a1a1a/f97316?text=Game'}" alt="${game.name}" />
+                </div>
+                <div class="product-info">
+                  <div class="product-name">${game.name}</div>
+                  <div class="product-sub">${game.category || 'Mặc định'}</div>
+                </div>
+                <div class="product-price-col">
+                  <div class="product-price">${formatCurrency(currentPrice)}</div>
+                  <a href="detail.html?slug=${game.slug}" class="product-detail-link">Chi tiết →</a>
+                </div>
+              </div>
+            `;
+          }).join('');
+        } catch (e) { console.error("Lỗi tải best seller", e); }
+      };
+
+      // Tải Sản phẩm mới nhất
+      const loadNewProducts = async () => {
+        try {
+          const container = document.getElementById("new-products-container");
+          if (!container) return;
+          const data = await apiFetch(`/products?limit=3`);
+
+          container.innerHTML = data.map(game => {
+             const currentPrice = game.sale_price || game.original_price;
+             return `
+              <div class="product-item">
+                <div class="product-thumb">
+                  <img src="${game.cover_url || 'https://placehold.co/54x54/1a1a1a/f97316?text=Game'}" alt="${game.name}" />
+                </div>
+                <div class="product-info">
+                  <div class="product-name">${game.name}</div>
+                  <div class="product-sub">${game.platform || game.category || 'Game'}</div>
+                </div>
+                <div class="product-price-col">
+                  <div class="product-price">${formatCurrency(currentPrice)}</div>
+                  <a href="detail.html?slug=${game.slug}" class="product-detail-link">Chi tiết →</a>
+                </div>
+              </div>
+             `;
+          }).join('');
+        } catch (e) { console.error("Lỗi tải new products", e); }
+      };
+
+      // Thực thi đồng thời fetch api.js
+      await Promise.all([loadFlashSales(), loadBestSellers(), loadNewProducts()]);
+    });
+  </script>
+</body>
+</html>

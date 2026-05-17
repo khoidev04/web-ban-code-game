@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lịch sử đơn hàng – GameStore</title>
+  <meta name="description" content="Xem và quản lý lịch sử mua game của bạn trên GameStore." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/account.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">🎮</div>
+        <span class="brand-name">GameStore</span>
+      </a>
+      <div class="navbar-nav">
+        <a href="index.html" class="nav-link">Cửa hàng</a>
+        <a href="library.html" class="nav-link">Thư viện</a>
+        <a href="community.html" class="nav-link">Cộng đồng</a>
+        <a href="faq.html" class="nav-link">Hỗ trợ</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="cart.html" class="icon-btn" title="Giỏ hàng">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="cart-badge">3</span>
+        </a>
+        <div class="notification-wrapper">
+          <a href="#" class="icon-btn notification-toggle" title="Thông báo">
+            <i class="fa fa-bell"></i>
+            <span class="cart-badge notification-badge">2</span>
+          </a>
+          <div class="notification-dropdown">
+            <div class="notification-header">
+              <h4>Thông báo</h4>
+              <button class="mark-read-btn">Đánh dấu đã đọc</button>
+            </div>
+            <div class="notification-list">
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-gift"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Quà tặng mới!</div>
+                  <div class="noti-desc">Bạn vừa nhận được 1 code giảm giá 10% cho đơn hàng tiếp theo.</div>
+                  <div class="noti-time">2 phút trước</div>
+                </div>
+              </a>
+              <a href="#" class="notification-item unread">
+                <div class="noti-icon"><i class="fa fa-shopping-bag"></i></div>
+                <div class="noti-content">
+                  <div class="noti-title">Đơn hàng thành công</div>
+                  <div class="noti-desc">Đơn hàng #882941 của bạn đã được xác nhận.</div>
+                  <div class="noti-time">1 giờ trước</div>
+                </div>
+              </a>
+            </div>
+            <div class="notification-footer">
+              <a href="#" class="view-all-noti">Xem tất cả thông báo</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="account-page">
+  <div class="container">
+    <div class="account-layout">
+      
+      <!-- SIDEBAR -->
+      <aside class="account-sidebar">
+        <div class="user-sidebar-info">
+          <div class="user-sidebar-avatar">
+            <img src="https://i.pravatar.cc/150?u=alex" alt="Alex Walker" />
+          </div>
+          <div class="user-sidebar-meta">
+            <h3>Alex Walker</h3>
+            <p>alex.walker@gamestore.com</p>
+          </div>
+        </div>
+
+        <nav class="account-nav">
+          <a href="profile.html" class="account-nav-link"><i class="fa fa-user-circle"></i> Hồ sơ</a>
+          <a href="library.html" class="account-nav-link"><i class="fa fa-layer-group"></i> Thư viện</a>
+          <a href="community.html" class="account-nav-link"><i class="fa fa-users"></i> Cộng đồng</a>
+          <a href="security.html" class="account-nav-link"><i class="fa fa-shield-alt"></i> Bảo mật</a>
+          <a href="settings.html" class="account-nav-link"><i class="fa fa-cog"></i> Cài đặt</a>
+          <div class="sidebar-divider"></div>
+          <a href="orders.html" class="account-nav-link active"><i class="fa fa-history"></i> Giao dịch</a>
+          <a href="wallet.html" class="account-nav-link"><i class="fa fa-wallet"></i> Ví cá nhân</a>
+          <button class="btn btn-sidebar-logout" style="margin-top: 24px; display: flex; align-items: center; gap: 8px; background: transparent; border: none; color: var(--text-muted); cursor: pointer; padding: 12px 16px;">
+            <i class="fa fa-sign-out-alt"></i> Đăng xuất
+          </button>
+        </nav>
+
+        <div class="sidebar-wallet-widget">
+          <p class="wallet-widget-label">Số dư hiện tại</p>
+          <p class="wallet-widget-balance">142.500đ</p>
+          <a href="wallet.html" class="btn btn-widget-add">Nạp tiền vào ví</a>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <div class="account-main">
+        
+        <div class="order-detail-header">
+          <h1>Lịch sử đơn hàng</h1>
+          <p style="color:var(--text-muted); font-size:14px;">Xem và quản lý các giao dịch mua game của bạn.</p>
+        </div>
+
+        <div class="orders-filter-row">
+          <button class="btn btn-outline" style="padding: 8px 16px; font-size: 13px;"><i class="fa fa-filter"></i> Lọc đơn hàng</button>
+          <button class="btn btn-outline" style="padding: 8px 16px; font-size: 13px;"><i class="fa fa-download"></i> Xuất file</button>
+        </div>
+
+        <div class="orders-table-card">
+          <table class="orders-table">
+            <thead>
+              <tr>
+                <th>Mã đơn hàng</th>
+                <th>Ngày đặt</th>
+                <th>Sản phẩm</th>
+                <th>Trạng thái</th>
+                <th>Tổng cộng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="order-id"><a href="order-detail.html">#GS-12345</a></td>
+                <td>24 tháng 10, 2023</td>
+                <td>
+                  <div class="order-game">
+                    <div class="order-game-thumb">
+                      <img src="https://images.igdb.com/igdb/image/upload/t_thumb/co4jni.webp" alt="Cyberpunk 2077" />
+                    </div>
+                    <div class="order-game-info">
+                      <h5>Cyberpunk 2077: Phantom Liberty</h5>
+                      <p>DLC - Bản mở rộng</p>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="order-status status-completed-pill">Hoàn thành</span></td>
+                <td class="order-total">$29.99</td>
+              </tr>
+              <tr>
+                <td class="order-id"><a href="order-detail.html">#GS-12344</a></td>
+                <td>20 tháng 10, 2023</td>
+                <td>
+                  <div class="order-game">
+                    <div class="order-game-thumb">
+                      <img src="https://images.igdb.com/igdb/image/upload/t_thumb/co6k87.webp" alt="Starfield" />
+                    </div>
+                    <div class="order-game-info">
+                      <h5>Starfield: Premium Edition</h5>
+                      <p>Standard Edition</p>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="order-status status-pending-pill">Đang xử lý</span></td>
+                <td class="order-total">$99.99</td>
+              </tr>
+              <tr>
+                <td class="order-id"><a href="order-detail.html">#GS-12340</a></td>
+                <td>12 tháng 10, 2023</td>
+                <td>
+                  <div class="order-game">
+                    <div class="order-game-thumb">
+                      <img src="https://images.igdb.com/igdb/image/upload/t_thumb/co670h.webp" alt="Baldur's Gate 3" />
+                    </div>
+                    <div class="order-game-info">
+                      <h5>Baldur's Gate 3</h5>
+                      <p>Standard Edition</p>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="order-status status-completed-pill">Hoàn thành</span></td>
+                <td class="order-total">$59.99</td>
+              </tr>
+              <tr>
+                <td class="order-id"><a href="order-detail.html">#GS-12338</a></td>
+                <td>05 tháng 10, 2023</td>
+                <td>
+                  <div class="order-game">
+                    <div class="order-game-thumb">
+                      <img src="https://images.igdb.com/igdb/image/upload/t_thumb/co7945.webp" alt="Call of Duty" />
+                    </div>
+                    <div class="order-game-info">
+                      <h5>Call of Duty: MW III</h5>
+                      <p>Standard Edition</p>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="order-status status-cancelled-pill">Đã hủy</span></td>
+                <td class="order-total">$69.99</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <button class="page-btn"><i class="fa fa-chevron-left"></i></button>
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <span class="page-dots">...</span>
+          <button class="page-btn"><i class="fa fa-chevron-right"></i></button>
+        </div>
+
+        <div class="orders-pagination-info">
+          Đang hiển thị 1-4 trên tổng số 24 đơn hàng
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">🎮</div>
+          <span class="brand-name">GameStore</span>
+        </a>
+        <p class="brand-desc">Shop bán game bản quyền và dịch vụ giải trí hàng đầu Việt Nam. Chất lượng – Uy tín – Giá rẻ.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-discord"></i></a>
+          <a href="#" class="social-btn"><i class="fas fa-rss"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Công ty</div>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link">Về chúng tôi</a>
+          <a href="careers.html" class="footer-link">Tuyển dụng</a>
+          <a href="#" class="footer-link">Chính sách cửa hàng</a>
+          <a href="partnership.html" class="footer-link">Hợp tác kinh doanh</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Hỗ trợ</div>
+        <div class="footer-links">
+          <a href="faq.html" class="footer-link">Trung tâm hỗ trợ</a>
+          <a href="guide.html" class="footer-link">Hướng dẫn mua hàng</a>
+          <a href="warranty.html" class="footer-link">Chính sách bảo hành</a>
+          <a href="payment.html" class="footer-link">Thanh toán</a>
+        </div>
+      </div>
+      <div>
+         <div class="footer-col-title">Newsletter</div>
+        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Nhận tin tức và khuyến mãi mới nhất.</p>
+        <form class="subscribe-form">
+          <input type="email" class="input" placeholder="Email của bạn..." />
+          <button class="btn-subscribe">Tham gia</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="footer-copy">© 2026 GameStore Inc. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">Bảo mật</a>
+        <a href="terms.html">Điều khoản</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const orders = await apiFetch('/orders?limit=10');
+    const tbody = document.querySelector('.orders-table tbody');
+    if (!tbody) return;
+
+    if (orders.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:32px;color:var(--text-muted)">Chưa có đơn hàng nào.</td></tr>';
+      return;
+    }
+
+    const statusMap = {
+      completed: { label: 'Hoàn thành', cls: 'status-completed-pill' },
+      pending:   { label: 'Đang xử lý', cls: 'status-pending-pill' },
+      processing:{ label: 'Đang xử lý', cls: 'status-pending-pill' },
+      cancelled: { label: 'Đã hủy',      cls: 'status-cancelled-pill' },
+      refunded:  { label: 'Hoàn tiền', cls: 'status-pending-pill' },
+    };
+
+    tbody.innerHTML = orders.map(o => {
+      const d = new Date(o.created_at);
+      const dateStr = `${d.getDate()} tháng ${d.getMonth()+1}, ${d.getFullYear()}`;
+      const st = statusMap[o.status] || { label: o.status, cls: '' };
+      return `<tr>
+        <td class="order-id"><a href="order-detail.html?code=${o.order_code}">#${o.order_code}</a></td>
+        <td>${dateStr}</td>
+        <td>${o.item_count} sản phẩm</td>
+        <td><span class="order-status ${st.cls}">${st.label}</span></td>
+        <td class="order-total">${Number(o.total_amount).toLocaleString('vi-VN')}đ</td>
+      </tr>`;
+    }).join('');
+
+    // Cập nhật pagination info
+    const info = document.querySelector('.orders-pagination-info');
+    if (info) info.textContent = `Đang hiển thị 1-${orders.length} đơn hàng`;
+
+  } catch (err) {
+    if (err.status === 401 || err.status === 403) window.location.href = 'login.html';
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thanh toán – GameStore</title>
+  <meta name="description" content="Hoàn tất đơn hàng của bạn tại GameStore – Nhập thông tin giao hàng và xác nhận thanh toán." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">🎮</div>
+        <span class="brand-name">GameStore</span>
+      </a>
+      <div class="navbar-nav">
+        <a href="index.html" class="nav-link">Cửa hàng</a>
+        <a href="library.html" class="nav-link">Thư viện</a>
+        <a href="community.html" class="nav-link">Cộng đồng</a>
+        <a href="faq.html" class="nav-link">Hỗ trợ</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="cart.html" class="icon-btn" title="Giỏ hàng">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="cart-badge" id="cartCountBadge">0</span>
+        </a>
+        <div class="notification-wrapper">
+          <a href="#" class="icon-btn notification-toggle" title="Thông báo">
+            <i class="fa fa-bell"></i>
+          </a>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+  <div class="category-bar">
+    <div class="container">
+      <a href="games.html" class="cat-link active"><i class="fa fa-th-large"></i> Tất cả danh mục</a>
+      <a href="steam.html" class="cat-link">Steam</a>
+      <a href="origin.html" class="cat-link">Origin</a>
+      <a href="battlenet.html" class="cat-link">Battle.net</a>
+      <a href="playstation.html" class="cat-link">PlayStation</a>
+      <a href="xbox.html" class="cat-link">Xbox</a>
+      <a href="nintendo.html" class="cat-link">Nintendo</a>
+      <a href="google-play.html" class="cat-link">Google Play</a>
+      <a href="app-store.html" class="cat-link">App Store</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="checkout-page">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="checkout-breadcrumb">
+      <a href="index.html"><i class="fa fa-home"></i> Trang chủ</a>
+      <span class="breadcrumb-sep"><i class="fa fa-chevron-right"></i></span>
+      <a href="cart.html">Giỏ hàng</a>
+      <span class="breadcrumb-sep"><i class="fa fa-chevron-right"></i></span>
+      <a href="payment.html">Phương thức thanh toán</a>
+      <span class="breadcrumb-sep"><i class="fa fa-chevron-right"></i></span>
+      <span class="active">Xác nhận đơn hàng</span>
+    </nav>
+
+    <h1 class="checkout-page-title">
+      <i class="fa fa-lock"></i>
+      Xác nhận đơn hàng
+    </h1>
+
+    <div class="checkout-layout">
+
+      <!-- ===== LEFT: FORM ===== -->
+      <div class="checkout-main">
+
+        <!-- 1. Thông tin liên hệ -->
+        <div class="checkout-card">
+          <h2 class="checkout-section-title">
+            <i class="fa fa-user"></i>
+            Thông tin liên hệ
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Họ và tên <span>*</span></label>
+              <input type="text" id="fullName" class="form-input" placeholder="Nguyễn Văn A" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Số điện thoại <span>*</span></label>
+              <input type="tel" id="phone" class="form-input" placeholder="0912 345 678" />
+            </div>
+            <div class="form-group" style="grid-column: span 2;">
+              <label class="form-label">Email <span>*</span></label>
+              <input type="email" id="email" class="form-input" placeholder="email@example.com" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Địa chỉ giao hàng -->
+        <div class="checkout-card">
+          <h2 class="checkout-section-title">
+            <i class="fa fa-map-marker-alt"></i>
+            Địa chỉ nhận key (qua email)
+          </h2>
+          <div class="form-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="form-group">
+              <label class="form-label">Tỉnh / Thành phố</label>
+              <div class="form-select-wrapper">
+                <select id="province" class="form-input form-select">
+                  <option value="">-- Chọn tỉnh/thành phố --</option>
+                  <option>Hà Nội</option>
+                  <option>TP. Hồ Chí Minh</option>
+                  <option>Đà Nẵng</option>
+                  <option>Hải Phòng</option>
+                  <option>Cần Thơ</option>
+                  <option>An Giang</option>
+                  <option>Bà Rịa - Vũng Tàu</option>
+                  <option>Bắc Giang</option>
+                  <option>Bình Dương</option>
+                  <option>Đồng Nai</option>
+                  <option>Khánh Hòa</option>
+                  <option>Lâm Đồng</option>
+                  <option>Nghệ An</option>
+                  <option>Thanh Hóa</option>
+                  <option>Thừa Thiên Huế</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Quận / Huyện</label>
+              <input type="text" id="district" class="form-input" placeholder="Quận Hoàn Kiếm" />
+            </div>
+            <div class="form-group" style="grid-column: span 2;">
+              <label class="form-label">Địa chỉ chi tiết</label>
+              <input type="text" id="address" class="form-input" placeholder="Số nhà, tên đường, phường/xã..." />
+            </div>
+          </div>
+
+          <div style="margin-top: 16px; padding: 14px 16px; background: rgba(59,130,246,0.07); border: 1px solid rgba(59,130,246,0.2); border-radius: 10px; display: flex; gap: 12px; align-items: flex-start;">
+            <i class="fa fa-info-circle" style="color: #3b82f6; margin-top: 1px;"></i>
+            <p style="font-size: 13px; color: #888; line-height: 1.5;">
+              Game bản quyền sẽ được gửi dưới dạng key kích hoạt qua <strong style="color: #b0b0b0;">email</strong> trong vòng 1-5 phút sau khi thanh toán thành công. Không cần nhập địa chỉ giao hàng vật lý.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3. Phương thức thanh toán đã chọn -->
+        <div class="checkout-card">
+          <h2 class="checkout-section-title">
+            <i class="fa fa-credit-card"></i>
+            Phương thức thanh toán
+          </h2>
+
+          <div class="chosen-method" id="chosenMethodDisplay">
+            <div class="chosen-method-icon" id="chosenMethodIcon" style="background: #a50064;">
+              <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="MoMo" style="filter: brightness(0) invert(1); width: 70%; border-radius: 6px;" />
+            </div>
+            <div>
+              <div class="chosen-method-name" id="chosenMethodName">MoMo</div>
+              <div class="chosen-method-desc" id="chosenMethodDesc">Ví điện tử MoMo</div>
+            </div>
+            <a href="payment.html" class="change-method-btn">Đổi phương thức</a>
+          </div>
+
+          <!-- Quick switch buttons -->
+          <div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px;" id="payMethodQuick">
+            <button class="pm-quick" data-method="wallet" data-label="Ví GameStore" data-desc="Thanh toán tức thì bằng số dư ví" data-color="#f97316">
+              <i class="fa fa-wallet" style="font-size: 14px;"></i> Ví GameStore
+            </button>
+            <button class="pm-quick" data-method="momo" data-label="MoMo" data-desc="Ví điện tử MoMo" data-color="#a50064">
+              <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="MoMo" style="width: 18px; filter: brightness(0) invert(1);" />
+              MoMo
+            </button>
+            <button class="pm-quick" data-method="zalopay" data-label="ZaloPay" data-desc="Ví điện tử ZaloPay" data-color="#0088ff">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/ZaloPay_Logo.svg/1024px-ZaloPay_Logo.svg.png" alt="ZaloPay" style="width: 18px; filter: brightness(0) invert(1);" />
+              ZaloPay
+            </button>
+            <button class="pm-quick" data-method="viettelMoney" data-label="Viettel Money" data-desc="Ví Viettel Money" data-color="#ee0033">
+              <i class="fa fa-mobile-alt" style="font-size: 14px;"></i> Viettel Money
+            </button>
+            <button class="pm-quick" data-method="vietcombank" data-label="Vietcombank" data-desc="Chuyển khoản ngân hàng VCB" data-color="#005b2d">
+              <i class="fa fa-university" style="font-size: 14px;"></i> Vietcombank
+            </button>
+            <button class="pm-quick" data-method="techcombank" data-label="Techcombank" data-desc="Chuyển khoản ngân hàng TCB" data-color="#d0021b">
+              <i class="fa fa-university" style="font-size: 14px;"></i> Techcombank
+            </button>
+            <button class="pm-quick" data-method="mb" data-label="MB Bank" data-desc="Chuyển khoản MB Bank" data-color="#003085">
+              <i class="fa fa-university" style="font-size: 14px;"></i> MB Bank
+            </button>
+            <button class="pm-quick" data-method="vnpay" data-label="VNPAY-QR" data-desc="Quét mã QR VNPAY" data-color="#e30613">
+              <i class="fa fa-qrcode" style="font-size: 14px;"></i> VNPAY-QR
+            </button>
+          </div>
+
+          <!-- ====== DYNAMIC PAYMENT INFO PANEL ====== -->
+          <div id="paymentInfoPanel" style="margin-top: 20px;"></div>
+        </div>
+
+        <!-- 4. Ghi chú -->
+        <div class="checkout-card">
+          <h2 class="checkout-section-title">
+            <i class="fa fa-comment"></i>
+            Ghi chú đơn hàng
+          </h2>
+          <div class="form-group">
+            <label class="form-label">Ghi chú (Không bắt buộc)</label>
+            <textarea id="note" class="form-input" rows="3" placeholder="Nhập ghi chú cho đơn hàng nếu có..."></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== RIGHT: ORDER SUMMARY ===== -->
+      <div class="order-sidebar">
+        <div class="checkout-card">
+          <h2 class="checkout-section-title">
+            <i class="fa fa-receipt"></i>
+            Tóm tắt đơn hàng
+          </h2>
+
+          <!-- Order Items (filled by JS from cart) -->
+          <div class="order-items" id="orderItemsList">
+            <!-- JS will populate this -->
+            <div class="order-item">
+              <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="Elden Ring" class="order-item-img" />
+              <div class="order-item-info">
+                <div class="order-item-name">Elden Ring</div>
+                <div class="order-item-platform">Steam PC</div>
+              </div>
+              <div class="order-item-price">999.000đ</div>
+            </div>
+          </div>
+
+          <div class="order-divider"></div>
+
+          <div class="order-row">
+            <span class="order-row-label">Tạm tính</span>
+            <span class="order-row-value" id="subtotalDisplay">999.000đ</span>
+          </div>
+          <div class="order-row">
+            <span class="order-row-label">Phí xử lý</span>
+            <span class="order-row-value">0đ</span>
+          </div>
+          <div class="order-row" id="discountRow" style="display: none;">
+            <span class="order-row-label discount-row">Giảm giá</span>
+            <span class="order-row-value discount-row" id="discountDisplay">-0đ</span>
+          </div>
+
+          <div class="order-divider"></div>
+
+          <div class="order-total-row">
+            <span class="order-total-label">Tổng cộng</span>
+            <span class="order-total-price" id="totalDisplay">999.000đ</span>
+          </div>
+
+          <!-- Promo Code -->
+          <div style="margin-top: 20px; display: flex; gap: 8px;">
+            <input type="text" id="promoCode" class="form-input" placeholder="Mã giảm giá" style="flex: 1;" />
+            <button id="applyPromoBtn" style="padding: 11px 16px; background: #2a2a2a; border: 1px solid #333; border-radius: 10px; color: #b0b0b0; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: 0.2s;">Áp dụng</button>
+          </div>
+          <div id="promoMsg" style="margin-top: 8px; font-size: 12px; display: none;"></div>
+
+          <!-- Submit -->
+          <button class="btn-checkout-submit" id="submitOrderBtn">
+            <i class="fa fa-lock"></i>
+            Thanh toán ngay
+          </button>
+
+          <p class="checkout-terms">
+            Bằng cách nhấn "Thanh toán ngay", bạn đồng ý với
+            <a href="terms.html">Điều khoản sử dụng</a> và
+            <a href="privacy.html">Chính sách bảo mật</a> của GameStore.
+          </p>
+
+          <!-- Security Badges -->
+          <div style="display: flex; justify-content: center; gap: 16px; margin-top: 16px; opacity: 0.5;">
+            <i class="fa fa-lock" style="font-size: 16px; color: #22c55e;"></i>
+            <i class="fa fa-shield-halved" style="font-size: 16px; color: #3b82f6;"></i>
+            <i class="fab fa-cc-visa" style="font-size: 20px; color: white;"></i>
+            <i class="fab fa-cc-mastercard" style="font-size: 20px; color: white;"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- Success Modal -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-modal">
+    <div class="success-icon">
+      <i class="fa fa-check"></i>
+    </div>
+    <h2 class="success-title">Đặt hàng thành công!</h2>
+    <p class="success-desc">
+      Cảm ơn bạn đã tin tưởng GameStore! 🎉<br>
+      Mã đơn hàng: <strong id="successOrderCode" style="color:#f97316">—</strong><br>
+      Key game sẽ được gửi về email <strong id="successEmail">—</strong> trong vòng 1-5 phút.
+    </p>
+    <div class="success-actions">
+      <a href="library.html" class="btn-success-primary">
+        <i class="fa fa-gamepad"></i> Thư viện game
+      </a>
+      <a href="orders.html" class="btn-success-secondary">
+        <i class="fa fa-list"></i> Xem đơn hàng
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+/* ===== PAYMENT METHOD CONFIG ===== */
+const PM_CONFIG = {
+  wallet: {
+    label: 'Ví GameStore', desc: 'Thanh toán tức thì bằng số dư ví', color: '#f97316',
+    icon: '<i class="fa fa-wallet"></i>',
+    render: (total) => `
+      <div class="pay-panel pay-panel-wallet">
+        <div class="pay-panel-header"><i class="fa fa-bolt"></i> Xác nhận thanh toán bằng Ví GameStore</div>
+        <div class="pay-panel-body">
+          <div class="pay-info-row"><span>Số dư hiện tại:</span><strong id="walletBalDisplay" style="color:#f97316">Đang tải...</strong></div>
+          <div class="pay-info-row"><span>Số tiền cần thanh toán:</span><strong style="color:#22c55e">${Number(total).toLocaleString('vi-VN')}đ</strong></div>
+          <div class="pay-panel-note"><i class="fa fa-check-circle" style="color:#22c55e"></i> Giao dịch sẽ được xử lý ngay lập tức sau khi nhấn "Thanh toán ngay".</div>
+        </div>
+      </div>`
+  },
+  momo: {
+    label: 'MoMo', desc: 'Ví điện tử MoMo', color: '#a50064',
+    icon: '<img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" style="width:28px;filter:brightness(0)invert(1);">',
+    render: (total) => {
+      const qr = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=momo://pay?phone=0909123456%26amount=${total}%26note=GameStore`;
+      return `
+      <div class="pay-panel pay-panel-momo">
+        <div class="pay-panel-header" style="background:rgba(165,0,100,0.15);border-color:rgba(165,0,100,0.3)"><img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" style="width:24px;filter:brightness(0)invert(1)"> Thanh toán qua MoMo</div>
+        <div class="pay-panel-body" style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <img src="${qr}" alt="QR MoMo" style="width:180px;height:180px;border-radius:12px;border:3px solid rgba(165,0,100,0.4);">
+            <p style="font-size:12px;color:#888;margin-top:8px;">Quét bằng app MoMo</p>
+          </div>
+          <div style="flex:1;min-width:180px;">
+            <div class="pay-info-row"><span>Số điện thoại:</span><strong>0909 123 456</strong><button class="copy-btn" onclick="copyText('0909123456')"><i class="fa fa-copy"></i></button></div>
+            <div class="pay-info-row"><span>Tên tài khoản:</span><strong>GAMESTORE VN</strong></div>
+            <div class="pay-info-row"><span>Số tiền:</span><strong style="color:#a50064">${Number(total).toLocaleString('vi-VN')}đ</strong></div>
+            <div class="pay-info-row"><span>Nội dung CK:</span><strong id="momoRef">GS-${Date.now().toString().slice(-8)}</strong><button class="copy-btn" onclick="copyText(document.getElementById('momoRef').textContent)"><i class="fa fa-copy"></i></button></div>
+            <div class="pay-panel-note" style="margin-top:12px;"><i class="fa fa-info-circle" style="color:#a50064"></i> Mở app MoMo → Quét QR hoặc chuyển theo số điện thoại trên. Nhấn "Thanh toán ngay" sau khi đã chuyển.</div>
+          </div>
+        </div>
+      </div>`;
+    }
+  },
+  zalopay: {
+    label: 'ZaloPay', desc: 'Ví điện tử ZaloPay', color: '#0088ff',
+    icon: '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/ZaloPay_Logo.svg/1024px-ZaloPay_Logo.svg.png" style="width:28px;filter:brightness(0)invert(1);">',
+    render: (total) => {
+      const qr = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=zalopay://pay?amount=${total}%26note=GameStore%26to=0912345678`;
+      return `
+      <div class="pay-panel pay-panel-zalopay">
+        <div class="pay-panel-header" style="background:rgba(0,136,255,0.1);border-color:rgba(0,136,255,0.3)"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/ZaloPay_Logo.svg/1024px-ZaloPay_Logo.svg.png" style="width:24px;filter:brightness(0)invert(1)"> Thanh toán qua ZaloPay</div>
+        <div class="pay-panel-body" style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <img src="${qr}" alt="QR ZaloPay" style="width:180px;height:180px;border-radius:12px;border:3px solid rgba(0,136,255,0.4);">
+            <p style="font-size:12px;color:#888;margin-top:8px;">Quét bằng app ZaloPay</p>
+          </div>
+          <div style="flex:1;min-width:180px;">
+            <div class="pay-info-row"><span>Số điện thoại:</span><strong>0912 345 678</strong><button class="copy-btn" onclick="copyText('0912345678')"><i class="fa fa-copy"></i></button></div>
+            <div class="pay-info-row"><span>Tên tài khoản:</span><strong>GAMESTORE VN</strong></div>
+            <div class="pay-info-row"><span>Số tiền:</span><strong style="color:#0088ff">${Number(total).toLocaleString('vi-VN')}đ</strong></div>
+            <div class="pay-info-row"><span>Nội dung CK:</span><strong id="zpRef">GS-${Date.now().toString().slice(-8)}</strong><button class="copy-btn" onclick="copyText(document.getElementById('zpRef').textContent)"><i class="fa fa-copy"></i></button></div>
+            <div class="pay-panel-note" style="margin-top:12px;"><i class="fa fa-info-circle" style="color:#0088ff"></i> Mở app ZaloPay → Quét QR hoặc chuyển tiền theo số trên. Nhấn "Thanh toán ngay" sau khi đã chuyển.</div>
+          </div>
+        </div>
+      </div>`;
+    }
+  },
+  viettelMoney: {
+    label: 'Viettel Money', desc: 'Ví Viettel Money', color: '#ee0033',
+    icon: '<i class="fa fa-mobile-alt"></i>',
+    render: (total) => {
+      const qr = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=viettel://pay?phone=0987654321%26amount=${total}`;
+      return `
+      <div class="pay-panel">
+        <div class="pay-panel-header" style="background:rgba(238,0,51,0.1);border-color:rgba(238,0,51,0.3)"><i class="fa fa-mobile-alt"></i> Thanh toán qua Viettel Money</div>
+        <div class="pay-panel-body" style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <img src="${qr}" alt="QR Viettel" style="width:180px;height:180px;border-radius:12px;border:3px solid rgba(238,0,51,0.4);">
+            <p style="font-size:12px;color:#888;margin-top:8px;">Quét bằng app Viettel Money</p>
+          </div>
+          <div style="flex:1;min-width:180px;">
+            <div class="pay-info-row"><span>Số điện thoại:</span><strong>0987 654 321</strong><button class="copy-btn" onclick="copyText('0987654321')"><i class="fa fa-copy"></i></button></div>
+            <div class="pay-info-row"><span>Tên tài khoản:</span><strong>GAMESTORE VN</strong></div>
+            <div class="pay-info-row"><span>Số tiền:</span><strong style="color:#ee0033">${Number(total).toLocaleString('vi-VN')}đ</strong></div>
+            <div class="pay-panel-note" style="margin-top:12px;"><i class="fa fa-info-circle" style="color:#ee0033"></i> Mở app Viettel Money → Chuyển tiền theo số điện thoại trên. Nhấn "Thanh toán ngay" sau khi đã chuyển.</div>
+          </div>
+        </div>
+      </div>`;
+    }
+  },
+  vietcombank: {
+    label: 'Vietcombank', desc: 'Chuyển khoản ngân hàng VCB', color: '#005b2d',
+    icon: '<i class="fa fa-university"></i>',
+    render: (total) => {
+      const acc = '1234 5678 9012 3456';
+      const ref = 'GS' + Date.now().toString().slice(-8);
+      const qrData = encodeURIComponent(`STK: ${acc.replace(/\s/g,'')} | NH: VCB | ST: ${total} | ND: ${ref}`);
+      return `
+      <div class="pay-panel pay-panel-bank">
+        <div class="pay-panel-header" style="background:rgba(0,91,45,0.12);border-color:rgba(0,91,45,0.3)"><i class="fa fa-university"></i> Chuyển khoản Vietcombank (VCB)</div>
+        <div class="pay-panel-body" style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrData}" alt="QR VCB" style="width:180px;height:180px;border-radius:12px;border:3px solid rgba(0,91,45,0.4);">
+            <p style="font-size:12px;color:#888;margin-top:8px;">QR VietQR chuyển khoản</p>
+          </div>
+          <div style="flex:1;min-width:180px;">
+            <div class="pay-info-row"><span>Ngân hàng:</span><strong>Vietcombank (VCB)</strong></div>
+            <div class="pay-info-row"><span>Số tài khoản:</span><strong>${acc}</strong><button class="copy-btn" onclick="copyText('1234567890123456')"><i class="fa fa-copy"></i></button></div>
+            <div class="pay-info-row"><span>Chủ tài khoản:</span><strong>GAMESTORE VIET NAM</strong></div>
+            <div class="pay-info-row"><span>Chi nhánh:</span><strong>Hồ Chí Minh</strong></div>
+            <div class="pay-info-row"><span>Số tiền:</span><strong style="color:#22c55e">${Number(total).toLocaleString('vi-VN')}đ</strong></div>
+            <div class="pay-info-row"><span>Nội dung CK:</span><strong id="vcbRef">${ref}</strong><button class="copy-btn" onclick="copyText(document.getElementById('vcbRef').textContent)"><i class="fa fa-copy"></i></button></div>
+            <div class="pay-panel-note" style="margin-top:12px;"><i class="fa fa-exclamation-triangle" style="color:#f59e0b"></i> Nhập <strong>đúng</strong> nội dung chuyển khoản. Nhấn "Thanh toán ngay" sau khi đã chuyển.</div>
+          </div>
+        </div>
+      </div>`;
+    }
+  },
+  techcombank: {
+    label: 'Techcombank', desc: 'Chuyển khoản ngân hàng TCB', color: '#d0021b',
+    icon: '<i class="fa fa-university"></i>',
+    render: (total) => {
+      const acc = '9876 5432 1098 7654';
+      const ref = 'GS' + Date.now().toString().slice(-8);
+      const qrData = encodeURIComponent(`STK: ${acc.replace(/\s/g,'')} | NH: TCB | ST: ${total} | ND: ${ref}`);
+      return `
+      <div class="pay-panel pay-panel-bank">
+        <div class="pay-panel-header" style="background:rgba(208,2,27,0.1);border-color:rgba(208,2,27,0.3)"><i class="fa fa-university"></i> Chuyển khoản Techcombank (TCB)</div>
+        <div class="pay-panel-body" style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrData}" alt="QR TCB" style="width:180px;height:180px;border-radius:12px;border:3px solid rgba(208,2,27,0.4);">
+            <p style="font-size:12px;color:#888;margin-top:8px;">QR VietQR chuyển khoản</p>
+          </div>
+          <div style="flex:1;min-width:180px;">
+            <div class="pay-info-row"><span>Ngân hàng:</span><strong>Techcombank (TCB)</strong></div>
+            <div class="pay-info-row"><span>Số tài khoản:</span><strong>${acc}</strong><button class="copy-btn" onclick="copyText('9876543210987654')"><i class="fa fa-copy"></i></button></div>
+            <div class="pay-info-row"><span>Chủ tài khoản:</span><strong>GAMESTORE VIET NAM</strong></div>
+            <div class="pay-info-row"><span>Số tiền:</span><strong style="color:#22c55e">${Number(total).toLocaleString('vi-VN')}đ</strong></div>
+            <div class="pay-info-row"><span>Nội dung CK:</span><strong id="tcbRef">${ref}</strong><button class="copy-btn" onclick="copyText(document.getElementById('tcbRef').textContent)"><i class="fa fa-copy"></i></button></div>
+            <div class="pay-panel-note" style="margin-top:12px;"><i class="fa fa-exclamation-triangle" style="color:#f59e0b"></i> Nhập đúng nội dung chuyển khoản. Nhấn "Thanh toán ngay" sau khi đã chuyển.</div>
+          </div>
+        </div>
+      </div>`;
+    }
+  },
+  mb: {
+    label: 'MB Bank', desc: 'Chuyển khoản MB Bank', color: '#003085',
+    icon: '<i class="fa fa-university"></i>',
+    render: (total) => {
+      const acc = '0123 4567 8901 2345';
+      const ref = 'GS' + Date.now().toString().slice(-8);
+      const qrData = encodeURIComponent(`STK: ${acc.replace(/\s/g,'')} | NH: MB | ST: ${total} | ND: ${ref}`);
+      return `
+      <div class="pay-panel pay-panel-bank">
+        <div class="pay-panel-header" style="background:rgba(0,48,133,0.12);border-color:rgba(0,48,133,0.3)"><i class="fa fa-university"></i> Chuyển khoản MB Bank</div>
+        <div class="pay-panel-body" style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrData}" alt="QR MB" style="width:180px;height:180px;border-radius:12px;border:3px solid rgba(0,48,133,0.4);">
+            <p style="font-size:12px;color:#888;margin-top:8px;">QR VietQR chuyển khoản</p>
+          </div>
+          <div style="flex:1;min-width:180px;">
+            <div class="pay-info-row"><span>Ngân hàng:</span><strong>MB Bank</strong></div>
+            <div class="pay-info-row"><span>Số tài khoản:</span><strong>${acc}</strong><button class="copy-btn" onclick="copyText('0123456789012345')"><i class="fa fa-copy"></i></button></div>
+            <div class="pay-info-row"><span>Chủ tài khoản:</span><strong>GAMESTORE VIET NAM</strong></div>
+            <div class="pay-info-row"><span>Số tiền:</span><strong style="color:#22c55e">${Number(total).toLocaleString('vi-VN')}đ</strong></div>
+            <div class="pay-info-row"><span>Nội dung CK:</span><strong id="mbRef">${ref}</strong><button class="copy-btn" onclick="copyText(document.getElementById('mbRef').textContent)"><i class="fa fa-copy"></i></button></div>
+            <div class="pay-panel-note" style="margin-top:12px;"><i class="fa fa-exclamation-triangle" style="color:#f59e0b"></i> Nhập đúng nội dung chuyển khoản. Nhấn "Thanh toán ngay" sau khi đã chuyển.</div>
+          </div>
+        </div>
+      </div>`;
+    }
+  },
+  vnpay: {
+    label: 'VNPAY-QR', desc: 'Quét mã QR VNPAY', color: '#e30613',
+    icon: '<i class="fa fa-qrcode"></i>',
+    render: (total) => {
+      const ref = 'GS' + Date.now().toString().slice(-8);
+      const qrData = encodeURIComponent(`VNPAY|GameStore|${total}|${ref}|Pay`);
+      return `
+      <div class="pay-panel">
+        <div class="pay-panel-header" style="background:rgba(227,6,19,0.1);border-color:rgba(227,6,19,0.3)"><i class="fa fa-qrcode"></i> Thanh toán VNPAY-QR</div>
+        <div class="pay-panel-body" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&color=e30613&bgcolor=ffffff&data=${qrData}" alt="QR VNPAY" style="width:200px;height:200px;border-radius:12px;border:4px solid rgba(227,6,19,0.4);padding:8px;background:#fff;">
+            <p style="font-size:12px;color:#888;margin-top:8px;">Quét bằng app ngân hàng hỗ trợ VNPAY</p>
+          </div>
+          <div style="flex:1;min-width:180px;">
+            <div class="pay-info-row"><span>Ứng dụng hỗ trợ:</span><strong>VCB, TCB, MB, BIDV, Agribank...</strong></div>
+            <div class="pay-info-row"><span>Mã thanh toán:</span><strong id="vnpayRef">${ref}</strong><button class="copy-btn" onclick="copyText(document.getElementById('vnpayRef').textContent)"><i class="fa fa-copy"></i></button></div>
+            <div class="pay-info-row"><span>Số tiền:</span><strong style="color:#e30613">${Number(total).toLocaleString('vi-VN')}đ</strong></div>
+            <div class="pay-panel-note" style="margin-top:12px;"><i class="fa fa-info-circle" style="color:#e30613"></i> Mở app ngân hàng bất kỳ hỗ trợ VNPAY → Quét mã QR. Nhấn "Thanh toán ngay" sau khi quét thành công.</div>
+          </div>
+        </div>
+      </div>`;
+    }
+  }
+};
+
+/* ===== STATE ===== */
+let currentMethod = 'momo';
+let currentTotal = 0;
+
+/* ===== RENDER PAYMENT PANEL ===== */
+function renderPaymentPanel() {
+  const cfg = PM_CONFIG[currentMethod];
+  if (!cfg) return;
+  const panel = document.getElementById('paymentInfoPanel');
+  if (!panel) return;
+  panel.innerHTML = cfg.render(currentTotal);
+
+  // Load wallet balance if needed
+  if (currentMethod === 'wallet' && Auth.isLoggedIn()) {
+    apiFetch('/wallet').then(w => {
+      const el = document.getElementById('walletBalDisplay');
+      if (el) el.textContent = Number(w.balance || 0).toLocaleString('vi-VN') + 'đ';
+    }).catch(() => {
+      const el = document.getElementById('walletBalDisplay');
+      if (el) el.textContent = 'Không thể tải';
+    });
+  }
+}
+
+/* ===== SELECT METHOD ===== */
+const pmQuickBtns = document.querySelectorAll('.pm-quick');
+const chosenIcon = document.getElementById('chosenMethodIcon');
+const chosenName = document.getElementById('chosenMethodName');
+const chosenDesc = document.getElementById('chosenMethodDesc');
+
+function selectMethod(btn) {
+  pmQuickBtns.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const m = btn.dataset.method;
+  const cfg = PM_CONFIG[m];
+  if (!cfg) return;
+  currentMethod = m;
+  chosenName.textContent = cfg.label;
+  chosenDesc.textContent = cfg.desc;
+  chosenIcon.style.background = cfg.color;
+  chosenIcon.innerHTML = cfg.icon;
+  sessionStorage.setItem('selectedPayMethod', m);
+  renderPaymentPanel();
+}
+
+// Read initial method from URL or sessionStorage
+const params = new URLSearchParams(window.location.search);
+const savedMethod = params.get('method') || sessionStorage.getItem('selectedPayMethod') || 'momo';
+pmQuickBtns.forEach(btn => {
+  btn.addEventListener('click', () => selectMethod(btn));
+  if (btn.dataset.method === savedMethod) selectMethod(btn);
+});
+// Default to momo if nothing matched
+if (!document.querySelector('.pm-quick.active')) {
+  const first = document.querySelector('.pm-quick[data-method="momo"]');
+  if (first) selectMethod(first);
+}
+
+/* ===== COPY HELPER ===== */
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const el = event.target.closest('.copy-btn');
+    if (el) { const orig = el.innerHTML; el.innerHTML = '<i class="fa fa-check"></i>'; setTimeout(() => el.innerHTML = orig, 1500); }
+  });
+}
+
+/* ===== PROMO CODE ===== */
+const PROMO_CODES = { 'GAME10': 10, 'SAVE20': 20, 'VIP50': 50, 'MR112024': 15, 'SALE10': 10, 'GAME20': 20 };
+
+async function loadActiveCoupon() {
+  try {
+    const activeCoupon = await apiFetch('/coupons/active');
+    if (activeCoupon && activeCoupon.code) {
+      PROMO_CODES[activeCoupon.code.toUpperCase()] = Number(activeCoupon.discount_value);
+      const msg = document.getElementById('promoMsg');
+      msg.innerHTML = `<i class="fa fa-info-circle"></i> Gợi ý: Nhập mã "<b>${activeCoupon.code}</b>" để được giảm ${Number(activeCoupon.discount_value)}%`;
+      msg.style.color = '#3b82f6'; msg.style.display = 'block';
+    }
+  } catch(e) { /* ignore */ }
+}
+loadActiveCoupon();
+
+document.getElementById('applyPromoBtn').addEventListener('click', () => {
+  const code = document.getElementById('promoCode').value.trim().toUpperCase();
+  const msg = document.getElementById('promoMsg');
+  if (PROMO_CODES[code]) {
+    const pct = PROMO_CODES[code];
+    const subtotal = parseFloat(document.getElementById('subtotalDisplay').textContent.replace(/\D/g, ''));
+    const discount = Math.round(subtotal * pct / 100);
+    const total = subtotal - discount;
+    currentTotal = total;
+    document.getElementById('discountDisplay').textContent = `-${discount.toLocaleString('vi-VN')}đ`;
+    document.getElementById('discountRow').style.display = 'flex';
+    document.getElementById('totalDisplay').textContent = `${total.toLocaleString('vi-VN')}đ`;
+    msg.innerHTML = `✅ Áp dụng mã "${code}" thành công – giảm ${pct}%!`;
+    msg.style.color = '#22c55e'; msg.style.display = 'block';
+    renderPaymentPanel();
+  } else if (code === '') {
+    msg.innerHTML = '⚠️ Vui lòng nhập mã giảm giá.'; msg.style.color = '#f59e0b'; msg.style.display = 'block';
+  } else {
+    msg.innerHTML = '❌ Mã giảm giá không hợp lệ hoặc đã hết hạn.'; msg.style.color = '#ef4444'; msg.style.display = 'block';
+  }
+});
+
+/* ===== LOAD CART DATA ===== */
+async function loadCartData() {
+  try {
+    const cart = await apiFetch('/cart');
+    if (!cart || cart.length === 0) {
+      alert('Giỏ hàng trống. Bạn sẽ được chuyển hướng về Cửa hàng.');
+      window.location.href = 'games.html';
+      return;
+    }
+    const list = document.getElementById('orderItemsList');
+    list.innerHTML = '';
+    let total = 0;
+    cart.forEach(item => {
+      total += (Number(item.unit_price) || 0) * (item.quantity || 1);
+      const el = document.createElement('div');
+      el.className = 'order-item';
+      const priceFmt = ((Number(item.unit_price) || 0) * (item.quantity || 1)).toLocaleString('vi-VN');
+      el.innerHTML = `
+        <img src="${item.cover_url || 'https://placehold.co/80x80/1a1a1a/f97316?text=GS'}" alt="${item.name}" class="order-item-img" />
+        <div class="order-item-info">
+          <div class="order-item-name">${item.name}</div>
+          <div class="order-item-platform">${item.edition || 'Standard'} ${item.quantity > 1 ? '×' + item.quantity : ''}</div>
+        </div>
+        <div class="order-item-price">${priceFmt}đ</div>`;
+      list.appendChild(el);
+    });
+    const fmt = v => v.toLocaleString('vi-VN') + 'đ';
+    document.getElementById('subtotalDisplay').textContent = fmt(total);
+    document.getElementById('totalDisplay').textContent = fmt(total);
+    currentTotal = total;
+    renderPaymentPanel();
+  } catch (e) {
+    console.error('Lỗi load giỏ hàng checkout:', e);
+  }
+}
+loadCartData();
+
+/* ===== AUTO-FILL from Auth ===== */
+if (Auth.isLoggedIn()) {
+  const authUser = Auth.getUser() || {};
+  if (authUser.full_name) document.getElementById('fullName').value = authUser.full_name;
+  if (authUser.email) document.getElementById('email').value = authUser.email;
+  if (authUser.phone) document.getElementById('phone').value = authUser.phone;
+}
+
+/* ===== SUBMIT ORDER ===== */
+document.getElementById('submitOrderBtn').addEventListener('click', async () => {
+  const fullName = document.getElementById('fullName').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const promoCode = document.getElementById('promoCode').value.trim();
+
+  if (!fullName) { alert('⚠️ Vui lòng nhập họ và tên.'); document.getElementById('fullName').focus(); return; }
+  if (!phone) { alert('⚠️ Vui lòng nhập số điện thoại.'); document.getElementById('phone').focus(); return; }
+  if (!email || !email.includes('@')) { alert('⚠️ Vui lòng nhập email hợp lệ.'); document.getElementById('email').focus(); return; }
+
+  const btn = document.getElementById('submitOrderBtn');
+  btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Đang xử lý...';
+  btn.disabled = true;
+
+  try {
+    const res = await apiFetch('/orders', {
+      method: 'POST',
+      body: JSON.stringify({ payment_method: currentMethod, coupon_code: promoCode })
+    });
+
+    document.getElementById('successEmail').textContent = email;
+    document.getElementById('successOrderCode').textContent = res.order_code || '';
+    document.getElementById('successOverlay').classList.add('show');
+  } catch (err) {
+    alert('Lỗi đặt hàng: ' + err.message);
+    btn.innerHTML = '<i class="fa fa-lock"></i> Thanh toán ngay';
+    btn.disabled = false;
+  }
+});
+</script>
+
+
+
+<style>
+  /* Quick payment method buttons */
+  .pm-quick {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    background: #252525;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #b0b0b0;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .pm-quick:hover { border-color: var(--orange-primary); color: var(--text-primary); }
+  .pm-quick.active { border-color: var(--orange-primary); background: rgba(249,115,22,0.1); color: var(--orange-primary); }
+
+  /* Payment Info Panels */
+  .pay-panel { border: 1px solid #2a2a2a; border-radius: 12px; overflow: hidden; animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn { from { opacity:0; transform: translateY(6px); } to { opacity:1; transform: translateY(0); } }
+  .pay-panel-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 16px;
+    background: rgba(249,115,22,0.08);
+    border-bottom: 1px solid #2a2a2a;
+    font-weight: 700; font-size: 14px; color: #e0e0e0;
+  }
+  .pay-panel-body { padding: 16px; background: #1a1a1a; }
+  .pay-info-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 0; border-bottom: 1px solid #252525;
+    font-size: 13px;
+  }
+  .pay-info-row:last-of-type { border-bottom: none; }
+  .pay-info-row span { color: #888; min-width: 130px; }
+  .pay-info-row strong { color: #e0e0e0; flex: 1; }
+  .copy-btn {
+    background: #252525; border: 1px solid #333; border-radius: 6px;
+    color: #888; padding: 4px 8px; cursor: pointer; font-size: 12px;
+    transition: all 0.15s; flex-shrink: 0;
+  }
+  .copy-btn:hover { background: rgba(249,115,22,0.15); border-color: #f97316; color: #f97316; }
+  .pay-panel-note {
+    margin-top: 10px; padding: 10px 12px;
+    background: rgba(255,255,255,0.04); border-radius: 8px;
+    font-size: 12px; color: #999; line-height: 1.5; display: flex; gap: 8px;
+  }
+  .pay-panel-wallet .pay-panel-header { background: rgba(249,115,22,0.12); border-color: rgba(249,115,22,0.3); }
+
+  .form-input textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+
+  textarea.form-input {
+    resize: vertical;
+    min-height: 80px;
+  }
+</style>
+
+</body>
+</html>
